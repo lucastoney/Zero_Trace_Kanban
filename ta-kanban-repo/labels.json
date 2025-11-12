@@ -1,0 +1,69 @@
+[
+  {
+    "name": "status:open",
+    "color": "f2e06e",
+    "description": "offen"
+  },
+  {
+    "name": "status:critical",
+    "color": "e5534b",
+    "description": "kritisch"
+  },
+  {
+    "name": "status:done",
+    "color": "2ea043",
+    "description": "erledigt"
+  },
+  {
+    "name": "status:info",
+    "color": "cfd3d7",
+    "description": "Info"
+  },
+  {
+    "name": "prio:high",
+    "color": "d93f0b",
+    "description": "Priorität Hoch"
+  },
+  {
+    "name": "prio:med",
+    "color": "fbca04",
+    "description": "Priorität Mittel"
+  },
+  {
+    "name": "prio:low",
+    "color": "0e8a16",
+    "description": "Priorität Niedrig"
+  },
+  {
+    "name": "cat:Dokumentation",
+    "color": "0b76d9"
+  },
+  {
+    "name": "cat:Konzept",
+    "color": "0b76d9"
+  },
+  {
+    "name": "cat:Technik",
+    "color": "0b76d9"
+  },
+  {
+    "name": "cat:Tests",
+    "color": "0b76d9"
+  },
+  {
+    "name": "cat:Evaluation",
+    "color": "0b76d9"
+  },
+  {
+    "name": "cat:Organisation",
+    "color": "0b76d9"
+  },
+  {
+    "name": "cat:Reflexion",
+    "color": "0b76d9"
+  },
+  {
+    "name": "cat:Diverses",
+    "color": "0b76d9"
+  }
+]

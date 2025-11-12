@@ -1,0 +1,26 @@
+{
+  "Stl": {
+    "name": "Luca Steiner",
+    "github": "<your-github-user>"
+  },
+  "Ner": {
+    "name": "Roman Nemchenko",
+    "github": ""
+  },
+  "Wey": {
+    "name": "Yves Weber",
+    "github": ""
+  },
+  "Sam": {
+    "name": "Manuel Sager",
+    "github": ""
+  },
+  "Cag": {
+    "name": "Giovanni Cardillo",
+    "github": ""
+  },
+  "Rat": {
+    "name": "Thines Rasiah",
+    "github": ""
+  }
+}

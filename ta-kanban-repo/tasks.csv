@@ -1,0 +1,25 @@
+id;kategorie;task;kommentar;verantw;faelligkeit_kw;prioritaet;status;bezug_ta
+1.1;Dokumentation;Projektdefinition und Scope präzisieren;Definition gemäss Software-Engineering / Architecture / Transferarbeit (fhirter). Ziel: Entwicklung eines MVP Schwachstellen-Scanners (Automatisierung, GUI, Reporting). Individuelle Ideensammlung und Evaluierung.;;46 / 12.11.25;H;offen;Kap. 1 – Einleitung
+1.2;Dokumentation;Zielsetzung & Kernfunktionen beschreiben;Erfassung von Ziel, Automatisierung, Benutzeroberfläche und Reporting. Einbindung in TA-Bericht.;;46;M;offen;Kap. 1 – Zielsetzung
+1.3;Dokumentation;Berichtstruktur gemäss Richtlinie vorbereiten;Aufbau gemäss Vorgabe: 1. Einleitung 2. Vorgehen 3. Ergebnisse 4. Diskussion 5. Empfehlung & Ausblick;Stl;47;M;offen;Kap. 2 – Berichtaufbau
+1.4;Dokumentation;Theoretische Grundlagen erfassen;Definition Nmap, Python-Architektur, Vulnerability-Scanning-Prinzipien, Sicherheitskontext (Zero Trust);;47;L;offen;Kap. 2 – Grundlagen
+1.5;Dokumentation;Architekturübersicht & Komponentenmodell;Darstellung Systemkomponenten (Nmap Engine, Python-Frontend, Reportingmodul) inkl. Kommunikationsfluss;;47;M;offen;Kap. 3 – Systemarchitektur
+2.1;Konzept;Ideensammlung & Feature-Erweiterungen;Zusätzliche Funktionen: API-Export, Risikoanalyse, Zeitplan-Integration etc.;;47;M;offen;Kap. 4 – Konzept
+2.2;Konzept;Klassifizierung nach Schwierigkeitsgrad;Bewertung der Ideen: Einfach / Mittel / Schwer → Einfluss auf MVP-Roadmap;;47;L;offen;Kap. 4 – Featureanalyse
+2.3;Konzept;Risikoanalyse erstellen;Technische, organisatorische, zeitliche Risiken + Ampelmatrix (Rot/Gelb/Grün);;47;H;offen;Kap. 5 – Risikoanalyse
+2.4;Konzept;Teststrategie definieren;Definition von automatischen & manuellen Testfällen + Dokumentation der Ergebnisse;;48;M;offen;Kap. 6 – Testplan
+3.1;Technik;Entwicklung Grundgerüst MVP (Backend);Integration Nmap → Python (Basis Scan);;48;H;offen;Kap. 7 – Implementierung
+3.2;Technik;GUI-Prototyp entwickeln;Klickbare Oberfläche (Start, Fortschrittsanzeige, Log, Export). Benutzerfreundlichkeit prüfen;;49;H;offen;Kap. 7 – Implementierung
+3.3;Technik;Reporting-Funktion;Automatische Erstellung von HTML/PDF-Berichten (Technik & Management);;49;M;offen;Kap. 7 – Implementierung
+3.4;Technik;Technische Rahmenbedingungen dokumentieren;Festlegung: Programmiersprache Python / Scanner-Tool Nmap / lokale VM Umgebung;;46;L;offen;Kap. 3 – Technische Grundlagen
+4.1;Tests;Funktionstests durchführen;Lokale Testumgebung (2 VMs) / SSH-Verbindung / Scan-Validierung;;50;M;offen;Kap. 8 – Tests
+4.2;Evaluation;Ergebnisse dokumentieren;Resultate analysieren und im Bericht diskutieren (Bezug zur Zielsetzung);;50;M;offen;Kap. 8 – Evaluation
+4.3;Evaluation;Diskussion & Ausblick;Bewertung der Resultate, Beantwortung der Forschungsfragen, Verbesserungsvorschläge;;51;M;offen;Kap. 9 – Diskussion / Ausblick
+5.1;Organisation;Sitzungs- / Review-Planung;Terminplanung / Feedback / Zwischenreview;;laufend;L;info;Kap. 10 – Organisation
+5.2;Organisation;Präsentation vorbereiten;20 Minuten + Fragerunde, Fachpublikum ohne Projektkenntnis, Medien wahl (PPT / Handout);;KW 17 (2025);H;offen;Kap. 11 – Präsentation
+5.3;Organisation;Abgabe Bericht & Reflexion;Abgabe bis Sonntagabend KW 17 (Email PDF), Nacharbeit KW 19;;KW 17 (2025);H;offen;Kap. 11 – Abgabe
+5.4;Reflexion;Persönliche Reflexion (2000 Wörter);Lernziele, Zusammenarbeit, Thesen, offene Fragen und eigene Meinung;;KW 17 (2025);M;offen;Kap. 12 – Reflexion
+5.5;Organisation;Bewertungskriterien berücksichtigen;Punktebereiche (Beitrag, Reflexion, Präsentation);;18;L;info;Kap. 13 – Bewertung
+5.6;Diverses;Tools & Ressourcen definieren;Python-IDE, Nmap, GitHub, Test-VMs, PDF-Generator etc.;;46;L;offen;Kap. 3 – Umgebung
+5.7;Diverses;Versionsverwaltung einrichten;GitHub Repo + regelmässige Commits;;46;M;offen;Kap. 7 – Implementierung
+5.8;Diverses;Absenzen / Zeitplanung;Mittwochs Weiterbildung – Zeit für TA einplanen und Kommunikation mit Team;;laufend;L;info;
