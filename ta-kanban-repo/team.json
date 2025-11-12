@@ -5,22 +5,26 @@
   },
   "Ner": {
     "name": "Roman Nemchenko",
-    "github": ""
+    "github": "Gvidonrom"
   },
   "Wey": {
     "name": "Yves Weber",
-    "github": ""
+    "github": "y95weber"
   },
   "Sam": {
     "name": "Manuel Sager",
-    "github": ""
+    "github": "Sennin-Karasu"
   },
   "Cag": {
     "name": "Giovanni Cardillo",
-    "github": ""
+    "github": "gica13"
   },
   "Rat": {
     "name": "Thines Rasiah",
-    "github": ""
+    "github": "t-rasiah"
+  }
+   "Rat": {
+    "name": "Fabian Hirter",
+    "github": "fhirter"
   }
 }
