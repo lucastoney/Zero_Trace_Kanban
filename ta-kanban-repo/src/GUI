@@ -239,7 +239,6 @@ class ZeroTraceDashboard(tk.Tk):
             frame = tk.Frame(sidebar, bg=BG_SIDEBAR)
             frame.pack(fill="x", pady=2)
             if active:
-                # kleine farbige Leiste links für aktives Item
                 tk.Frame(frame, bg=ACCENT, width=3, height=24).pack(side="left")
                 pad_x = 14
             else:
@@ -267,7 +266,6 @@ class ZeroTraceDashboard(tk.Tk):
             style="HeaderSub.TLabel",
         ).place(x=20, y=42)
 
-        # feine Linie unter Header
         tk.Frame(header, bg=BORDER, height=1).pack(fill="x", side="bottom")
 
         # -------------- Content ------------------
@@ -282,15 +280,9 @@ class ZeroTraceDashboard(tk.Tk):
         for i in range(3):
             stats_frame.columnconfigure(i, weight=1)
 
-        self._add_stat_card(
-            stats_frame, 0, "Hosts im Netzwerk", "3"
-        )
-        self._add_stat_card(
-            stats_frame, 1, "Gefundene offene Ports", "7"
-        )
-        self._add_stat_card(
-            stats_frame, 2, "Erstellte Reports", "0"
-        )
+        self._add_stat_card(stats_frame, 0, "Hosts im Netzwerk", "3")
+        self._add_stat_card(stats_frame, 1, "Gefundene offene Ports", "7")
+        self._add_stat_card(stats_frame, 2, "Erstellte Reports", "0")
 
         # ---- Zeile 1: Hauptbereich 2 Spalten ----
         main_frame = ttk.Frame(content)
@@ -324,24 +316,37 @@ class ZeroTraceDashboard(tk.Tk):
             row=1, column=1, sticky="we", pady=(4, 4), padx=(4, 0)
         )
 
+        # Checkbox: nur aktive Hosts
         self.only_active_var = tk.BooleanVar(value=True)
         ttk.Checkbutton(
             config,
             text="Nur aktive Hosts anzeigen",
             variable=self.only_active_var,
-        ).grid(row=2, column=0, columnspan=2, sticky="w", pady=(6, 10))
+        ).grid(row=2, column=0, columnspan=2, sticky="w", pady=(6, 4))
 
+        # Checkbox: DSG / Berechtigung
+        self.dsg_confirm = tk.BooleanVar(value=False)
+        ttk.Checkbutton(
+            config,
+            text="Ich bestätige, dass der Scan gemäss DSG (SR 235.1) erfolgt und berechtigt bin",
+            variable=self.dsg_confirm,
+            command=self._update_scan_button_state,
+        ).grid(row=3, column=0, columnspan=2, sticky="w", pady=(2, 10))
+
+        # Buttons
         btn_frame = ttk.Frame(config)
-        btn_frame.grid(row=3, column=0, columnspan=2, sticky="we", pady=(8, 0))
+        btn_frame.grid(row=4, column=0, columnspan=2, sticky="we", pady=(8, 0))
         btn_frame.columnconfigure(0, weight=1)
         btn_frame.columnconfigure(1, weight=1)
 
-        ttk.Button(
+        self.btn_scan = ttk.Button(
             btn_frame,
             text="Netzwerk scannen",
             style="Primary.TButton",
             command=self.dummy_scan,
-        ).grid(row=0, column=0, sticky="we", padx=(0, 5))
+            state="disabled",     # wird erst nach DSG-Bestätigung aktiviert
+        )
+        self.btn_scan.grid(row=0, column=0, sticky="we", padx=(0, 5))
 
         ttk.Button(
             btn_frame,
@@ -391,7 +396,9 @@ class ZeroTraceDashboard(tk.Tk):
         # ---- Statusleiste ----
         status_frame = tk.Frame(self, bg=BG_STATUS, height=24)
         status_frame.pack(fill="x", side="bottom")
-        self.status_var = tk.StringVar(value="Bereit für Scan.")
+        self.status_var = tk.StringVar(
+            value="Bitte bestätigen, dass der Scan gemäss DSG (SR 235.1) erfolgt."
+        )
         ttk.Label(
             status_frame,
             textvariable=self.status_var,
@@ -419,6 +426,19 @@ class ZeroTraceDashboard(tk.Tk):
             self.tree.insert("", "end", values=row)
 
     # --------------------------------------------------
+    # DSG-Checkbox -> Scan-Button aktivieren/deaktivieren
+    # --------------------------------------------------
+    def _update_scan_button_state(self):
+        if self.dsg_confirm.get():
+            self.btn_scan.configure(state="normal")
+            self.status_var.set("Berechtigung bestätigt – Scan kann gestartet werden.")
+        else:
+            self.btn_scan.configure(state="disabled")
+            self.status_var.set(
+                "Bitte bestätigen, dass der Scan gemäss DSG (SR 235.1) erfolgt."
+            )
+
+    # --------------------------------------------------
     # Platzhalter-Callbacks
     # --------------------------------------------------
     def dummy_scan(self):
@@ -434,7 +454,9 @@ class ZeroTraceDashboard(tk.Tk):
         )
 
     def dummy_pdf(self):
-        self.status_var.set("Report-Erstellung ausgelöst (Funktion noch nicht implementiert).")
+        self.status_var.set(
+            "Report-Erstellung ausgelöst (Funktion noch nicht implementiert)."
+        )
         messagebox.showinfo(
             "PDF-Report",
             "Die PDF-Erstellung ist noch nicht implementiert.\n"
@@ -445,4 +467,3 @@ class ZeroTraceDashboard(tk.Tk):
 if __name__ == "__main__":
     app = ZeroTraceDashboard()
     app.mainloop()
-
