@@ -42,12 +42,12 @@ Das ganze soll stark Skalierbar sein und ständig erweitert werden können.
 ## 🧠 3. Begründung
 
 
-| Entscheid   | Begründung                                               |     
-|-------------|----------------------------------------------------------|
-| PyCharm     | Der Entscheid für PyCharm basiert auf algemeiner Kentnis |
-| ✓ Vorteil 2 | …                                                        |
-| ⚠ Nachteil  | …                                                        |
-| 🔄 Abwägung | …                                                        |
+| Entscheid   | Begründung                                                 |     
+|-------------|------------------------------------------------------------|
+| PyCharm     | Der Entscheid für PyCharm basiert auf allgemeiner Kenntnis |
+| ✓ Vorteil 2 | …                                                          |
+| ⚠ Nachteil  | …                                                          |
+| 🔄 Abwägung | …                                                          |
 
 ---
 
