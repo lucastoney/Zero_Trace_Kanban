@@ -15,7 +15,7 @@ TEXT_LIGHT   = "#f9fafb"
 BORDER       = "#e5e7eb"
 
 
-class ZeroTraceDashboard(tk.Tk):
+class ZeroTraceGUI(tk.Tk):
     def __init__(self):
         super().__init__()
 
@@ -65,19 +65,13 @@ class ZeroTraceDashboard(tk.Tk):
             font=("Segoe UI Semibold", 16),
         )
         style.configure(
-            "SidebarItem.TLabel",
-            background=BG_SIDEBAR,
-            foreground=TEXT_MUTED,
-            font=("Segoe UI", 10),
-        )
-        style.configure(
             "SidebarItemActive.TLabel",
             background=BG_SIDEBAR,
             foreground="#fef3c7",
             font=("Segoe UI Semibold", 10),
         )
 
-        # Karten (Statistik oben)
+        # Statistik-Karten
         style.configure(
             "StatCard.TFrame",
             background=BG_CARD,
@@ -97,7 +91,7 @@ class ZeroTraceDashboard(tk.Tk):
             font=("Segoe UI", 10),
         )
 
-        # LabelFrames als Cards
+        # Card-LabelFrames
         style.configure(
             "Card.TLabelframe",
             background=BG_CARD,
@@ -194,7 +188,7 @@ class ZeroTraceDashboard(tk.Tk):
             foreground=[("selected", TEXT_DARK)],
         )
 
-        # Moderne Scrollbar
+        # Scrollbar
         style.configure(
             "Modern.Vertical.TScrollbar",
             gripcount=0,
@@ -222,10 +216,10 @@ class ZeroTraceDashboard(tk.Tk):
         root_frame = ttk.Frame(self, style="TFrame")
         root_frame.pack(fill="both", expand=True)
         root_frame.columnconfigure(0, weight=0)  # Sidebar
-        root_frame.columnconfigure(1, weight=1)  # Rest
+        root_frame.columnconfigure(1, weight=1)  # Main
         root_frame.rowconfigure(1, weight=1)
 
-        # -------------- Sidebar -----------------
+        # ---------- Sidebar (nur Zero Trace + Dashboard) ----------
         sidebar = tk.Frame(root_frame, bg=BG_SIDEBAR, width=210)
         sidebar.grid(row=0, column=0, rowspan=2, sticky="nsew")
         sidebar.grid_propagate(False)
@@ -234,25 +228,14 @@ class ZeroTraceDashboard(tk.Tk):
             anchor="w", padx=20, pady=(18, 10)
         )
 
-        def add_nav(label, active=False):
-            style = "SidebarItemActive.TLabel" if active else "SidebarItem.TLabel"
-            frame = tk.Frame(sidebar, bg=BG_SIDEBAR)
-            frame.pack(fill="x", pady=2)
-            if active:
-                tk.Frame(frame, bg=ACCENT, width=3, height=24).pack(side="left")
-                pad_x = 14
-            else:
-                pad_x = 20
-            ttk.Label(frame, text=label, style=style).pack(
-                side="left", padx=pad_x, pady=4
-            )
+        frame_dash = tk.Frame(sidebar, bg=BG_SIDEBAR)
+        frame_dash.pack(fill="x", pady=2)
+        tk.Frame(frame_dash, bg=ACCENT, width=3, height=24).pack(side="left")
+        ttk.Label(
+            frame_dash, text="Dashboard", style="SidebarItemActive.TLabel"
+        ).pack(side="left", padx=14, pady=4)
 
-        add_nav("Dashboard", active=True)
-        add_nav("Scans")
-        add_nav("Berichte")
-        add_nav("Einstellungen")
-
-        # -------------- Header -------------------
+        # ---------- Header ----------
         header = tk.Frame(root_frame, bg=BG_HEADER, height=70, highlightthickness=0)
         header.grid(row=0, column=1, sticky="nsew")
         header.grid_propagate(False)
@@ -262,19 +245,19 @@ class ZeroTraceDashboard(tk.Tk):
         )
         ttk.Label(
             header,
-            text="Netzwerkscanner-Dashboard – Oberfläche für Netzwerk- und Port-Scans.",
+            text="Netzwerkscanner-Dashboard – reine GUI-Oberfläche.",
             style="HeaderSub.TLabel",
         ).place(x=20, y=42)
 
         tk.Frame(header, bg=BORDER, height=1).pack(fill="x", side="bottom")
 
-        # -------------- Content ------------------
+        # ---------- Content ----------
         content = ttk.Frame(root_frame, padding=15)
         content.grid(row=1, column=1, sticky="nsew")
         content.columnconfigure(0, weight=1)
         content.rowconfigure(1, weight=1)
 
-        # ---- Zeile 0: Statistik-Karten ----
+        # --- Statistik-Karten ---
         stats_frame = ttk.Frame(content)
         stats_frame.grid(row=0, column=0, sticky="ew", pady=(0, 10))
         for i in range(3):
@@ -284,14 +267,14 @@ class ZeroTraceDashboard(tk.Tk):
         self._add_stat_card(stats_frame, 1, "Gefundene offene Ports", "7")
         self._add_stat_card(stats_frame, 2, "Erstellte Reports", "0")
 
-        # ---- Zeile 1: Hauptbereich 2 Spalten ----
+        # --- Hauptbereich: links Konfiguration, rechts Tabelle ---
         main_frame = ttk.Frame(content)
         main_frame.grid(row=1, column=0, sticky="nsew")
         main_frame.columnconfigure(0, weight=1)
         main_frame.columnconfigure(1, weight=2)
         main_frame.rowconfigure(0, weight=1)
 
-        # --- links: Scan-Konfiguration ---
+        # ---- Scan-Konfiguration (links) ----
         config = ttk.LabelFrame(
             main_frame, text="Scan-Konfiguration", style="Card.TLabelframe", padding=12
         )
@@ -316,7 +299,6 @@ class ZeroTraceDashboard(tk.Tk):
             row=1, column=1, sticky="we", pady=(4, 4), padx=(4, 0)
         )
 
-        # Checkbox: nur aktive Hosts
         self.only_active_var = tk.BooleanVar(value=True)
         ttk.Checkbutton(
             config,
@@ -324,7 +306,6 @@ class ZeroTraceDashboard(tk.Tk):
             variable=self.only_active_var,
         ).grid(row=2, column=0, columnspan=2, sticky="w", pady=(6, 4))
 
-        # Checkbox: DSG / Berechtigung
         self.dsg_confirm = tk.BooleanVar(value=False)
         ttk.Checkbutton(
             config,
@@ -333,7 +314,6 @@ class ZeroTraceDashboard(tk.Tk):
             command=self._update_scan_button_state,
         ).grid(row=3, column=0, columnspan=2, sticky="w", pady=(2, 10))
 
-        # Buttons
         btn_frame = ttk.Frame(config)
         btn_frame.grid(row=4, column=0, columnspan=2, sticky="we", pady=(8, 0))
         btn_frame.columnconfigure(0, weight=1)
@@ -343,19 +323,20 @@ class ZeroTraceDashboard(tk.Tk):
             btn_frame,
             text="Netzwerk scannen",
             style="Primary.TButton",
-            command=self.dummy_scan,
-            state="disabled",     # wird erst nach DSG-Bestätigung aktiviert
+            command=self._dummy_scan,
+            state="disabled",   # wird durch DSG-Checkbox aktiviert
         )
         self.btn_scan.grid(row=0, column=0, sticky="we", padx=(0, 5))
 
-        ttk.Button(
+        self.btn_pdf = ttk.Button(
             btn_frame,
             text="PDF-Report erstellen",
             style="Secondary.TButton",
-            command=self.dummy_pdf,
-        ).grid(row=0, column=1, sticky="we", padx=(5, 0))
+            command=self._dummy_pdf,
+        )
+        self.btn_pdf.grid(row=0, column=1, sticky="we", padx=(5, 0))
 
-        # --- rechts: Scan-Ergebnisse ---
+        # ---- Scan-Ergebnisse (rechts) ----
         results = ttk.LabelFrame(
             main_frame, text="Scan-Ergebnisse", style="Card.TLabelframe", padding=8
         )
@@ -370,6 +351,7 @@ class ZeroTraceDashboard(tk.Tk):
             show="headings",
             style="Results.Treeview",
         )
+
         self.tree.heading("ip", text="IP-Adresse")
         self.tree.heading("host", text="Hostname")
         self.tree.heading("ports", text="Offene Ports")
@@ -408,7 +390,7 @@ class ZeroTraceDashboard(tk.Tk):
         ).pack(fill="x")
 
     # --------------------------------------------------
-    # Hilfsfunktionen
+    # Hilfsfunktionen für GUI
     # --------------------------------------------------
     def _add_stat_card(self, parent, column, label, number):
         card = ttk.Frame(parent, style="StatCard.TFrame", padding=12)
@@ -425,9 +407,6 @@ class ZeroTraceDashboard(tk.Tk):
         for row in rows:
             self.tree.insert("", "end", values=row)
 
-    # --------------------------------------------------
-    # DSG-Checkbox -> Scan-Button aktivieren/deaktivieren
-    # --------------------------------------------------
     def _update_scan_button_state(self):
         if self.dsg_confirm.get():
             self.btn_scan.configure(state="normal")
@@ -439,31 +418,25 @@ class ZeroTraceDashboard(tk.Tk):
             )
 
     # --------------------------------------------------
-    # Platzhalter-Callbacks
+    # Dummy-Aktionen (nur GUI, keine echte Logik)
     # --------------------------------------------------
-    def dummy_scan(self):
-        net = self.entry_network.get().strip() or "<kein Netzwerk>"
-        ports = self.entry_ports.get().strip() or "<keine Ports>"
-        self.status_var.set(
-            f"Scan gestartet: {net}, Ports {ports} (Funktion noch nicht implementiert)."
-        )
+    def _dummy_scan(self):
+        self.status_var.set("Scan wurde ausgelöst (nur GUI, keine Funktion).")
         messagebox.showinfo(
             "Netzwerk scannen",
-            "Die Scan-Funktion ist noch nicht implementiert.\n"
-            "Hier kannst du später deine eigene Scan-Logik einfügen.",
+            "Dies ist nur die Benutzeroberfläche.\n"
+            "Hier kannst du später deine eigene Scan-Logik einbauen.",
         )
 
-    def dummy_pdf(self):
-        self.status_var.set(
-            "Report-Erstellung ausgelöst (Funktion noch nicht implementiert)."
-        )
+    def _dummy_pdf(self):
+        self.status_var.set("PDF-Export wurde ausgelöst (nur GUI, keine Funktion).")
         messagebox.showinfo(
             "PDF-Report",
-            "Die PDF-Erstellung ist noch nicht implementiert.\n"
-            "Hier kannst du später deine Report-Logik einfügen.",
+            "Dies ist nur die Benutzeroberfläche.\n"
+            "Hier kannst du später die PDF-Erstellung einbauen.",
         )
 
 
 if __name__ == "__main__":
-    app = ZeroTraceDashboard()
+    app = ZeroTraceGUI()
     app.mainloop()
