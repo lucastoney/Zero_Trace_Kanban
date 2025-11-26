@@ -1,47 +1,53 @@
-# ADR <Nummer>: <Titel der Entscheidung>
+# ADR 011: Zieldefiniton und Scope des MVP
 
-*Status:* Proposed / Accepted / Rejected / Superseded  
-*Datum:* YYYY-MM-DD  
-*Autor:* <Name / Team>  
-*Betroffene Bereiche:* Architektur / Security / Performance / Datenschutz / UX / etc.
+*Status:* Accepted 
+*Datum:* 05.11.2025
+*Autor:* Sam / Team  
+*Betroffene Bereiche:* Gesamtes Projekt
 
 ---
 
 ## 🎯 1. Kontext
 
-Beschreibe hier die Ausgangssituation:
+### Pitch
+Wir wollen mit ZeroTrace ein Tool bereitstellen welches KMU unterstützt die eigenen Netzwerke und Umgebungen  zu schützen. 
+Das Ziel soll eine einfach zu bedienende Software sein welche Lokal bei den Benutzern läuft und selbstständig bedient werden kann. 
+Wir orientieren uns stark am DSVGO und wollen uns vorallem im Bereich schützenswerte Daten und hohe Sicherheit etablieren.
+Es soll für Techniker und Management gleich einfach sein zu bedienen, auch die Reports sollen in zwei entsprehcneden Versionen bereitgestellt werden.
 
-- Welches Problem gibt es?
-- Welche Anforderungen / Rahmenbedingungen spielen eine Rolle?
-- Warum musste eine Entscheidung getroffen werden?
-- Welche Risiken oder Einschränkungen bestehen (z. B. DSGVO, Zero Trace, lokale Anwendung)?
+### MVP
+Für den MVP werden wir ein GUI erstellen und uns forerst auf den Scan des Netzwerks fokusieren.
+Das ganze soll stark Skalierbar sein und ständig erweitert werden können.
 
-Beispiele:
-- *„Unsere Anwendung darf keine Nutzerdaten speichern, benötigt aber temporäre Verarbeitung.“*
-- *„Python wird verwendet, GUI muss lokal laufen.“*
+### Wichtigste Rahmenbedinungen 
+- Zerotrace läuft 100% Lokal
+- Reports werden in 2 Fassungen bereit gestellt, eine für Management und eine für Techniker (IT-Provider)
+- Starke Orientierung an DSVGO (Muss,Soll,Kann)
+- 
 
 ---
 
 ## ⚖️ 2. Entscheidung
 
-🟩 **Wir entscheiden uns für:**  
-> *<Klar und prägnant formulierte Entscheidung – 1 Satz>*
+**Wir entscheiden uns für:**  
+- Entwicklungsumgebung "Pycharm"
+- Versionsverlauf und Ablage "Github"
+- Dokumentationen und Berichte im .md Format zu erfassen
+- ZeroTrace wird 100% Lokal funktionieren
+- Für MVP Betriebssystem Windows als Einstieg 
 
-Beispiel:
-> *„Sensible Daten werden ausschließlich im RAM gespeichert (RAM-Only Storage) und nicht persistent abgelegt.“*
 
 ---
 
 ## 🧠 3. Begründung
 
-Warum ist diese Entscheidung richtig?
 
-| Argument | Beschreibung |
-|----------|--------------|
-| ✓ Vorteil 1 | … |
-| ✓ Vorteil 2 | … |
-| ⚠ Nachteil | … |
-| 🔄 Abwägung | … |
+| Entscheid   | Begründung                                               |     
+|-------------|----------------------------------------------------------|
+| PyCharm     | Der Entscheid für PyCharm basiert auf algemeiner Kentnis |
+| ✓ Vorteil 2 | …                                                        |
+| ⚠ Nachteil  | …                                                        |
+| 🔄 Abwägung | …                                                        |
 
 ---
 
