@@ -9,76 +9,42 @@
 
 ## 🎯 1. Kontext
 
-Beschreibe hier die Ausgangssituation:
+🎯 Kontext
 
-- Welches Problem gibt es?
-- Welche Anforderungen / Rahmenbedingungen spielen eine Rolle?
-- Warum musste eine Entscheidung getroffen werden?
-- Welche Risiken oder Einschränkungen bestehen (z. B. DSGVO, Zero Trace, lokale Anwendung)?
+ZeroTrace ist ein Sicherheits-Scanner für KMUs, der Schwachstellen in lokalen Netzwerken erkennen soll.
+Die Verarbeitung umfasst:
 
-Beispiele:
-- *„Unsere Anwendung darf keine Nutzerdaten speichern, benötigt aber temporäre Verarbeitung.“*
-- *„Python wird verwendet, GUI muss lokal laufen.“*
+- Netzwerkscans (Ports, Services, Versionen)
+- Host- und OS-Erkennung
+- Risiko-Bewertung
+- Reporting (HTML/PDF)
+- Diese Daten können personenbezogene oder unternehmenssensible Informationen enthalten, beispielsweise:
+- IP-Adressen / Hostnamen
+- Service-Informationen
+- Software-Versionen
+- Infrastruktur-Details
+
+Daher ist die Frage zentral, ob die Software lokal beim Kunden oder in einer Cloud-Umgebung betrieben werden soll.
 
 ---
 
 ## ⚖️ 2. Entscheidung
 
-🟩 **Wir entscheiden uns für:**  
-> *<Klar und prägnant formulierte Entscheidung – 1 Satz>*
+ZeroTrace wird ausschliesslich lokal beim Kunden ausgeführt.
+Es erfolgt keine Übertragung von Daten in eine Cloud und keine externe Analyse.
+Alle Scanresultate, Logs und Reports verbleiben auf dem System des Anwenders.
 
-Beispiel:
-> *„Sensible Daten werden ausschließlich im RAM gespeichert (RAM-Only Storage) und nicht persistent abgelegt.“*
+Dies schliesst Cloud-Backend-Infrastrukturen wie AWS, Azure oder SaaS-Plattformen bewusst aus.
 
 ---
 
 ## 🧠 3. Begründung
 
-Warum ist diese Entscheidung richtig?
 
-| Argument | Beschreibung |
-|----------|--------------|
-| ✓ Vorteil 1 | … |
-| ✓ Vorteil 2 | … |
-| ⚠ Nachteil | … |
-| 🔄 Abwägung | … |
+| Entscheidung    | Beschreibung                                                                                                                                                                                                           |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Lokaler Betrieb | DSVGO / Datenschutz /Complience<br/>- Netzwerk- und Portdaten gelten potenziell als personenbezogen (IP-Adressen, Nutzersysteme)<br/>-DSGVO Art. 5, 6, 32 → Schutzbedarf sehr hoch                                     |
+| vs Cloud        | Cloud-Verarbeitung würde:<br/>-Auftragsverarbeitungsverträge erfordern (Art. 28)<br/>-Risiken zur Datenübertragung ins Ausland beinhalten (Art. 44ff)<br/>-zusätzliche organisatorische Sicherheitsmaßnahmen verlangen | 
+|                 | Lokaler Betrieb eliminiert diese Risiken nahezu vollständig.                                                                                                                                                           |
+| Sicherheit      | Lokaler Betrieb reduziert den Angriffsvektor auf den Arbeitsplatz / Server des Kunden.                                                                                                                                 |
 
----
-
-## 🔁 4. Alternativen (evaluierte Optionen)
-
-| Alternative | Warum verworfen? |
-|-------------|------------------|
-| Option A | ... |
-| Option B | ... |
-| Option C | ... |
-
----
-
-## 📊 5. Auswirkungen
-
-### Positiv
-- …
-
-### Negativ / Risiken
-- …
-
-### Offene Punkte
-- …
-
----
-
-## 🔐 6. Sicherheits- & Datenschutzrelevanz
-
-> *Nur enthalten, wenn relevant (z. B. Zero Trace, DSGVO, Security)*
-
-- …
-
----
-
-## 🔎 7. Entscheidung gültig für
-
-🧩 Welche Module oder Bereiche sind betroffen?
-
-```text
-z. B. src/security/, src/storage/, GUI, Tests, Dokumentation

@@ -1,31 +1,54 @@
-# Architecture Decision Record: Backend wird in Python entwickelt
+# ADR 013: Auswahl Scanner-Engine
 
-## Status
-Accepted
+*Status:* Accepted 
+*Datum:* 05.11.2025
+*Autor:* Sam / Team  
+*Betroffene Bereiche:* Gesamtes Projekt
 
-## Kontext
-Für das geplante System wird ein Backend benötigt, das flexibel erweiterbar, gut wartbar und für Automatisierungs- sowie spätere Security-/Pentesting-Funktionen geeignet ist.
-Das Team verfügt über vorhandenes Wissen oder Lernfortschritt in Python, und viele der angestrebten Funktionen (Bots, Automatisierung, Datenverarbeitung, API-Schnittstellen) lassen sich mit diesem Ökosystem sehr gut abbilden.
+---
 
-## Entscheidung
-Das Backend wird in Python implementiert.
+## 🎯 1. Kontext
 
-## Begründung
-- Python bietet eine große Menge an stabilen und gut dokumentierten Libraries für Automatisierung, Systeminteraktion, Security-Tools und Webentwicklung.
-- Durch leichte Lesbarkeit ist das System langfristig einfacher wartbar.
-- Die Entwicklungszeit wird reduziert, da Python für Prototyping und MVPs besonders effizient ist.
-- Das Ökosystem (FastAPI, Flask, asyncio, uvicorn etc.) ermöglicht performante und moderne Web-APIs.
-- Python ist ideal geeignet für lokale Bots, Skripting, Dateiverarbeitung, Machine Learning, Security-Scans und API-basierte Systeme.
-- Beste Lern- und Erweiterungsmöglichkeiten für zukünftige Features (z. B. Bots, Worker, KI-Funktionen).
+### Nutzung
+Wir brauchen eine Engine die wir ins Backend integrieren können, welche die Scans ausführen kann. Der User wird die verschiedenen Scans über das GUI ausführen.
+
+### Folgende Scans möchten wir anbieten: 
+Muss enthalten sein für den MVP:
+
+| Funktion          | Nmap-Flag       | Grund                   |
+| ----------------- | --------------- | ----------------------- |
+| Portscan (TCP)    | `-sT`           | zuverlässig, ohne Admin |
+| Service & Version | `-sV`           | nötig für CVE-Mapping   |
+| OS Detection      | `-O` (optional) | zusätzlicher Kontext    |
+| Host Discovery    | `-sn`           | Netzwerkübersicht       |
+| No-Ping Modus     | `-Pn`           | typische KMU-Netze      |
+
+Sollte enthalten sein für spätere Erweiterung:
+
+| Option          | Flag               | Mehrwert                    |
+| --------------- | ------------------ | --------------------------- |
+| SYN Scan        | `-sS`              | schneller, stealthy         |
+| UDP Scan        | `-sU`              | DNS/SNMP prüfen             |
+| Aggressive Scan | `-A`               | umfassende Analyse          |
+| NSE-Scripts     | `--script=*`       | echte Schwachstellenprüfung |
+| TLS/SSL Checks  | `ssl-enum-ciphers` | Kryptosicherheit            |
+
+Achtung: Die Scans und deren Priorität können im Laufe der Entwicklung angepasst werden!!! 
+
+---
+
+## ⚖️ 2. Entscheidung
+
+**Wir entscheiden uns für:**  
+Für das Tool NMAP als Scanner-Engine.  
+
+---
+
+## 🧠 3. Begründung
 
 
-### Positive
-- Schnelle Entwicklungszyklen, ideal für MVP und spätere Erweiterungen.
-- Enorme Bibliotheksauswahl für geplante Automations- und Security-Features.
-- Gute Lesbarkeit und Wartbarkeit.
-- Perfekt für Cross-Platform-Bots, lokale Systeminteraktion und API-Strukturen.
-
-### Negative
-- Höhere RAM- und CPU-Anforderungen als kompilierten Sprachen (z. B. Go oder Rust).
-- Performance bei extrem hohen Lasten geringer; erfordert ggf. Worker- oder Microservice-Ansätze.
-- Threading begrenzt durch GIL (aber lösbar über Multiprocessing oder Async).
+| Entscheid               | Begründung                                                                                                                                                                             |     
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NMAP als Scanner-Engine | - Einfach in Phyton zu integrieren<br/>- Deckt alle der benötigten Scans ab welche für MVP benötigt werden<br/>- extrem Stabil<br/>- seit 20 Jahren erfolgreich der Standard für Scans |
+                                                                  |
+---

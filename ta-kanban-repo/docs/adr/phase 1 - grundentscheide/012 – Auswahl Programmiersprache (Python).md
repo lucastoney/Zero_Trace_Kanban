@@ -1,84 +1,37 @@
-# ADR <Nummer>: <Titel der Entscheidung>
+# ADR 012: Python als Programmiersprache
 
-*Status:* Proposed / Accepted / Rejected / Superseded  
-*Datum:* YYYY-MM-DD  
-*Autor:* <Name / Team>  
-*Betroffene Bereiche:* Architektur / Security / Performance / Datenschutz / UX / etc.
+*Status:* Accepted 
+*Datum:* 05.11.2025
+*Autor:* Sam / Team  
+*Betroffene Bereiche:* Coding, Front-, Backend
 
 ---
 
 ## 🎯 1. Kontext
 
-Beschreibe hier die Ausgangssituation:
+### Programmiersprache
 
-- Welches Problem gibt es?
-- Welche Anforderungen / Rahmenbedingungen spielen eine Rolle?
-- Warum musste eine Entscheidung getroffen werden?
-- Welche Risiken oder Einschränkungen bestehen (z. B. DSGVO, Zero Trace, lokale Anwendung)?
+Wir brauchen eine Programmiersprache
+- mit der sich einige von uns bereits etwas auskennen
+- sich für Front und Backend eignet
+- sich für den Lokalbetrieb eignet
 
-Beispiele:
-- *„Unsere Anwendung darf keine Nutzerdaten speichern, benötigt aber temporäre Verarbeitung.“*
-- *„Python wird verwendet, GUI muss lokal laufen.“*
-
----
+Zur Auswahl stehen:
+- Phyton
+- C#
+- C++
 
 ## ⚖️ 2. Entscheidung
 
-🟩 **Wir entscheiden uns für:**  
-> *<Klar und prägnant formulierte Entscheidung – 1 Satz>*
-
-Beispiel:
-> *„Sensible Daten werden ausschließlich im RAM gespeichert (RAM-Only Storage) und nicht persistent abgelegt.“*
-
----
+ **Wir entscheiden uns für:**  
+Python als Programmiersprache für den MVP front und Backend.
 
 ## 🧠 3. Begründung
 
 Warum ist diese Entscheidung richtig?
 
-| Argument | Beschreibung |
-|----------|--------------|
-| ✓ Vorteil 1 | … |
-| ✓ Vorteil 2 | … |
-| ⚠ Nachteil | … |
-| 🔄 Abwägung | … |
+| Entscheidung                  | Beschreibung                                                                                                                                                     |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Python als Programmiersprache | - Schnell iterierbar: ideal für MVP, viele fertige Libs (nmap, XML, DB, Reports).<br/> - Cross-Platform: Windows/Linux/macOS, später leicht erweiterbar <br/> -  |
+                                                                                                                                                             |
 
----
-
-## 🔁 4. Alternativen (evaluierte Optionen)
-
-| Alternative | Warum verworfen? |
-|-------------|------------------|
-| Option A | ... |
-| Option B | ... |
-| Option C | ... |
-
----
-
-## 📊 5. Auswirkungen
-
-### Positiv
-- …
-
-### Negativ / Risiken
-- …
-
-### Offene Punkte
-- …
-
----
-
-## 🔐 6. Sicherheits- & Datenschutzrelevanz
-
-> *Nur enthalten, wenn relevant (z. B. Zero Trace, DSGVO, Security)*
-
-- …
-
----
-
-## 🔎 7. Entscheidung gültig für
-
-🧩 Welche Module oder Bereiche sind betroffen?
-
-```text
-z. B. src/security/, src/storage/, GUI, Tests, Dokumentation
