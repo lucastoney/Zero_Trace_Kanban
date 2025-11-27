@@ -7,9 +7,9 @@
 
 ---
 
-## 🎯 1. Kontext
+##  1. Kontext
 
-🎯 Kontext
+ Kontext
 
 ZeroTrace ist ein Sicherheits-Scanner für KMUs, der Schwachstellen in lokalen Netzwerken erkennen soll.
 Die Verarbeitung umfasst:
@@ -28,7 +28,7 @@ Daher ist die Frage zentral, ob die Software lokal beim Kunden oder in einer Clo
 
 ---
 
-## ⚖️ 2. Entscheidung
+##  2. Entscheidung
 
 ZeroTrace wird ausschliesslich lokal beim Kunden ausgeführt.
 Es erfolgt keine Übertragung von Daten in eine Cloud und keine externe Analyse.
@@ -38,7 +38,7 @@ Dies schliesst Cloud-Backend-Infrastrukturen wie AWS, Azure oder SaaS-Plattforme
 
 ---
 
-## 🧠 3. Begründung
+##  3. Begründung
 
 
 | Entscheidung    | Beschreibung                                                                                                                                                                                                           |
