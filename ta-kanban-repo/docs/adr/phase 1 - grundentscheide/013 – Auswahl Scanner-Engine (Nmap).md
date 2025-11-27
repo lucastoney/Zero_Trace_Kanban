@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 1. Kontext
+##  1. Kontext
 
 ### Nutzung
 Wir brauchen eine Engine die wir ins Backend integrieren können, welche die Scans ausführen kann. Der User wird die verschiedenen Scans über das GUI ausführen.
@@ -37,14 +37,14 @@ Achtung: Die Scans und deren Priorität können im Laufe der Entwicklung angepas
 
 ---
 
-## ⚖️ 2. Entscheidung
+##  2. Entscheidung
 
 **Wir entscheiden uns für:**  
 Für das Tool NMAP als Scanner-Engine.  
 
 ---
 
-## 🧠 3. Begründung
+##  3. Begründung
 
 
 | Entscheid               | Begründung                                                                                                                                                                             |     

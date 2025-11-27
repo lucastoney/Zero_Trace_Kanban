@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 1. Kontext
+##  1. Kontext
 
 ### Programmiersprache
 
@@ -21,12 +21,12 @@ Zur Auswahl stehen:
 - C#
 - C++
 
-## ⚖️ 2. Entscheidung
+## 2. Entscheidung
 
  **Wir entscheiden uns für:**  
 Python als Programmiersprache für den MVP front und Backend.
 
-## 🧠 3. Begründung
+##  3. Begründung
 
 Warum ist diese Entscheidung richtig?
 

@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 1. Kontext
+##  1. Kontext
 
 ### Pitch
 Wir wollen mit ZeroTrace ein Tool bereitstellen welches KMU unterstützt die eigenen Netzwerke und Umgebungen  zu schützen. 
@@ -26,7 +26,7 @@ Das ganze soll stark Skalierbar sein und ständig erweitert werden können.
 
 ---
 
-## ⚖️ 2. Entscheidung
+##  2. Entscheidung
 
 **Wir entscheiden uns für:**  
 - Entwicklungsumgebung "Pycharm"
@@ -37,7 +37,7 @@ Das ganze soll stark Skalierbar sein und ständig erweitert werden können.
 
 ---
 
-## 🧠 3. Begründung
+##  3. Begründung
 
 
 | Entscheid                     | Begründung                                                                                                                                                           |     
