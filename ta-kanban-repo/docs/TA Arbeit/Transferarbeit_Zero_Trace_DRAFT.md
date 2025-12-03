@@ -64,7 +64,7 @@ Daraus ergibt sich die zentrale Problemstellung:
 
 **Wie können wir als Gruppe ein schlankes und intuitiv bedienbares Tool entwickeln, welches regelmässig Lokale Schwachstellenanalysen im eigenen System ermöglicht und gleichzeitig den Zero-Trust Ansatz vermittelt.**
 
-
+d
 ---
 
 # 1.2 Zielsetzung
