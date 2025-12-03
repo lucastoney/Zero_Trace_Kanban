@@ -12,7 +12,7 @@
 ### Pitch
 Wir wollen mit ZeroTrace ein Tool bereitstellen welches KMU unterstützt die eigenen Netzwerke und Umgebungen  zu schützen. 
 Das Ziel soll eine einfach zu bedienende Software sein welche Lokal bei den Benutzern läuft und selbstständig bedient werden kann. 
-Wir orientieren uns stark am DSVGO und wollen uns vorallem im Bereich schützenswerte Daten und hohe Sicherheit etablieren.
+Wir orientieren uns stark am DSVGO und wollen uns vor allem im Bereich schützenswerte Daten und hohe Sicherheit etablieren.
 Es soll für Techniker und Management gleich einfach sein zu bedienen, auch die Reports sollen in zwei entsprehcneden Versionen bereitgestellt werden.
 
 ### MVP
