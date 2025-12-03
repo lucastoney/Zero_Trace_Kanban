@@ -20,15 +20,12 @@ Folgende Anforderungen wurden in der Gruppe definiert.
 - Nach dem Scan soll man sehen das er erfolgreich war oder eben nicht
 - Anchlissend soll man auswählen können ob man den Scan direkt exportieren will und wenn ja in welches PDF Format (in dem Dashboard sieht man die Resultate immer)
 - Die Scanergebnisse sollen wie folgt Aufgelistet werden:
-- Die Offenen Ports werden farblich untermahlt gem. Definition Grün=Low, Gelb=Mid (Attention needed), Rot=HIGH (Critical) sowohl im PDF-Report als auch im Dashboard
-- 
-- 
 
 | Host (IP-Adresse) | Offene Ports | Risklvl General |   |
 |-------------------|--------------|-----------------|---|
 
-
-
+- Die Offenen Ports werden farblich untermahlt gem. Definition Grün=Low, Gelb=Mid (Attention needed), Rot=HIGH (Critical) sowohl im PDF-Report als auch im Dashboard
+- 
 
 
 
