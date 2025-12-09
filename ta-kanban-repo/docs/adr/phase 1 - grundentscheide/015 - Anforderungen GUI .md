@@ -25,25 +25,13 @@ Folgende Anforderungen wurden in der Gruppe definiert.
 |-------------------|--------------|-----------------|---|
 
 - Die Offenen Ports werden farblich untermahlt gem. Definition Grün=Low, Gelb=Mid (Attention needed), Rot=HIGH (Critical) sowohl im PDF-Report als auch im Dashboard
-- 
-
-
-
-
-
-Beispiele:
-- *„Unsere Anwendung darf keine Nutzerdaten speichern, benötigt aber temporäre Verarbeitung.“*
-- *„Python wird verwendet, GUI muss lokal laufen.“*
+-
 
 ---
 
 ## ⚖️ 2. Entscheidung
 
-🟩 **Wir entscheiden uns für:**  
-> *<Klar und prägnant formulierte Entscheidung – 1 Satz>*
-
-Beispiel:
-> *„Sensible Daten werden ausschließlich im RAM gespeichert (RAM-Only Storage) und nicht persistent abgelegt.“*
+Wit entscheiden uns gemäss der oben erwähnten Anforderungen mit der GUI-Entwicklung zu starten, wir wählen den experimentellen Ansatz. 
 
 ---
 
@@ -51,49 +39,9 @@ Beispiel:
 
 Warum ist diese Entscheidung richtig?
 
-| Argument | Beschreibung |
-|----------|--------------|
-| ✓ Vorteil 1 | … |
-| ✓ Vorteil 2 | … |
-| ⚠ Nachteil | … |
-| 🔄 Abwägung | … |
-
+| Argument        | Beschreibung                                                                                                                                          |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GUI Entwicklung | Das GUI bietet uns eine Basis, es muss in erster Linie nicht perfekt sein, allerdings kann man ohne überhaupt etwas nichts definieren oder ableiten.  |
+                                                                                                                                                     |
 ---
 
-## 🔁 4. Alternativen (evaluierte Optionen)
-
-| Alternative | Warum verworfen? |
-|-------------|------------------|
-| Option A | ... |
-| Option B | ... |
-| Option C | ... |
-
----
-
-## 📊 5. Auswirkungen
-
-### Positiv
-- …
-
-### Negativ / Risiken
-- …
-
-### Offene Punkte
-- …
-
----
-
-## 🔐 6. Sicherheits- & Datenschutzrelevanz
-
-> *Nur enthalten, wenn relevant (z. B. Zero Trace, DSGVO, Security)*
-
-- …
-
----
-
-## 🔎 7. Entscheidung gültig für
-
-🧩 Welche Module oder Bereiche sind betroffen?
-
-```text
-z. B. src/security/, src/storage/, GUI, Tests, Dokumentation
