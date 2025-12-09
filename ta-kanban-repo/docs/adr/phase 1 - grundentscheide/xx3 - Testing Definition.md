@@ -11,7 +11,7 @@
 
 Wir definieren hier wie die Tests aussehen sollen und wo sie wie abgelget werden. 
 Vorschlag: 
-Test Benennung: TC - xy /
+Test Benennung: TC - xy (für Kritische Funktionen) / TS - xy (für Systemtests)
 docs > TDD Tests 
 Kritische Funktionen.md 
 - her werden wir alle kritischen Funktionen erfassen und dazu Unit Tests erstellen
