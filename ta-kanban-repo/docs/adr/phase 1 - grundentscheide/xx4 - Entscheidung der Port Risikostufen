@@ -46,9 +46,11 @@ Das bedeutet nicht, dass sie sicher sind – nur, dass sie aus Sicht des MVP-Ris
 
 In der GUI & im PDF werden die Ports wie folgt dargestellt:
 
-- `🔴 22/tcp` – Critical  ROT
-- `🟡 80/tcp` – Mid  GELB
-- `🟢 443/tcp` – Low  GRÜN
+| Risiko   | Symbol | Name                                   |
+| -------- | ------ | -------------------------------------- |
+| Critical | ■      | BLACK SQUARE                           |
+| Mid      | ▣      | INVERSE WHITE CIRCLE (moderne Outline) |
+| Low      | □      | WHITE SQUARE                           |
 
 
 ---
