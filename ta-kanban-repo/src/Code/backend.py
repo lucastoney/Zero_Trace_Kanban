@@ -1,36 +1,40 @@
-# Damalige zweite Version des Backends welche aber funktionierte
-
 """
+backend.py - Lokales Backend für ZeroTrace
+
 Funktionen:
 - Netzwerkscan mit Nmap (-sn)
 - Portscan mit Nmap (-sT -p)
 - Export von Scan-Ergebnissen als PDF
 
 Voraussetzungen:
-- Nmap installiert
+- Nmap installiert (
+- Python 3.8+
+- Für PDF-Export: pip install reportlab
 """
+
 
 from __future__ import annotations
 
+import logging
+import shutil
 import subprocess
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import List, Optional, Literal
-
-# Falls wir logging wollen
-import logging
+from typing import List, Literal, Optional
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
+# -------------------------------------------------------------------
 # Datenmodell
+# -------------------------------------------------------------------
+
 
 @dataclass
 class ScanResult:
-    """Repräsentiert ein einzelnes Scan-Ergebnis."""
+    """Repräsentiert ein einzelnes Scan-Ergebnis (eine Zeile im GUI)."""
 
     ip: str
     hostname: str
@@ -46,44 +50,100 @@ class NmapError(Exception):
 ScanType = Literal["network", "port"]
 
 
-# Nmap-Aufrufe Lokal
+# -------------------------------------------------------------------
+# Nmap finden & ausführen
+# -------------------------------------------------------------------
+
+def _find_nmap() -> str:
+    """
+    Sucht die Nmap-Executable.
+
+    Reihenfolge:
+    1. Falls Umgebungsvariable ZERO_TRACE_NMAP gesetzt ist → nehmen
+    2. PATH (shutil.which("nmap"))
+    3. Typische Windows-Pfade
+
+    Falls nichts gefunden wird → NmapError.
+    """
+
+    # 1) Benutzerdefinierter Pfad (optional)
+    env_path = Path.cwd().joinpath("nmap.exe")  # z.B. im Projektordner
+    if env_path.is_file():
+        logger.info("Using nmap from project folder: %s", env_path)
+        return str(env_path)
+
+    # 2) PATH
+    exe = shutil.which("nmap")
+    if exe:
+        logger.info("Using nmap from PATH: %s", exe)
+        return exe
+
+    # 3) Typische Windows-Pfade
+    common_paths = [
+        r"C:\Program Files (x86)\Nmap\nmap.exe",
+        r"C:\Program Files\Nmap\nmap.exe",
+    ]
+    for p in common_paths:
+        if Path(p).is_file():
+            logger.info("Using nmap from common path: %s", p)
+            return p
+
+    # Wenn wir hier sind → nichts gefunden
+    raise NmapError(
+        "Nmap wurde nicht gefunden.\n\n"
+        "Bitte prüfe folgendes:\n"
+        "  • Ist Nmap installiert?\n"
+        "  • Liegt nmap.exe z. B. unter:\n"
+        "        C:\\Program Files (x86)\\Nmap\\nmap.exe\n"
+        "        C:\\Program Files\\Nmap\\nmap.exe\n"
+        "  • Alternativ: Füge den Nmap-Ordner zur PATH-Umgebungsvariablen hinzu.\n"
+    )
 
 
 def _run_nmap(args: list[str]) -> str:
     """
     Führt Nmap mit den gegebenen Argumenten aus und gibt die XML-Ausgabe zurück.
-
-    Es wird KEINE Shell verwendet (sicherer), alles läuft lokal.
+    Alles läuft lokal, es wird keine Shell verwendet.
     """
-    cmd = ["nmap"] + args + ["-oX", "-"]  # -oX - → XML auf stdout
+    nmap_exe = _find_nmap()
+    cmd = [nmap_exe] + args + ["-oX", "-"]  # -oX - -> XML auf stdout
 
     logger.info("Running nmap: %s", " ".join(cmd))
 
-    proc = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-    )
+    try:
+        proc = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+    except FileNotFoundError as e:
+        # Falls nmap_exe doch nicht existiert
+        raise NmapError(
+            f"Nmap konnte nicht gestartet werden ({nmap_exe}).\n"
+            f"Systemfehler: {e}"
+        ) from e
+
     if proc.returncode != 0:
-        stderr = proc.stderr.strip()
-        raise NmapError(stderr or "Nmap failed with unknown error")
+        stderr = (proc.stderr or "").strip()
+        raise NmapError(stderr or "Nmap ist mit einem Fehlercode beendet worden.")
+
     return proc.stdout
 
+# Netzwerkscan
 
 def run_network_scan(cidr: str, only_up: bool = True) -> List[ScanResult]:
     """
     Führt einen Netzwerkscan (Host-Discovery) über ein CIDR-Netz aus.
 
-    Verwendet:
-      nmap -sn <cidr> -oX -
+        nmap -sn <cidr> -oX -
 
     Args:
-     cidr: z.B. "192.168.10.0/24"
-     only_up: Wenn True, nur Hosts mit Status "up" ausgeben.
+        cidr: z.B. "192.168.10.0/24"
+        only_up: Wenn True, nur Hosts mit Status "up" ausgeben.
 
     Returns:
-      Liste von ScanResult, die direkt ins Treeview übernommen werden kann.
+        Liste von ScanResult, die direkt ins Treeview übernommen werden kann.
     """
     xml_text = _run_nmap(["-sn", cidr])
     root = ET.fromstring(xml_text)
@@ -112,32 +172,33 @@ def run_network_scan(cidr: str, only_up: bool = True) -> List[ScanResult]:
                     break
 
         comment = "Host aktiv" if state == "up" else f"Status: {state}"
+
         results.append(
             ScanResult(
                 ip=ip or "(unbekannt)",
                 hostname=hostname,
-                open_ports="",  # Netzwerkscan prüft hier nur Erreichbarkeit
+                open_ports="",   # Netzwerkscan: keine Portinfos
                 comment=comment,
             )
         )
 
     return results
 
+# Portscan
 
 def run_port_scan(target: str, ports: str) -> List[ScanResult]:
     """
-    Führt einen Portscan auf dem Ziel durch.
+    Führt einen Portscan auf einem Ziel durch.
 
-    Verwendet:
-     nmap -sT -p <ports> <target> -oX -
+        nmap -sT -p <ports> <target> -oX -
 
     Args:
-    target: IP oder Hostname, z.B. "192.168.10.10"
-    ports: Nmap-Portangabe, z.B. "1-1024" oder "22,80,443"
+        target: IP oder Hostname, z.B. "192.168.10.10"
+        ports: Nmap-Portangabe, z.B. "1-1024" oder "22,80,443"
 
     Returns:
-    Liste von ScanResult.
-    Nmap erlaubt mehrere Ziele.
+        Liste von ScanResult. Meist nur ein Eintrag (1 Host),
+        aber Nmap erlaubt mehrere Ziele.
     """
     xml_text = _run_nmap(["-sT", "-p", ports, target])
     root = ET.fromstring(xml_text)
@@ -147,16 +208,15 @@ def run_port_scan(target: str, ports: str) -> List[ScanResult]:
         status_el = host.find("status")
         state = status_el.get("state") if status_el is not None else "unknown"
         if state != "up":
-            # Nicht erreichbare Hosts ignorieren
             continue
 
-        # IP-Adresse
+        # IP
         ip = ""
         addr = host.find("address")
         if addr is not None and addr.get("addrtype") in ("ipv4", "ipv6"):
             ip = addr.get("addr", "")
 
-        # Hostname (falls vorhanden)
+        # Hostname
         hostname = ""
         hostnames = host.find("hostnames")
         if hostnames is not None:
@@ -166,8 +226,8 @@ def run_port_scan(target: str, ports: str) -> List[ScanResult]:
                     hostname = name
                     break
 
-        # Ports sammeln
-        open_ports = []
+        # Ports
+        open_ports: list[str] = []
         ports_el = host.find("ports")
         if ports_el is not None:
             for port_el in ports_el.findall("port"):
@@ -193,8 +253,6 @@ def run_port_scan(target: str, ports: str) -> List[ScanResult]:
         )
 
     return results
-
-
 
 # PDF-Export
 
@@ -257,6 +315,19 @@ def export_results_to_pdf(
         c.drawString(margin, y, f"Port-Bereich: {meta_ports}")
         y -= 8 * mm
 
+    # Risiko-Legende (Portscan)
+    c.setFont("Helvetica-Bold", 10)
+    c.drawString(margin, y, "Risikostufen (Portscan):")
+    y -= 5 * mm
+
+    c.setFont("Helvetica", 9)
+    c.drawString(margin + 5 * mm, y, "■ Critical  – stark angreifbare Dienste")
+    y -= 5 * mm
+    c.drawString(margin + 5 * mm, y, "▣ Mid       – typische Internet-/Mail-Dienste")
+    y -= 5 * mm
+    c.drawString(margin + 5 * mm, y, "□ Low       – sonstige offene Ports")
+    y -= 8 * mm
+
     # Tabellen-Header – an GUI angepasst
     c.setFont("Helvetica-Bold", 9)
     col_ip = margin
@@ -267,7 +338,7 @@ def export_results_to_pdf(
     c.drawString(col_ip, y, "IP-Adresse")
     c.drawString(col_host, y, "Hostname")
     c.drawString(col_ports, y, "Offene Ports")
-    c.drawString(col_comment, y, "Kommentar")   # statt 'Bemerkung'
+    c.drawString(col_comment, y, "Kommentar")
     y -= 4 * mm
     c.line(margin, y, width - margin, y)
     y -= 6 * mm
@@ -290,13 +361,13 @@ def export_results_to_pdf(
             y -= 6 * mm
             c.setFont("Helvetica", 8)
 
+        # open_ports kommt bereits dekoriert (z.B. '■ 22/tcp, ▣ 80/tcp')
         c.drawString(col_ip, y, r.ip)
         c.drawString(col_host, y, (r.hostname or "")[:20])
-        c.drawString(col_ports, y, (r.open_ports or "")[:25])
+        c.drawString(col_ports, y, (r.open_ports or "")[:45])
         c.drawString(col_comment, y, (r.comment or "")[:40])
         y -= line_height
 
     c.showPage()
     c.save()
     return output_path
-
