@@ -1,9 +1,14 @@
-#Erster Code der das Grundgerüst darstellte von Gio
-
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 
-# Farben – moderne, flache Optik
+from backend import (
+    run_network_scan,
+    run_port_scan,
+    export_results_to_pdf,
+    ScanResult,
+)
+
+# Farben, flache Optik
 BG_APP       = "#f3f4f6"   # Gesamt-Hintergrund
 BG_SIDEBAR   = "#111827"
 BG_HEADER    = "#ffffff"
@@ -21,17 +26,16 @@ class ZeroTraceGUI(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("Zero Trace - Netzwerkscanner")
-        self.geometry("1200x650")
-        self.minsize(1050, 600)
+        # Basis-Fenster
+        self.title("Zero Trace – Lokaler Sicherheits-Scanner (MVP)")
+        self.geometry("1100x650")
+        self.minsize(980, 580)
         self.configure(bg=BG_APP)
 
         self._init_style()
         self._build_layout()
 
-    # --------------------------------------------------
     # Styling
-    # --------------------------------------------------
     def _init_style(self):
         style = ttk.Style()
         style.theme_use("clam")
@@ -45,63 +49,23 @@ class ZeroTraceGUI(tk.Tk):
             font=("Segoe UI", 10),
         )
 
-        # Header
+        # Rahmen & Labels
         style.configure(
-            "HeaderTitle.TLabel",
-            background=BG_HEADER,
-            foreground=TEXT_DARK,
-            font=("Segoe UI Semibold", 18),
+            "TFrame",
+            background=BG_APP,
         )
         style.configure(
-            "HeaderSub.TLabel",
-            background=BG_HEADER,
-            foreground=TEXT_MUTED,
-            font=("Segoe UI", 9),
-        )
-
-        # Sidebar Labels
-        style.configure(
-            "SidebarTitle.TLabel",
-            background=BG_SIDEBAR,
-            foreground=TEXT_LIGHT,
-            font=("Segoe UI Semibold", 16),
-        )
-        style.configure(
-            "SidebarItemActive.TLabel",
-            background=BG_SIDEBAR,
-            foreground="#fef3c7",
-            font=("Segoe UI Semibold", 10),
-        )
-
-        # Statistik-Karten
-        style.configure(
-            "StatCard.TFrame",
+            "Card.TFrame",
             background=BG_CARD,
             relief="flat",
-            borderwidth=1,
         )
-        style.configure(
-            "StatNumber.TLabel",
-            background=BG_CARD,
-            foreground=ACCENT,
-            font=("Segoe UI Semibold", 22),
-        )
-        style.configure(
-            "StatLabel.TLabel",
-            background=BG_CARD,
-            foreground=TEXT_MUTED,
-            font=("Segoe UI", 10),
-        )
-
-        # Card-LabelFrames
         style.configure(
             "Card.TLabelframe",
             background=BG_CARD,
-            foreground=TEXT_MUTED,
+            relief="flat",
             borderwidth=1,
-            relief="solid",
             bordercolor=BORDER,
-            labeloutside=True,
+            padding=12,
         )
         style.configure(
             "Card.TLabelframe.Label",
@@ -134,73 +98,102 @@ class ZeroTraceGUI(tk.Tk):
         style.configure(
             "TCheckbutton",
             background=BG_CARD,
-            foreground=TEXT_MUTED,
+            foreground=TEXT_DARK,
             font=("Segoe UI", 9),
         )
 
-        # Buttons
+        # PrimärButton
         style.configure(
             "Primary.TButton",
             background=ACCENT,
             foreground="white",
-            padding=(16, 8),
             borderwidth=0,
-            focusthickness=0,
+            padding=(10, 6),
             font=("Segoe UI Semibold", 10),
         )
         style.map(
             "Primary.TButton",
-            background=[("active", "#1d4ed8"), ("pressed", "#1d4ed8")],
+            background=[
+                ("active", "#1d4ed8"),
+                ("disabled", "#9ca3af"),
+            ]
         )
 
+        # SekundärButton
         style.configure(
             "Secondary.TButton",
-            background=ACCENT_SOFT,
+            background=BG_CARD,
             foreground=ACCENT,
-            padding=(16, 8),
-            borderwidth=0,
-            focusthickness=0,
+            borderwidth=1,
+            padding=(10, 6),
             font=("Segoe UI", 10),
         )
         style.map(
             "Secondary.TButton",
-            background=[("active", "#bfdbfe"), ("pressed", "#bfdbfe")],
+            background=[("active", ACCENT_SOFT)],
+            foreground=[("disabled", "#9ca3af")],
+        )
+
+        # Sidebarr
+        style.configure(
+            "Sidebar.TLabel",
+            background=BG_SIDEBAR,
+            foreground=TEXT_MUTED,
+            font=("Segoe UI", 10),
+        )
+        style.configure(
+            "SidebarTitle.TLabel",
+            background=BG_SIDEBAR,
+            foreground=TEXT_LIGHT,
+            font=("Segoe UI Semibold", 14),
+        )
+        style.configure(
+            "SidebarItemActive.TLabel",
+            background=BG_SIDEBAR,
+            foreground=TEXT_LIGHT,
+            font=("Segoe UI", 10),
+        )
+
+        # Header
+        style.configure(
+            "HeaderTitle.TLabel",
+            background=BG_HEADER,
+            foreground=TEXT_DARK,
+            font=("Segoe UI Semibold", 18),
+        )
+        style.configure(
+            "HeaderSub.TLabel",
+            background=BG_HEADER,
+            foreground=TEXT_MUTED,
+            font=("Segoe UI", 9),
+        )
+
+        # Sidebar-Trenner
+        style.configure(
+            "Sidebar.TSeparator",
+            background="#374151",
         )
 
         # Treeview
         style.configure(
-            "Results.Treeview",
+            "Treeview",
             background="white",
             foreground=TEXT_DARK,
+            rowheight=24,
             fieldbackground="white",
             borderwidth=0,
-            rowheight=24,
             font=("Segoe UI", 9),
         )
         style.configure(
-            "Results.Treeview.Heading",
-            background=BG_APP,
+            "Treeview.Heading",
+            background="#f3f4f6",
             foreground=TEXT_MUTED,
-            borderwidth=0,
+            relief="flat",
             font=("Segoe UI Semibold", 9),
         )
         style.map(
-            "Results.Treeview",
-            background=[("selected", ACCENT_SOFT)],
-            foreground=[("selected", TEXT_DARK)],
-        )
-
-        # Scrollbar
-        style.configure(
-            "Modern.Vertical.TScrollbar",
-            gripcount=0,
-            background="#d1d5db",
-            darkcolor="#d1d5db",
-            lightcolor="#d1d5db",
-            troughcolor="#e5e7eb",
-            bordercolor="#e5e7eb",
-            arrowcolor=TEXT_MUTED,
-            relief="flat",
+            "Treeview.Heading",
+            background=[("active", "#e5e7eb")],
         )
 
         # Statusbar
@@ -211,9 +204,39 @@ class ZeroTraceGUI(tk.Tk):
             font=("Segoe UI", 9),
         )
 
-    # --------------------------------------------------
+        # Statistik-Karten
+        style.configure(
+            "StatCard.TFrame",
+            background=BG_CARD,
+            relief="flat",
+        )
+        style.configure(
+            "StatNumber.TLabel",
+            background=BG_CARD,
+            foreground=ACCENT,
+            font=("Segoe UI Semibold", 18),
+        )
+        style.configure(
+            "StatLabel.TLabel",
+            background=BG_CARD,
+            foreground=TEXT_MUTED,
+            font=("Segoe UI", 9),
+        )
+
+        # Scrollbar
+        style.configure(
+            "Modern.Vertical.TScrollbar",
+            gripcount=0,
+            background="#e5e7eb",
+            darkcolor="#e5e7eb",
+            lightcolor="#e5e7eb",
+            troughcolor="#f9fafb",
+            bordercolor="#f9fafb",
+            arrowcolor="#6b7280",
+        )
+
+
     # Layout
-    # --------------------------------------------------
     def _build_layout(self):
         root_frame = ttk.Frame(self, style="TFrame")
         root_frame.pack(fill="both", expand=True)
@@ -221,7 +244,7 @@ class ZeroTraceGUI(tk.Tk):
         root_frame.columnconfigure(1, weight=1)  # Main
         root_frame.rowconfigure(1, weight=1)
 
-        # ---------- Sidebar (nur Zero Trace + Dashboard) ----------
+        # Sidebar
         sidebar = tk.Frame(root_frame, bg=BG_SIDEBAR, width=210)
         sidebar.grid(row=0, column=0, rowspan=2, sticky="nsew")
         sidebar.grid_propagate(False)
@@ -237,50 +260,53 @@ class ZeroTraceGUI(tk.Tk):
             frame_dash, text="Dashboard", style="SidebarItemActive.TLabel"
         ).pack(side="left", padx=14, pady=4)
 
-        # ---------- Header ----------
-        header = tk.Frame(root_frame, bg=BG_HEADER, height=70, highlightthickness=0)
+        # Header
+        header = tk.Frame(root_frame, bg=BG_HEADER, height=64)
         header.grid(row=0, column=1, sticky="nsew")
         header.grid_propagate(False)
 
-        ttk.Label(header, text="Zero Trace", style="HeaderTitle.TLabel").place(
-            x=20, y=12
-        )
+        header_inner = ttk.Frame(header, style="TFrame")
+        header_inner.pack(fill="both", expand=True, padx=20, pady=10)
+        header_inner.columnconfigure(0, weight=1)
+        header_inner.columnconfigure(1, weight=0)
+
+        title_frame = ttk.Frame(header_inner, style="TFrame")
+        title_frame.grid(row=0, column=0, sticky="w")
         ttk.Label(
-            header,
-            text="Netzwerkscanner-Dashboard – reine GUI-Oberfläche.",
+            title_frame,
+            text="Zero Trace – Lokale Sicherheitsanalyse",
+            style="HeaderTitle.TLabel",
+        ).pack(anchor="w")
+        ttk.Label(
+            title_frame,
+            text="Führe lokale Port- und Netzwerkscans aus, ohne Daten an die Cloud zu senden.",
             style="HeaderSub.TLabel",
-        ).place(x=20, y=42)
+        ).pack(anchor="w", pady=(2, 0))
 
-        tk.Frame(header, bg=BORDER, height=1).pack(fill="x", side="bottom")
+        badge = ttk.Label(
+            header_inner,
+            text="MVP – Local Only",
+            style="HeaderSub.TLabel",
+            padding=(10, 4),
+        )
+        badge.configure(
+            background=ACCENT_SOFT,
+            foreground=ACCENT,
+        )
+        badge.grid(row=0, column=1, sticky="e")
 
-        # ---------- Content ----------
-        content = ttk.Frame(root_frame, padding=15)
-        content.grid(row=1, column=1, sticky="nsew")
-        content.columnconfigure(0, weight=1)
-        content.rowconfigure(1, weight=1)
-
-        # --- Statistik-Karten ---
-        stats_frame = ttk.Frame(content)
-        stats_frame.grid(row=0, column=0, sticky="ew", pady=(0, 10))
-        for i in range(3):
-            stats_frame.columnconfigure(i, weight=1)
-
-        self._add_stat_card(stats_frame, 0, "Hosts im Netzwerk", "3")
-        self._add_stat_card(stats_frame, 1, "Gefundene offene Ports", "7")
-        self._add_stat_card(stats_frame, 2, "Erstellte Reports", "0")
-
-        # --- Hauptbereich: links Konfiguration, rechts Tabelle ---
-        main_frame = ttk.Frame(content)
-        main_frame.grid(row=1, column=0, sticky="nsew")
+        # Main-Bereich
+        main_frame = ttk.Frame(root_frame, style="TFrame", padding=16)
+        main_frame.grid(row=1, column=1, sticky="nsew")
         main_frame.columnconfigure(0, weight=1)
-        main_frame.columnconfigure(1, weight=2)
-        main_frame.rowconfigure(0, weight=1)
+        main_frame.columnconfigure(1, weight=1)
+        main_frame.rowconfigure(1, weight=1)
 
-        # ---- Scan-Konfiguration (links) ----
+        # Konfiguration (links)
         config = ttk.LabelFrame(
             main_frame, text="Scan-Konfiguration", style="Card.TLabelframe", padding=12
         )
-        config.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        config.grid(row=0, column=0, sticky="nsew", padx=(0, 8), pady=(0, 8))
         config.columnconfigure(1, weight=1)
 
         ttk.Label(config, text="Netzwerk (CIDR):", style="Card.TLabel").grid(
@@ -314,7 +340,15 @@ class ZeroTraceGUI(tk.Tk):
             text="Ich bestätige, dass der Scan gemäss DSG (SR 235.1) erfolgt und berechtigt bin",
             variable=self.dsg_confirm,
             command=self._update_scan_button_state,
-        ).grid(row=3, column=0, columnspan=2, sticky="w", pady=(2, 10))
+        ).grid(row=3, column=0, columnspan=2, sticky="w", pady=(8, 4))
+
+        ttk.Label(
+            config,
+            text="Hinweis: Zero Trace führt alle Analysen ausschliesslich lokal aus.\n"
+                 "Es werden keine Scan-Daten an eine Cloud gesendet.",
+            style="Card.TLabel",
+            foreground=TEXT_MUTED,
+        ).grid(row=4, column=0, columnspan=2, sticky="w", pady=(2, 10))
 
         btn_frame = ttk.Frame(config)
         btn_frame.grid(row=4, column=0, columnspan=2, sticky="we", pady=(8, 0))
@@ -338,31 +372,30 @@ class ZeroTraceGUI(tk.Tk):
         )
         self.btn_pdf.grid(row=0, column=1, sticky="we", padx=(5, 0))
 
-        # ---- Scan-Ergebnisse (rechts) ----
+        # Scan-Ergebnisse (rechts)
         results = ttk.LabelFrame(
             main_frame, text="Scan-Ergebnisse", style="Card.TLabelframe", padding=8
         )
-        results.grid(row=0, column=1, sticky="nsew")
+        results.grid(row=1, column=0, columnspan=2, sticky="nsew", pady=(8, 0))
         results.columnconfigure(0, weight=1)
         results.rowconfigure(0, weight=1)
 
-        columns = ("ip", "host", "ports", "comment")
         self.tree = ttk.Treeview(
             results,
-            columns=columns,
+            columns=("ip", "hostname", "ports", "comment"),
             show="headings",
-            style="Results.Treeview",
+            style="Treeview",
+            selectmode="browse",
         )
-
         self.tree.heading("ip", text="IP-Adresse")
-        self.tree.heading("host", text="Hostname")
+        self.tree.heading("hostname", text="Hostname")
         self.tree.heading("ports", text="Offene Ports")
-        self.tree.heading("comment", text="Bemerkung")
+        self.tree.heading("comment", text="Kommentar")
 
-        self.tree.column("ip", width=120, anchor="center")
-        self.tree.column("host", width=150, anchor="w")
-        self.tree.column("ports", width=160, anchor="w")
-        self.tree.column("comment", width=220, anchor="w")
+        self.tree.column("ip", width=150, anchor="w")
+        self.tree.column("hostname", width=180, anchor="w")
+        self.tree.column("ports", width=200, anchor="w")
+        self.tree.column("comment", width=260, anchor="w")
 
         scroll = ttk.Scrollbar(
             results,
@@ -377,7 +410,7 @@ class ZeroTraceGUI(tk.Tk):
 
         self._add_example_rows()
 
-        # ---- Statusleiste ----
+        # Statusleiste
         status_frame = tk.Frame(self, bg=BG_STATUS, height=24)
         status_frame.pack(fill="x", side="bottom")
         self.status_var = tk.StringVar(
@@ -391,9 +424,8 @@ class ZeroTraceGUI(tk.Tk):
             padding=(10, 2),
         ).pack(fill="x")
 
-    # --------------------------------------------------
+
     # Hilfsfunktionen für GUI
-    # --------------------------------------------------
     def _add_stat_card(self, parent, column, label, number):
         card = ttk.Frame(parent, style="StatCard.TFrame", padding=12)
         card.grid(row=0, column=column, sticky="nsew", padx=4)
@@ -409,6 +441,19 @@ class ZeroTraceGUI(tk.Tk):
         for row in rows:
             self.tree.insert("", "end", values=row)
 
+
+    def _set_results(self, results: list[ScanResult]) -> None:
+        """Aktualisiert das Treeview mit neuen Scan-Ergebnissen."""
+        # bestehende Zeilen löschen
+        for item in self.tree.get_children():
+            self.tree.delete(item)
+
+        for r in results:
+            self.tree.insert(
+                "", "end",
+                values=(r.ip, r.hostname, r.open_ports, r.comment)
+            )
+
     def _update_scan_button_state(self):
         if self.dsg_confirm.get():
             self.btn_scan.configure(state="normal")
@@ -419,24 +464,90 @@ class ZeroTraceGUI(tk.Tk):
                 "Bitte bestätigen, dass der Scan gemäss DSG (SR 235.1) erfolgt."
             )
 
-    # --------------------------------------------------
     # Dummy-Aktionen (nur GUI, keine echte Logik)
-    # --------------------------------------------------
     def _dummy_scan(self):
-        self.status_var.set("Scan wurde ausgelöst (nur GUI, keine Funktion).")
-        messagebox.showinfo(
-            "Netzwerk scannen",
-            "Dies ist nur die Benutzeroberfläche.\n"
-            "Hier kannst du später deine eigene Scan-Logik einbauen.",
-        )
+        """Startet den Netzwerkscan über das Backend."""
+        network = self.entry_network.get().strip()
+        # Ports-Feld kann später für Portscans verwendet werden
+        ports = self.entry_ports.get().strip()
+
+        if not network:
+            messagebox.showwarning("Fehlende Eingabe", "Bitte ein Netzwerk (CIDR) angeben.")
+            return
+
+        if not self.dsg_confirm.get():
+            messagebox.showwarning(
+                "Bestätigung erforderlich",
+                "Bitte bestätigen, dass du zum Scan berechtigt bist.",
+            )
+            return
+
+        try:
+            self.status_var.set(f"Starte Netzwerkscan für {network} ...")
+            self.update_idletasks()
+
+            results = run_network_scan(network, only_up=self.only_active_var.get())
+            self._set_results(results)
+
+            self.status_var.set(
+                f"Netzwerkscan abgeschlossen ({len(results)} Host(s) gefunden)."
+            )
+
+        except Exception as exc:
+            self.status_var.set("Fehler beim Scan.")
+            messagebox.showerror("Fehler beim Scan", str(exc))
 
     def _dummy_pdf(self):
-        self.status_var.set("PDF-Export wurde ausgelöst (nur GUI, keine Funktion).")
-        messagebox.showinfo(
-            "PDF-Report",
-            "Dies ist nur die Benutzeroberfläche.\n"
-            "Hier kannst du später die PDF-Erstellung einbauen.",
+        """Exportiert die aktuellen Ergebnisse im Treeview als PDF."""
+
+        items = self.tree.get_children()
+        if not items:
+            messagebox.showinfo("Keine Daten", "Es sind keine Scan-Ergebnisse vorhanden.")
+            return
+
+        # Treeview-Daten in ScanResult-Objekte umwandeln
+        results: list[ScanResult] = []
+        for item_id in items:
+            ip, host, ports, comment = self.tree.item(item_id, "values")
+            results.append(
+                ScanResult(
+                    ip=str(ip),
+                    hostname=str(host),
+                    open_ports=str(ports),
+                    comment=str(comment),
+                )
+            )
+
+        file_path = filedialog.asksaveasfilename(
+            defaultextension=".pdf",
+            filetypes=[("PDF-Datei", "*.pdf")],
+            title="PDF-Report speichern unter ...",
         )
+        if not file_path:
+            return
+
+        try:
+            self.status_var.set("Erstelle PDF-Report ...")
+            self.update_idletasks()
+
+            from pathlib import Path
+
+            pdf_path = export_results_to_pdf(
+                results=results,
+                output_path=Path(file_path),
+                scan_type="network",  # aktuell: Netzwerkscan
+                meta_network=self.entry_network.get().strip(),
+                meta_ports=self.entry_ports.get().strip(),
+            )
+
+            self.status_var.set(f"PDF-Report gespeichert: {pdf_path}")
+            messagebox.showinfo(
+                "PDF erstellt", f"Report erfolgreich gespeichert:\n{pdf_path}"
+            )
+
+        except Exception as exc:
+            self.status_var.set("Fehler beim PDF-Export.")
+            messagebox.showerror("Fehler beim PDF-Export", str(exc))
 
 
 if __name__ == "__main__":
