@@ -20,10 +20,10 @@ Die Tests prüfen das gesamte System (GUI ↔ Backend ↔ Nmap ↔ PDF).
 
 Mit dieser Systemtest-Suite kann ZeroTrace vollständig bewertet werden:
 
-- technische Funktionalität  
-- Benutzerführung  
+- technische Funktionalität
+- Benutzerführung
 - Stabilität  
-- Datenschutzrelevante Mechanismen  
+- Datenschutzrelevante Mechanismen
 
 Sie ergänzt die Unit- und Integrationstests und bildet das „große Bild“ der Anwendung ab.
 
