@@ -198,11 +198,10 @@ def run_port_scan(target: str, ports: str) -> List[ScanResult]:
 
 # PDF-Export
 
-
 def export_results_to_pdf(
     results: List[ScanResult],
     output_path: Path,
-    scan_type: ScanType,
+    scan_type: str,
     meta_network: Optional[str] = None,
     meta_ports: Optional[str] = None,
 ) -> Path:
@@ -210,27 +209,35 @@ def export_results_to_pdf(
     Erstellt einen einfachen PDF-Report aus einer Liste von ScanResult.
 
     Args:
-     results: Die Daten, z.B. aus dem Treeview übernommen.
-     output_path: Ziel-Dateipfad (muss nicht existieren).
-    scan_type: "network" oder "port".
-     meta_network: Optionale Info (z.B. eingegebenes CIDR).
-      meta_ports: Optionale Info (z.B. eingegebener Portbereich).
+        results: Die Daten, z.B. aus dem Treeview übernommen.
+        output_path: Ziel-Dateipfad (muss nicht existieren).
+        scan_type: Text für den Scan-Typ (z.B. 'Netzwerkscan', 'Port-Scan', 'Benutzerdefinierter Scan').
+        meta_network: Optionale Info (z.B. eingegebenes CIDR).
+        meta_ports: Optionale Info (z.B. eingegebener Portbereich).
 
     Returns:
-     Der Pfad zur erzeugten PDF-Datei.
+        Der Pfad zur erzeugten PDF-Datei.
     """
-    from reportlab.lib.pagesizes import A4
-    from reportlab.lib.units import mm
-    from reportlab.pdfgen import canvas
+    try:
+        from reportlab.lib.pagesizes import A4
+        from reportlab.lib.units import mm
+        from reportlab.pdfgen import canvas
+    except ImportError as e:
+        # Schöne, verständliche Fehlermeldung
+        raise RuntimeError(
+            "Report-Export benötigt das Python-Paket 'reportlab'.\n\n"
+            "Bitte im Projekt-Umfeld installieren:\n"
+            "    python -m pip install reportlab"
+        ) from e
 
     output_path = output_path.with_suffix(".pdf")
     c = canvas.Canvas(str(output_path), pagesize=A4)
     width, height = A4
 
-    # Kopfbereich
     margin = 20 * mm
     y = height - margin
 
+    # Kopf
     c.setFont("Helvetica-Bold", 16)
     c.drawString(margin, y, "ZeroTrace Scan-Report")
     y -= 10 * mm
@@ -250,22 +257,22 @@ def export_results_to_pdf(
         c.drawString(margin, y, f"Port-Bereich: {meta_ports}")
         y -= 8 * mm
 
-    # Tabellen-Header
+    # Tabellen-Header – an GUI angepasst
     c.setFont("Helvetica-Bold", 9)
     col_ip = margin
     col_host = margin + 40 * mm
     col_ports = margin + 90 * mm
     col_comment = margin + 140 * mm
 
-    c.drawString(col_ip, y, "IP")
+    c.drawString(col_ip, y, "IP-Adresse")
     c.drawString(col_host, y, "Hostname")
     c.drawString(col_ports, y, "Offene Ports")
-    c.drawString(col_comment, y, "Bemerkung")
+    c.drawString(col_comment, y, "Kommentar")   # statt 'Bemerkung'
     y -= 4 * mm
     c.line(margin, y, width - margin, y)
     y -= 6 * mm
 
-    # Tabellen-Zeilen
+    # Zeilen
     c.setFont("Helvetica", 8)
     line_height = 5 * mm
 
@@ -274,21 +281,22 @@ def export_results_to_pdf(
             c.showPage()
             y = height - margin
             c.setFont("Helvetica-Bold", 9)
-            c.drawString(col_ip, y, "IP")
+            c.drawString(col_ip, y, "IP-Adresse")
             c.drawString(col_host, y, "Hostname")
             c.drawString(col_ports, y, "Offene Ports")
-            c.drawString(col_comment, y, "Bemerkung")
+            c.drawString(col_comment, y, "Kommentar")
             y -= 4 * mm
             c.line(margin, y, width - margin, y)
             y -= 6 * mm
             c.setFont("Helvetica", 8)
 
         c.drawString(col_ip, y, r.ip)
-        c.drawString(col_host, y, r.hostname[:20])
-        c.drawString(col_ports, y, r.open_ports[:25])
-        c.drawString(col_comment, y, r.comment[:30])
+        c.drawString(col_host, y, (r.hostname or "")[:20])
+        c.drawString(col_ports, y, (r.open_ports or "")[:25])
+        c.drawString(col_comment, y, (r.comment or "")[:40])
         y -= line_height
 
     c.showPage()
     c.save()
     return output_path
+
