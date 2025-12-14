@@ -1,3 +1,4 @@
+
 # Projektbericht Zero Trace
 
 ## Inhaltsverzeichnis
@@ -64,12 +65,20 @@ Daraus ergibt sich die zentrale Problemstellung:
 
 **Wie können wir als Gruppe ein schlankes und intuitiv bedienbares Tool entwickeln, welches regelmässig Lokale Schwachstellenanalysen im eigenen System ermöglicht und gleichzeitig den Zero-Trust Ansatz vermittelt.**
 
-d
+Um diese Problemstellung schritt für schritt zu erarbeiten gilt es ein MVP (Minimal Viable Product) zu erstellen. Es soll eine stabile Grundlage entstehen welche für eine spätere Erweiterung vorbereitet ist, ohne bereite in den ersten Versionen ein überdimensioniertes Systsem zu bauen.
 ---
 
 # 1.2 Zielsetzung
 
-(Platzhalter – noch zu ergänzen)
+Das übergeordnete Ziel dieser Transferarbeit ist die Entwicklung eines Minimal Viable Product (MVP) des Tools „Zero Trace". Der MVP soll im Rahmen der verfügbaren Zeit und Ressourcen so weit wie möglich umgesetzt werden. Dabei liegt der Fokus auf den zentralen Funktionen und einer nachvollziehbaren technischen Umsetzung. Der Prototyp muss zum Abschluss dieser Arbeit nicht zwingend vollständig produktiv sein, sondern gewisse Interaktionen im GUI ermöglichen. Zudem soll und die Gruppentrandferarbeit aufzeigen wie eine gemeinsame realisierung eines Software Projekts aussehen kann und welche Hindernisse und Schwierigkeiten damit verbunden sind.
+
+Konkret verfolgen wir in dieser Arbeit folgende Zielsetzungen:
+
+- Kernfunktionen umsetzen: Aufbau eines schlanken Schwachstellen-Scanner-Prototyps, der lokale Scans in einem definierten, authoristierten Umfang anstossen und erhoffte Ergebnisse erfassen kann.
+- Zero-Trust: Durch regelmässige und nachvollziehbare Prüfschritte sowie Aufbereitung der Resultate, sollen alle Beteiligten den IST-Zustand Ihres IT-Systems kennen.
+- Adressatengerechte Reports: Auf Basis der durchgeführten Scanns sollen Handlungsempfehlungen abgeleitet und in zwei Report-Ansichten (technisch und Management) verfasst und dargestellt werden.
+- Architekturentscheidungen dokumentieren: Gemeinsame Evaluierung der Umsetzungsvarianten und fortlaufende Begründung der getroffenen Entscheidungen.
+- 
 
 ---
 

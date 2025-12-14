@@ -16,7 +16,7 @@ Wir orientieren uns stark am DSVGO und wollen uns vor allem im Bereich schützen
 Es soll für Techniker und Management gleich einfach sein zu bedienen, auch die Reports sollen in zwei entsprehcneden Versionen bereitgestellt werden.
 
 ### MVP
-Für den MVP werden wir ein GUI erstellen und uns forerst auf den Scan des Netzwerks fokusieren.
+Für den MVP werden wir ein GUI erstellen und uns vorerst auf den Scan des Netzwerks fokusieren.
 Das ganze soll stark Skalierbar sein und ständig erweitert werden können.
 
 ### Wichtigste Rahmenbedinungen 
