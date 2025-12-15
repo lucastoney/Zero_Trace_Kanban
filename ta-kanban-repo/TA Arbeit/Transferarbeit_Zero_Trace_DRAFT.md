@@ -47,7 +47,7 @@ Im Modul «Software- und Plattform-Architektur» wurden verschiedene Projektpitc
 abgestimmt, welche Projekte weiterverfolgt werden. Unsere Transferarbeit basiert auf dem Pitch von Manuel und Yves.
 Diese präsentierten die Idee eines leicht bedienbaren, modernen Schwachstellen-Scanners, der nach Abschluss eines Scans
 zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll
-sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten(Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo akuter Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren.
+sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten(Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo akuter Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. (vgl. ADR-0001)
 
 Der Pitch überzeugte die Klasse durch seine hohe Praxisrelevanz, den Bezug zu aktuellen Sicherheitsthemen und die Anforderungen moderner Datenschutzgesetze wie der DSGVO, die seit dem 25. Mai 2018 gilt, sowie dem revidierten Schweizer Datenschutzgesetz, das am 1. September 2023 in Kraft trat, insbesondere vor dem Hintergrund immer komplexerer und stärker vernetzter IT-Systeme.
 
@@ -57,28 +57,27 @@ Trotz der Verfügbarkeit von Tools wie Nmap fehlen vielen Organisationen ein Wer
 
 - Lokale Scans ohne Expertenwissen ermöglicht  
 - Ein verständliches GUI bietet  
-- Strukturierte technische und nicht-technische Reports daraus erzeugen kann  
+- Strukturierte technische und nicht-technische Reports daraus erzeugen kann (vgl. ADR-0005)
 
-Schwachstellen-Scanner existieren zwar sind jedoch oft komplex oder überdimensioniert. Für eine grundlegende Sicherheitsanalyse im KMU-Umfeld fehlen einfache und schlanke Lösungen.
+Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet.
 
-Daraus ergibt sich die zentrale Problemstellung:
+Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
-**Wie können wir als Gruppe ein schlankes und intuitiv bedienbares Tool entwickeln, welches regelmässig Lokale Schwachstellenanalysen im eigenen System ermöglicht und gleichzeitig den Zero-Trust Ansatz vermittelt.**
+**Wie können wir als Gruppe ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** (vgl. ADR-0004)
 
-Um diese Problemstellung schritt für schritt zu erarbeiten gilt es ein MVP (Minimal Viable Product) zu erstellen. Es soll eine stabile Grundlage entstehen welche für eine spätere Erweiterung vorbereitet ist, ohne bereite in den ersten Versionen ein überdimensioniertes Systsem zu bauen.
+Um diese Problemstellung schrittweise zu bearbeiten, soll ein MVP (Minimal Viable Product) erstellt werden. Ziel ist eine stabile Grundlage, die spätere Erweiterungen ermöglicht, ohne bereits in den ersten Versionen ein überdimensioniertes System zu bauen.
+
 ---
 
 # 1.2 Zielsetzung
 
-Das übergeordnete Ziel dieser Transferarbeit ist die Entwicklung eines Minimal Viable Product (MVP) des Tools „Zero Trace". Der MVP soll im Rahmen der verfügbaren Zeit und Ressourcen so weit wie möglich umgesetzt werden. Dabei liegt der Fokus auf den zentralen Funktionen und einer nachvollziehbaren technischen Umsetzung. Der Prototyp muss zum Abschluss dieser Arbeit nicht zwingend vollständig produktiv sein, sondern gewisse Interaktionen im GUI ermöglichen. Zudem soll und die Gruppentrandferarbeit aufzeigen wie eine gemeinsame realisierung eines Software Projekts aussehen kann und welche Hindernisse und Schwierigkeiten damit verbunden sind.
+Das übergeordnete Ziel dieser Transferarbeit ist die Entwicklung eines Minimal Viable Product (MVP) des Tools „Zero Trace". Der MVP soll innerhalb der verfügbaren Zeit und Ressourcen so weit wie umgesetzt werden, dass die wichtigsten Funktionen eines lokal laufenden Schwachstellen-Scanners verständlich gezeigt werden können. Im Vordergrund steht dabei nicht eine komplett fertige Software, sondern der Nachweis, dass das Konzept grundsätzlich funktioniert, sowie eine saubere technische Umsetzung mit klarer Verfolgbarkeit zum jetzigen IST-Zustand. Der Prototyp soll über ein GUI bedienbar sein und die wichtigsten Funktionen abdecken: Scan starten, Scanstatus anzeigen und Ergebnisse darstellen.
 
-Konkret verfolgen wir in dieser Arbeit folgende Zielsetzungen:
+Inhaltlich konzentriert sich der MVP auf die wichtigsten Funktionen:
 
-- Kernfunktionen umsetzen: Aufbau eines schlanken Schwachstellen-Scanner-Prototyps, der lokale Scans in einem definierten, authoristierten Umfang anstossen und erhoffte Ergebnisse erfassen kann.
-- Zero-Trust: Durch regelmässige und nachvollziehbare Prüfschritte sowie Aufbereitung der Resultate, sollen alle Beteiligten den IST-Zustand Ihres IT-Systems kennen.
-- Adressatengerechte Reports: Auf Basis der durchgeführten Scanns sollen Handlungsempfehlungen abgeleitet und in zwei Report-Ansichten (technisch und Management) verfasst und dargestellt werden.
-- Architekturentscheidungen dokumentieren: Gemeinsame Evaluierung der Umsetzungsvarianten und fortlaufende Begründung der getroffenen Entscheidungen.
-- 
+Lokale Scans sollen in einem klar definierten und berechtigten Rahmen möglich sein und die Ergebnisse sollen strukturiert erfasst werden. Im Sinne des Zero-Trust-Gedankens werden die Resultate so aufbereitet, dass der aktuelle Zustand der Netzwerkumgebung regelmässig und nachvollziehbar überprüft werden kann. Zusätzlich sollen die Scanresultate passend für verschiedene Zielgruppen dargestellt werden, nämlich als technische Sicht für IT-Fachpersonen und als Managementsicht zur Priorisierung von Risiken und Massnahmen. Für den MVP wird die Einordnung der Ergebnisse bewusst vereinfacht, indem offene Ports anhand einer definierten Portliste in Risikostufen (Low,Mid,High) klassifiziert werden, damit Resultate konsistent dargestellt und verglichen werden können.
+
+Gleichzeitig werden die wichtigsten Architekturentscheidungen mittels ADRs dokumentiert. Auch die dazugehörigen Diskussionen und Abwägungen, die sich im Unterricht ergeben haben werden darin festgehalten. Dadurch bleibt die Umsetzung begründet und der MVP kann später sinvoll erweitert werden.
 
 ---
 
