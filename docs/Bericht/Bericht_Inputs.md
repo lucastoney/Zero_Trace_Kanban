@@ -2,7 +2,7 @@
 
 ## Was lief alles nicht gut (wo liegt Verbesserungsportential)
 
-- Fehlende Software Kenntnise im Team (Applikaitons Entwikler)
+- Fehlende Software Kenntnisse im Team (Applikaitons Entwikler)
 Begründung: Auf grund des fehlenden Know Hows eines Applikationer, mussten viele Teile des Codes mit hilfe fremder Personen und KI erstellt werden.
 Verbesserung: Nicht auf unserer Stufe, es müsste mind eine Person mit Grundkenntnissen der SW Architektur und Prog. Sprachen im Team sein. 
 
@@ -17,10 +17,21 @@ dass hat man bei unserer Gruppe schön gesehen, das ausmass an gezwungenen Anpas
 Begründung: Wir sind das ganze wie ein echtes Projekt angegenagen, haben Struktur aufgebaut, rollen zugeteilt und hatten den scope auf das
 Projektende geleget, was wir erwarten erfüllt zu haben und auch unsere Ziele entsprechend definiert. 
 Das ganze wurde im nachhinein als "nicht erwünscht" deklariert, das ganze im Nachhinein anzupassen war extrem Zeitaufwändig und anstrengend. 
-Verbesserung: Beim Start eines 
+Verbesserung: Beim Start eines Projektes, welches nahezu keine Rahmenbedingungen hat eine Zusammenfassung des Ziels erstellen und Rollen, Stakeholder etc definieren
+und Absegnen lassen. Sich nur auf Versionsverläufe Stützen ohne gross strukturierte anderwertige Dokumentation. 
 
 
-
+- Klarer nach Auftrag handeln sich weniger beirren lassen
+Begründung: Wenn wir uns für einen Weg entschiden haben, wurden wir meist davon weggezogen und in eine andere richtung gelenkt, auch haben wir uns in den Pausen beeinflussen lassen. 
+Verbesserung: Durch klare Absprache und angepasste definitionen welche abgenommen werden, an der Struktur festhalten und nicht ständig alles über den Haufen werfen.
 
 
 ## Was lief alles gut
+
+- Die Rollenverteilung 
+Begründung: Rollen und Aufträge wurden anhand Interesse vergeben und wurden meist sehr zuverlässig und sauber ausgeführt.
+- Kanban oder Verwaltungstool ist sinvoll, aber nicht in GIT die dortige Übersicht ist katastrophal. Zukünfitge go to's Notion oder Jira.
+
+
+
+
