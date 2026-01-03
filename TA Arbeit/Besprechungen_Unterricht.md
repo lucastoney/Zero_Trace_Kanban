@@ -69,7 +69,7 @@
 - Statt der ursprünglichen Tool-Auswahl wird GitHub + PyCharm fix für die Versionsverwaltung genutzt.  
 
 **Entscheide:**   
-- ADRs werden ab jetzt laufend ergänzt, sobald wir etwas fix entscheiden.  
+- ADRs werden ab jetzt laufend ergänzt, sobald wir etwas fix entscheiden und anschliessend gemeinsam kurz besprochen.  
 - Scans nur in erlaubten Umgebungen; im Report keine sensiblen Daten speichern.  
 - GitHub und PyCharm sind ab jetzt Standard (Versionsverwaltung über GitHub und PyCharm statt der vorher definierten Tool-Auswahl).
 - OneNote Projektorganisation wird in GitHub nun als Kanban geführt.
@@ -78,37 +78,69 @@
 
 ## 2025-11-26 (Mi)
 **Themen:**  
-- 
+- Feedback zur Ordnerstruktur (zu komplex).  
+- Ordnerstruktur überarbeiten und vereinfachen.  
+- Crashkurs in PyCharm: Git-Workflow und wichtige Funktionen (Commit, Push, Pull, Branches, Konflikte).  
+- Abgleich, wie wir künftig gemeinsam sauber mit GitHub arbeiten (Regeln/Best Practices).
+- Weiterführung und Überarbeitung der ADRs, inkl. kurzer Abstimmung zu den Fortschritten, damit alle auf dem gleichen Stand sind und vom Gleichen sprechen.
 
 **Wichtigste Punkte:**  
-- 
+- Die aktuelle Ordnerstruktur wurde als zu kompliziert bewertet und muss einfacher werden.  
+- Ziel: weniger Unterordner, klare Trennung zwischen Code und Doku, gutes Naming.  (bspw. ADR_0000)
+- Alle konnten im Crashkurs die wichtigsten Schritte im Git-Workflow üben (Commit → Push → Pull).  
+- Einheitliches Vorgehen wurde wichtiger, damit niemand „am Repo vorbei“ arbeitet.  
 
 **Entscheide:**  
-- 
+- Ordnerstruktur wird reduziert und vereinfacht (weniger Ebenen, klarere Benennung).  
+- PyCharm wird als Standard-Tool für Git genutzt (Commit/Push direkt aus PyCharm).  
+- Ab jetzt gilt: kleine, saubere Commits mit kurzen Commit-Messages statt seltene „Riesen-Commits“.  
+- Änderungen an Struktur/Naming werden dokumentiert (kurzer Hinweis in README oder ADR, falls nötig). 
 
 ---
 
 ## 2025-12-03 (Mi)
 **Themen:**  
-- 
+- Review der neuen Ordnerstruktur (passt sie jetzt / letzte Anpassungen) – nicht mehr zu viel Zeit mit der Struktur verschwenden.  
+- Stand der Teilaufgaben: Nmap/Python, DSGVO, Context Map/BPMN, GUI/PDF, ADRs.  
+- Kurze Präsentation des bisherigen Stands und Feedback aus der Klasse.  
+- Fokuswechsel: zuerst GUI erstellen, damit man den MVP besser zeigen kann.  
+- Risikobewertung: wie sollen die Ports eingestuft werden (z. B. Low/Medium/High) und wie kommt das ins PDF.  
+- Report/PDF: Inhalt und Layout grob festlegen (was muss rein, was ist „nice to have“).  
+- Nächste Schritte und Zeitplan bis Weihnachten klären.  
 
 **Wichtigste Punkte:**  
-- 
+- Die vereinfachte Struktur wurde nochmals kurz geprüft und bei Bedarf minimal angepasst.  
+- Erste Resultate aus Nmap konnten gelesen/weiterverarbeitet werden (Beispieldaten).  
+- Klarheit, welche Infos im Report stehen sollen.  
+- Wichtiges Feedback: Backend ist zwar da, aber ohne GUI wirkt es bei einer Demo wenig greifbar → GUI hat Priorität, somit von GUI zu Backend.  
 
-**Entscheide:**  
-- 
+**Entscheide:**   
+- GUI wird priorisiert, damit der MVP visuell präsentiert werden kann (Backend wird dafür so weit wie möglich angebunden).  
+- Risikostufen werden einfach gehalten und im GUI mit Rot (High), Gelb (Medium), Grün (Low) dargestellt.  
+- PDF bekommt eine klare Mindeststruktur (Titel, Ziel, Zusammenfassung, Findings, Empfehlungen).  
+- Jeder aktualisiert seinen Teil im Repo bis zur nächsten Sitzung (damit alles zusammengeführt werden kann).
 
 ---
 
 ## 2025-12-10 (Mi)
 **Themen:**  
-- 
+- Zwischenstand GUI: erste klickbare Oberfläche (Eingaben, Buttons, Navigation).  
+- Risikodarstellung in der Ergebnisliste umsetzen (Critical/Mid/Low). Gemeinsame Einstufung der Riskien gemäss Recherche.  
+- Backend-Anbindung an die GUI (mindestens „Scan starten“ löst etwas aus).  
+- Nmap: Resultate so aufbereiten, dass sie im GUI angezeigt werden können.   
+- Kurzer Check ADRs/DSGVO: stimmen die wichtigsten Punkte / fehlt etwas? 
 
 **Wichtigste Punkte:**  
-- 
+- GUI ist jetzt der Hauptfokus und soll bei einer Demo sauber wirken. 
+- Erste Scan-Resultate können im GUI angezeigt werden (mindestens mit Beispieldaten, ideal mit echtem Scan, jedoch nur bewilligt).  
+- Es hat sich gezeigt, dass die gewünschte **farbliche Markierung einzelner Ports** in Python/der gewählten Darstellung so nicht sauber möglich ist (entweder alle Ports bekommen eine Farbe oder keine, aber nicht einzeln pro Port wie geplant).  
+- Daher wurde die Darstellung angepasst: statt Rot/Gelb/Grün pro Port nutzen wir **Risikostufen-Symbole** (wie im GUI dargestellt) für Critical/Mid/Low.   
 
-**Entscheide:**  
-- 
+**Entscheide:**
+- Für die Risikoanzeige werden **Symbole** verwendet (Critical/Mid/Low), nicht die farbliche Markierung einzelner Ports.  
+- Für die nächste Demo gilt: lieber ein stabiler Ablauf mit weniger Features als viele halbfertige Funktionen.  
+- Minimum bis 17.12: GUI → Scan starten → Resultate anzeigen → PDF erstellen (auch wenn simpel).  
+- Ergebnisanzeige wird standardisiert (IP, Hostname, offene Ports, Risikostufe, Kommentar).
 
 ---
 
