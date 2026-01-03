@@ -17,7 +17,7 @@ Es dürfen hier bereits Fragen formuliert werden, die später in der Diskussion 
 
 ### **Kommentar**
 Beispiele:
-- Entwicklung eines funktionsfähigen Prototyps eines Lizenzverwaltungstools
+- Entwicklung eines funktionsfähigen Prototyps 
 -	Aufbau eines Zero-Trust-fähigen Schwachstellenscanner-MVPs
 -	Evaluierung verschiedener Technologie-Varianten
 -	Validierung der Machbarkeit
