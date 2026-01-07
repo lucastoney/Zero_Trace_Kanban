@@ -9,3 +9,9 @@ und offen für Wandel bleiben.
 ### Wie bringen wir das in die Arbeit ein?
 - Wir gehen darauf ein, dass wir die Kommunikation zwischen Technischer Supporter und Management
 stark verbessern wollen.
+  - Das erreichen wir durch den Print out zweier PDF Variationen, eine Technische mit den nötigen Infos stark Fachspezifisch
+    ebenfalls eine fürs Management, mit stark vereinfachten Aussagen und Informationen um verständniss der Sicherheit und deren Lücken zu schaffen. 
+- Ausserdem werden wir die Kommunikations Schwierigkeiten erklären Teamintern und wie wir diese gelöst haben.
+- Kom. Probleme mit dem Technischen Lead (Fabian) *(Fachlicher Vorgesetzter)* (Dozent) 
+
+
