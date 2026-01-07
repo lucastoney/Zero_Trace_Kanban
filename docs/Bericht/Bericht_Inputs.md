@@ -1,4 +1,4 @@
-# Zusammenfassung fortlaufend, was in den Bericht einfliessen soll
+ # Zusammenfassung fortlaufend, was in den Bericht einfliessen soll
 
 ## Was lief alles nicht gut (wo liegt Verbesserungsportential)
 
