@@ -83,9 +83,100 @@ Gleichzeitig werden die wichtigsten Architekturentscheidungen mittels ADRs dokum
 
 # 2 Vorgehen
 
-(Platzhalter – noch zu ergänzen)
+Die Umsetzung des Projekts erfolgte in mehreren strukturierten Schritten, um eine nachvollziehbare und methodische Entwicklung des MVP **„Zero Trace“** sicherzustellen. Im Folgenden wird beschrieben, welche Werkzeuge, Konzepte und Vorgehensweisen angewendet wurden.
 
----
+### 2.1 Eingesetzte Tools, Frameworks und Konzepte
+
+Für die Entwicklung des Prototyps wurden folgende Technologien und Konzepte verwendet:
+
+- **Programmiersprache:**  
+  Python, aufgrund der breiten Unterstützung für Netzwerk-Scanning und GUI-Entwicklung.
+
+- **Frameworks und Libraries:**  
+  - Tkinter für die Erstellung eines einfachen grafischen Benutzerinterfaces (GUI).  
+  - Socket und Nmap-Python-Bindings für die Durchführung von Port-Scans.
+
+- **Versionsverwaltung:**  
+  GitHub zur kollaborativen Entwicklung und zur Nachverfolgbarkeit von Änderungen.
+
+- **Projektmanagement:**  
+  Agile Ansätze mit iterativen Sprints, um den MVP schrittweise zu erweitern.
+
+- **Architekturprinzipien:**  
+  Orientierung am Zero-Trust-Modell („Never Trust, Always Verify“) sowie Modularität für spätere Erweiterungen.
+
+### 2.2 Architekturentscheidungen
+
+Die Architektur wurde bewusst schlank gehalten, um den MVP innerhalb der gegebenen Zeit umsetzbar zu machen:
+
+- **Client-seitige Anwendung:**  
+  Der Scanner läuft lokal auf dem autorisierten System, um Datenschutz- und Sicherheitsanforderungen zu erfüllen.
+
+- **Modularer Aufbau:**  
+  Trennung von Scan-Logik, GUI und Reporting, um spätere Anpassungen zu erleichtern.
+
+- **Reporting-Konzept:**  
+  Zwei Ausgabemodi – ein technischer Bericht für IT-Spezialisten und ein vereinfachter Management-Report.
+
+- **ADR-Dokumentation:**  
+  Alle Architekturentscheidungen wurden in Architecture Decision Records (ADRs) festgehalten (z. B. ADR-0001 bis ADR-0005).
+
+### 2.3 Variantenvergleich (A/B-Vergleich)
+
+Zu Beginn wurden verschiedene Ansätze für die GUI und die Scan-Engine verglichen:
+
+- **GUI:**  
+  Entscheidung zwischen Tkinter und PyQt. Aufgrund der geringeren Komplexität und der schnelleren Umsetzung fiel die Wahl auf Tkinter.
+
+- **Scan-Engine:**  
+  Vergleich zwischen direkter Socket-Programmierung und der Nutzung von Nmap-Bindings. Für den MVP wurde die Socket-Variante gewählt, um die Abhängigkeit von externen Tools zu minimieren.
+
+### 2.4 Iterative Prototypenentwicklung
+
+Die Entwicklung erfolgte in mehreren Iterationen:
+
+1. **Iteration 1:** Implementierung der Kernfunktionalität (Port-Scan über eine definierte Portliste).  
+2. **Iteration 2:** Aufbau einer einfachen GUI zur Steuerung des Scans.  
+3. **Iteration 3:** Generierung von strukturierten Reports (technisch und Management).
+
+Jede Iteration wurde nach Fertigstellung getestet und dokumentiert, bevor die nächste begann.
+
+### 2.5 Herausforderungen
+
+Während der Umsetzung traten folgende Herausforderungen auf:
+
+- **GUI-Integration:**  
+  Die Synchronisation zwischen Scan-Prozess und GUI-Statusanzeige erforderte zusätzliche Logik.
+
+- **Performance:**  
+  Optimierung der Scan-Geschwindigkeit bei größeren Portlisten.
+
+- **Risikoklassifizierung:**  
+  Definition einer konsistenten Port-Risikostufe (Low, Mid, High) für den Management-Report.
+
+### 2.6 Testmethoden
+
+Die Tests wurden manuell durchgeführt:
+
+- **Funktionstests:**  
+  Überprüfung der Scan-Funktionalität auf verschiedenen Testsystemen.
+
+- **GUI-Tests:**  
+  Sicherstellung der korrekten Anzeige von Scanstatus und Ergebnissen.
+
+- **Report-Validierung:**  
+  Kontrolle der strukturierten Ausgabe für beide Zielgruppen.
+
+### 2.7 Dokumentation
+
+Die gesamte Umsetzung wurde kontinuierlich dokumentiert:
+
+- **ADRs:** Architekturentscheidungen und deren Begründungen.  
+- **GitHub-Repository:** Versionshistorie und Code-Dokumentation.  
+- **Protokolle:** Besprechungen und Entscheidungen im Projektteam.  
+
+**Transferbericht:** Zusammenfassung des Vorgehens und der angewandten Methoden.
+
 
 # 3 Ergebnisse
 
