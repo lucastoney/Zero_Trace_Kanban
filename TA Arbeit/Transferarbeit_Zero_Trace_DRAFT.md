@@ -43,13 +43,13 @@ Belpstrasse 37
 
 ## 1.1 Ausgangslage und Problemstellung
 
-Im Modul «Software- und Plattform-Architektur» wurden verschiedene Projektpitches vorgestellt und anschliessend darüber 
-abgestimmt, welche Projekte weiterverfolgt werden. Unsere Transferarbeit basiert auf dem Pitch von Manuel und Yves.
-Diese präsentierten die Idee eines leicht bedienbaren, modernen Schwachstellen-Scanners, der nach Abschluss eines Scans
-zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll
-sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten(Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo akuter Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. (vgl. ADR-0001)
+Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
 
-Der Pitch überzeugte die Klasse durch seine hohe Praxisrelevanz, den Bezug zu aktuellen Sicherheitsthemen und die Anforderungen moderner Datenschutzgesetze wie der DSGVO, die seit dem 25. Mai 2018 gilt, sowie dem revidierten Schweizer Datenschutzgesetz, das am 1. September 2023 in Kraft trat, insbesondere vor dem Hintergrund immer komplexerer und stärker vernetzter IT-Systeme.
+Die von uns gewählte Transferarbeit basiert auf dem Pitch von Manuel und Yves.
+Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerk Schwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll
+sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
+
+Der Pitch überzeugte die Klasse, weil er sehr praxisnah ist und aktuelle Sicherheitsthemen aufgreift. Zudem berücksichtigt er immer wichtiger werdende Datenschutzgesetze wie die DSGVO (seit 25. Mai 2018) und das revidierte Schweizer Datenschutzgesetz (seit 1. September 2023), insbesondere vor dem Hintergrund stetig wachsender Komplexität und Vernetzung unserer IT-Systeme.
 
 Zudem sahen wir einen grossen Mehrwert unser Wissen in diesem Fachgebiet zu erweitern. Im Sinne des Zero-Trust-Modells «Never Trust, Always Verify» sehen wir es als notwendig an, IT-Infrastrukturen regelmässig und nachvollziehbar zu überprüfen, damit Sicherheitsrisiken frühzeitig erkannt und adressiert werden können.
 
@@ -57,13 +57,13 @@ Trotz der Verfügbarkeit von Tools wie Nmap fehlen vielen Organisationen ein Wer
 
 - Lokale Scans ohne Expertenwissen ermöglicht  
 - Ein verständliches GUI bietet  
-- Strukturierte technische und nicht-technische Reports daraus erzeugen kann (vgl. ADR-0005)
+- Strukturierte technische und nicht-technische Reports daraus erzeugen kann 
 
 Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet.
 
 Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
-**Wie können wir als Gruppe ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** (vgl. ADR-0004)
+**Wie können wir als Gruppe ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** 
 
 Um diese Problemstellung schrittweise zu bearbeiten, soll ein MVP (Minimal Viable Product) erstellt werden. Ziel ist eine stabile Grundlage, die spätere Erweiterungen ermöglicht, ohne bereits in den ersten Versionen ein überdimensioniertes System zu bauen.
 
