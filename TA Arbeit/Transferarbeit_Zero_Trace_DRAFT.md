@@ -46,8 +46,7 @@ Belpstrasse 37
 Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
 
 Die von uns gewählte Transferarbeit basiert auf dem Pitch von Manuel und Yves.
-Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerk Schwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll
-sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
+Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerk Schwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
 
 Der Pitch überzeugte die Klasse, weil er sehr praxisnah ist und aktuelle Sicherheitsthemen aufgreift. Zudem berücksichtigt er immer wichtiger werdende Datenschutzgesetze wie die DSGVO (seit 25. Mai 2018) und das revidierte Schweizer Datenschutzgesetz (seit 1. September 2023), insbesondere vor dem Hintergrund stetig wachsender Komplexität und Vernetzung unserer IT-Systeme.
 
@@ -63,9 +62,12 @@ Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teu
 
 Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
-**Wie können wir als Gruppe ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** 
+**Wie können wir als Gruppe mit geringen Vorkenntnissen, ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** 
 
-Um diese Problemstellung schrittweise zu bearbeiten, soll ein MVP (Minimal Viable Product) erstellt werden. Ziel ist eine stabile Grundlage, die spätere Erweiterungen ermöglicht, ohne bereits in den ersten Versionen ein überdimensioniertes System zu bauen.
+Um diese Problemstellung schrittweise zu bearbeiten, soll ein MVP (Minimal Viable Product) erstellt werden. Ziel ist die Entwicklung einer Grundlage, die spätere Erweiterungen ermöglicht, ohne bereits in den ersten Versionen ein überdimensioniertes System zu bauen.
+
+Eine weitere Herausforderung und Frage die sich uns stellte ist, wie organisieren wir uns, wer hat wo seine Stärken und Interessen? Zudem wie Konsolidieren wir unser wissen, damit jeder das selbe Verständnis über das Projekt verfügt trotz Arbeitsaufteilung?
+
 
 ---
 
