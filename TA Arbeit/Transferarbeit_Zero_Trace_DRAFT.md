@@ -55,10 +55,10 @@ Zudem sahen wir einen grossen Mehrwert unser Wissen in diesem Fachgebiet zu erwe
 Trotz der Verfügbarkeit von Tools wie Nmap fehlen vielen Organisationen ein Werkzeug, dass:
 
 - Lokale Scans ohne Expertenwissen ermöglicht  
-- Ein verständliches GUI bietet  
+- Eine verständliche Benutzeroberfläche (GUI) bietet  
 - Strukturierte technische und nicht-technische Reports daraus erzeugen kann 
 
-Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet.
+Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teuer, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet.
 
 Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
@@ -73,7 +73,7 @@ Eine weitere Herausforderung und Frage die sich uns stellte ist, wie organisiere
 
 # 1.2 Zielsetzung
 
-Das übergeordnete Ziel dieser Transferarbeit ist die Entwicklung eines Minimal Viable Product (MVP) des Tools „Zero Trace". Der MVP soll innerhalb der verfügbaren Zeit und Ressourcen so weit wie umgesetzt werden, dass die wichtigsten Funktionen eines lokal laufenden Schwachstellen-Scanners verständlich gezeigt werden können. Im Vordergrund steht dabei nicht eine komplett fertige Software, sondern der Nachweis, dass das Konzept grundsätzlich funktioniert, sowie eine saubere technische Umsetzung mit klarer Verfolgbarkeit zum jetzigen IST-Zustand. Der Prototyp soll über ein GUI bedienbar sein und die wichtigsten Funktionen abdecken: Scan starten, Scanstatus anzeigen und Ergebnisse darstellen.
+Das übergeordnete Ziel dieser Transferarbeit ist die Entwicklung eines Minimal Viable Product (MVP) des Tools „Zero Trace". Der MVP soll innerhalb der verfügbaren Zeit und Ressourcen so weit umgesetzt werden, dass die wichtigsten Funktionen eines lokal laufenden Schwachstellen-Scanners verständlich gezeigt werden können. Im Vordergrund steht dabei nicht eine komplett fertige Software, sondern der Nachweis, dass das Konzept grundsätzlich funktioniert, sowie eine saubere technische Umsetzung mit klarer Verfolgbarkeit zum jetzigen IST-Zustand. Der Prototyp soll über ein GUI bedienbar sein und die wichtigsten Funktionen abdecken: Scan starten, Scanstatus anzeigen und Ergebnisse darstellen.
 
 Inhaltlich konzentriert sich der MVP auf die wichtigsten Funktionen:
 

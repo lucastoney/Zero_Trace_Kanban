@@ -281,7 +281,7 @@ def export_results_to_pdf(
         from reportlab.lib.units import mm
         from reportlab.pdfgen import canvas
     except ImportError as e:
-        # Schöne, verständliche Fehlermeldung
+        # angepasste, verständliche Fehlermeldung
         raise RuntimeError(
             "Report-Export benötigt das Python-Paket 'reportlab'.\n\n"
             "Bitte im Projekt-Umfeld installieren:\n"
