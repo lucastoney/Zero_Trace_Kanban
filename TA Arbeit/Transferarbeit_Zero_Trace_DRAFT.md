@@ -43,7 +43,7 @@ Belpstrasse 37
 
 ## 1.1 Ausgangslage und Problemstellung
 
-Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
+Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Porjektideen in Form von Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
 
 Die von uns gewählte Transferarbeit basiert auf dem Pitch von Manuel und Yves.
 Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerk Schwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
@@ -52,13 +52,13 @@ Der Pitch überzeugte die Klasse, weil er sehr praxisnah ist und aktuelle Sicher
 
 Zudem sahen wir einen grossen Mehrwert unser Wissen in diesem Fachgebiet zu erweitern. Im Sinne des Zero-Trust-Modells «Never Trust, Always Verify» sehen wir es als notwendig an, IT-Infrastrukturen regelmässig und nachvollziehbar zu überprüfen, damit Sicherheitsrisiken frühzeitig erkannt und adressiert werden können.
 
-Trotz der Verfügbarkeit von Tools wie Nmap fehlen vielen Organisationen ein Werkzeug, dass:
+Trotz der Verfügbarkeit von Scanner-Tools wie Nmap fehlen vielen Organisationen ein Werkzeug, dass:
 
 - Lokale Scans ohne Expertenwissen ermöglicht  
 - Eine verständliche Benutzeroberfläche (GUI) bietet  
 - Strukturierte technische und nicht-technische Reports daraus erzeugen kann 
 
-Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teuer, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet.
+Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teuer, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet. Zusätzlich können Scanresultate sensible Infrastrukturinformationen enthalten (z.B IP-Adressen, Hostnamen, Port- und Serviceinformationen). Daher wurde bereits bei der Vorstellung der Projektidee früh festgelegt, dass Zero Trace ausschliesslich lokal betrieben wird und keine Daten in eine Cloud übertragen werden. 
 
 Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
@@ -66,8 +66,11 @@ Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
 Um diese Problemstellung schrittweise zu bearbeiten, soll ein MVP (Minimal Viable Product) erstellt werden. Ziel ist die Entwicklung einer Grundlage, die spätere Erweiterungen ermöglicht, ohne bereits in den ersten Versionen ein überdimensioniertes System zu bauen.
 
-Eine weitere Herausforderung und Frage die sich uns stellte ist, wie organisieren wir uns, wer hat wo seine Stärken und Interessen? Zudem wie Konsolidieren wir unser wissen, damit jeder das selbe Verständnis über das Projekt verfügt trotz Arbeitsaufteilung?
+Neben der technischen Fragestellung ergaben sich zu Projektbeginn zusätzliche organisatorische Fragen, die im Projektverlauf beantwortet werden müssen: 
 
+Wie organisieren wir die Zusammenarbeit in der Gruppe mit unterschiedlichen Stärken und Interessen, und wie stellen wir sicher, dass trotz Aufgabenteilung ein gemeinsames Verständnis über das gesamte Projekt vorhanden ist?
+
+Insgesamt beschreibt dieser Projektbericht die Transferarbeit «Zero Trace» von der Ausgangslage bis hin zu unserer Empfehlung und dem Ausblick zu dieser Thematik. Er soll das Vorgehen unserer Gruppe nachvollziehbar darstellen sowie die erzielten Resultate und gewonnenen Erkenntnisse zusammenfassen, einschliesslich der gelesenen Buchabschnitte von David Farley («Modern Software Engineering») und Vaughn Vernon («Strategic Monoliths and Microservices»).
 
 ---
 
