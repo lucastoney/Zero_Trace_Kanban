@@ -43,26 +43,26 @@ Belpstrasse 37
 
 ## 1.1 Ausgangslage und Problemstellung
 
-Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Porjektideen in Form von Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
+Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Projektideen in Form von Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
 
 Die von uns gewählte Transferarbeit basiert auf dem Pitch von Manuel und Yves.
-Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerk Schwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
+Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerkschwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
 
 Der Pitch überzeugte die Klasse, weil er sehr praxisnah ist und aktuelle Sicherheitsthemen aufgreift. Zudem berücksichtigt er immer wichtiger werdende Datenschutzgesetze wie die DSGVO (seit 25. Mai 2018) und das revidierte Schweizer Datenschutzgesetz (seit 1. September 2023), insbesondere vor dem Hintergrund stetig wachsender Komplexität und Vernetzung unserer IT-Systeme.
 
 Zudem sahen wir einen grossen Mehrwert unser Wissen in diesem Fachgebiet zu erweitern. Im Sinne des Zero-Trust-Modells «Never Trust, Always Verify» sehen wir es als notwendig an, IT-Infrastrukturen regelmässig und nachvollziehbar zu überprüfen, damit Sicherheitsrisiken frühzeitig erkannt und adressiert werden können.
 
-Trotz der Verfügbarkeit von Scanner-Tools wie Nmap fehlen vielen Organisationen ein Werkzeug, dass:
+Trotz der Verfügbarkeit von Scanner-Tools wie Nmap fehlen vielen Organisationen ein Werkzeug, das:
 
 - Lokale Scans ohne Expertenwissen ermöglicht  
 - Eine verständliche Benutzeroberfläche (GUI) bietet  
-- Strukturierte technische und nicht-technische Reports daraus erzeugen kann 
+- Strukturierte technische und nicht-technische Berichte daraus erzeugen kann 
 
-Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teuer, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet. Zusätzlich können Scanresultate sensible Infrastrukturinformationen enthalten (z.B IP-Adressen, Hostnamen, Port- und Serviceinformationen). Daher wurde bereits bei der Vorstellung der Projektidee früh festgelegt, dass Zero Trace ausschliesslich lokal betrieben wird und keine Daten in eine Cloud übertragen werden. 
+Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teuer, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet. Zusätzlich können Scanresultate sensible Infrastrukturinformationen enthalten (z.B. IP-Adressen, Hostnamen, Port- und Serviceinformationen). Daher wurde bereits bei der Vorstellung der Projektidee früh festgelegt, dass Zero Trace ausschliesslich lokal betrieben wird und keine Daten in eine Cloud übertragen werden. 
 
 Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
-**Wie können wir als Gruppe mit geringen Vorkenntnissen, ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** 
+**Wie können wir als Gruppe mit geringen Vorkenntnissen ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** 
 
 Um diese Problemstellung schrittweise zu bearbeiten, soll ein MVP (Minimal Viable Product) erstellt werden. Ziel ist die Entwicklung einer Grundlage, die spätere Erweiterungen ermöglicht, ohne bereits in den ersten Versionen ein überdimensioniertes System zu bauen.
 
