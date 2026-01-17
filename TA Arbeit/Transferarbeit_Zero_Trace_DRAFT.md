@@ -148,9 +148,6 @@ Die Entwicklung des Prototyps erfolgte iterativ, um die technische Umsetzbarkeit
 
 Nach jeder Iteration wurden die Ergebnisse überprüft und dokumentiert, bevor der nächste Entwicklungsschritt umgesetzt wurde. **  --> Bei diesem Punkt bin ich mir nicht sicher ob das stimmt?**
 
-
-### 2.5 Herausforderungen
-
 ### 2.5 Herausforderungen
 
 Während der Umsetzung des Projekts traten sowohl technische als auch organisatorische Herausforderungen auf, die den Projektverlauf massgeblich beeinflussten und zu mehreren Anpassungen im Vorgehen führten.
