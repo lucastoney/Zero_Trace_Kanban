@@ -132,9 +132,6 @@ Ein klassischer A/B-Vergleich zwischen mehreren gleichwertigen Lösungsansätzen
 
 Die zentrale Unsicherheit lag weniger in der Auswahl alternativer Technologien, sondern vielmehr in der Frage, ob sich die gewünschte Scan-Funktionalität stabil und praktikabel mit einer GUI kombinieren lässt. Die Entwicklung diente daher in erster Linie der technischen Validierung dieses Ansatzes.
 
-Alternative Scan-Engines auf Basis direkter Socket-Programmierung wurden im Projektverlauf nicht weiter in Betracht gezogen, da der Fokus klar auf der Nutzung der etablierten Nmap-Funktionalität lag. **--> Bei diesem Punkt bin ich mir nicht sicher ob das stimmt? wenn nicht kannst du das rauslöschen :)**
-
-
 Im Bereich der grafischen Benutzeroberfläche wurden hingegen verschiedene Frameworks diskutiert. Die Entscheidung fiel auf Tkinter, da dieses Framework eine geringe Einstiegshürde, eine schnelle Umsetzung sowie eine nahtlose Integration in Python ermöglicht.
 
 
@@ -156,7 +153,7 @@ Während der Umsetzung des Projekts traten sowohl technische als auch organisato
 Eine zentrale Herausforderung bestand in der Integration der Scan-Funktionalität in eine grafische Benutzeroberfläche. Die Kopplung des laufenden Scan-Prozesses mit einer stabilen Status- und Ergebnisanzeige erforderte zusätzliche Abstimmungen sowie eine klare Trennung zwischen Backend-Logik und GUI-Komponenten. Insbesondere zeigte sich, dass eine zu enge Verzahnung die Wartbarkeit und Fehlersuche erschwerte, weshalb Anpassungen am Aufbau vorgenommen wurden.
 
 **Darstellung und Klassifizierung von Risiken:**  
-Für den Management-Report musste eine konsistente und zugleich verständliche Risikoklassifizierung definiert werden. Die Einteilung offener Ports in die Kategorien Low, Medium und High stellte sich als anspruchsvoll heraus, da technische Genauigkeit und Verständlichkeit für nicht-technische Zielgruppen in Einklang gebracht werden mussten. Zudem zeigte sich im Verlauf der Umsetzung, dass die ursprünglich geplante farbliche Kennzeichnung einzelner Ports technisch nicht zuverlässig umsetzbar war. Infolgedessen wurde die Darstellung angepasst und durch standardisierte Risikostufen-Symbole ersetzt.
+Für den Management-Report musste eine konsistente und zugleich verständliche Risikoklassifizierung definiert werden. Die Einteilung offener Ports in die Kategorien Low, Medium und High stellte sich als anspruchsvoll heraus, da technische Genauigkeit und Verständlichkeit für nicht-technische Zielgruppen in Einklang gebracht werden mussten. Zudem zeigte sich im Verlauf der Umsetzung, dass die ursprünglich geplante farbliche Kennzeichnung einzelner Ports technisch nicht zuverlässig umsetzbar war. Infolgedessen wurde die Darstellung angepasst und durch Risikostufen-Symbole ersetzt.
 
 **Tool- und Workflow-Umstellung im Projektverlauf:**  
 Zu Beginn des Projekts wurden verschiedene Tools zur Organisation und Zusammenarbeit genutzt. Im weiteren Verlauf stellte sich jedoch heraus, dass eine einheitliche Entwicklungsumgebung notwendig ist, um effizient zusammenarbeiten zu können. Die Umstellung auf GitHub und PyCharm als zentrale Werkzeuge für Versionsverwaltung und Entwicklung erforderte eine kurze Einarbeitungsphase sowie die Definition gemeinsamer Regeln für Commits, Ordnerstrukturen und Dokumentation.
