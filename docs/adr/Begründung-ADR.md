@@ -27,8 +27,6 @@
 
 
 ##  ADR-0004
-
-
 | Entscheid    | Begründung                                                                                                                                                                                                            |
 |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Lokaler Betrieb | DSVGO / Datenschutz /Complience<br/>- Netzwerk- und Portdaten gelten potenziell als personenbezogen (IP-Adressen, Nutzersysteme)<br/>-DSGVO Art. 5, 6, 32 → Schutzbedarf sehr hoch                                    |
@@ -38,8 +36,8 @@
 ---
 
 ## ADR-0005
-
-
-| Entscheid       | Beschreibung                                                                                                                              |
+| Entscheid       | Begründung                                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | GUI Entwicklung | - Das GUI bietet uns eine Basis.<br/> - Ohne ein GUI ist die Bedienung mühsam und kompliziert.<br/> - Es entsteht ein Mehrwert für Kunden |
+
+---
