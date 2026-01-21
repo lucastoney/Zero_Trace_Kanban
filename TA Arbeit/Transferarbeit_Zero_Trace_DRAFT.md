@@ -43,31 +43,34 @@ Belpstrasse 37
 
 ## 1.1 Ausgangslage und Problemstellung
 
-Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
+Im Rahmen der Transferarbeit des Moduls «Software- und Plattform-Architektur» wurden zunächst verschiedene Projektideen in Form von Projektpitches vorgestellt. Anschliessend wurde darüber abgestimmt, welche Projekte weiterverfolgt werden sollen. Nach der Abstimmung stellte unser Dozent (Fabian Hirter), der in diesem Projekt künftig die Rolle des fachlichen Vorgesetzten übernimmt, die Projektgruppen anhand der Interessen der Studierenden zusammen. Unsere Gruppe wurde aus sechs Studierenden zusammengestellt: Giovanni Cardillo, Manuel Sager, Roman Nemchenko, Thines Rasiah, Yves Weber und Luca Steiner. Wir alle verfügen über sehr unterschiedliche berufliche Hintergründe und hatten zum Projektbeginn nur geringe Erfahrung mit den in der Software- und Plattform-Architektur eingesetzten Werkzeugen und Methoden.
 
 Die von uns gewählte Transferarbeit basiert auf dem Pitch von Manuel und Yves.
-Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerk Schwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
+Sie präsentierten die Idee eines leicht bedienbaren, modernen Netzwerkschwachstellen-Scanners, der nach Abschluss eines Scans zwei unterschiedliche Berichte generiert, einen für IT-Spezialisten und einen für das Management. Auf diese Weise soll sowohl eine technische als auch eine verständlich formulierte Managementsicht entstehen, damit alle Beteiligten (Stakeholder) ein gemeinsames Verständnis über die aktuelle IT-Sicherheitslage erhalten. Während der technische Bericht konkret aufzeigt, wo Handlungsbedarf besteht, soll der Management-Report als Entscheidungsgrundlage dienen, um Risiken gezielt zu priorisieren. Diese unterschiedliche Aufbereitung soll die Kommunikationsstruktur zwischen Techniker und Management (gemäss Conways Law) des Unternehmens vereinfachen und somit verbessern.
 
 Der Pitch überzeugte die Klasse, weil er sehr praxisnah ist und aktuelle Sicherheitsthemen aufgreift. Zudem berücksichtigt er immer wichtiger werdende Datenschutzgesetze wie die DSGVO (seit 25. Mai 2018) und das revidierte Schweizer Datenschutzgesetz (seit 1. September 2023), insbesondere vor dem Hintergrund stetig wachsender Komplexität und Vernetzung unserer IT-Systeme.
 
 Zudem sahen wir einen grossen Mehrwert unser Wissen in diesem Fachgebiet zu erweitern. Im Sinne des Zero-Trust-Modells «Never Trust, Always Verify» sehen wir es als notwendig an, IT-Infrastrukturen regelmässig und nachvollziehbar zu überprüfen, damit Sicherheitsrisiken frühzeitig erkannt und adressiert werden können.
 
-Trotz der Verfügbarkeit von Tools wie Nmap fehlen vielen Organisationen ein Werkzeug, dass:
+Trotz der Verfügbarkeit von Scanner-Tools wie Nmap fehlen vielen Organisationen ein Werkzeug, das:
 
 - Lokale Scans ohne Expertenwissen ermöglicht  
 - Eine verständliche Benutzeroberfläche (GUI) bietet  
-- Strukturierte technische und nicht-technische Reports daraus erzeugen kann 
+- Strukturierte technische und nicht-technische Berichte daraus erzeugen kann 
 
-Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teuer, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet.
+Zwar existieren Netzwerk-Scanner bereits, diese sind jedoch häufig komplex, teuer, überdimensioniert oder nicht konsequent auf eine einfache Grundanalyse im KMU-Umfeld ausgerichtet. Zusätzlich können Scanresultate sensible Infrastrukturinformationen enthalten (z.B. IP-Adressen, Hostnamen, Port- und Serviceinformationen). Daher wurde bereits bei der Vorstellung der Projektidee früh festgelegt, dass Zero Trace ausschliesslich lokal betrieben wird und keine Daten in eine Cloud übertragen werden. 
 
 Daraus ergibt sich die zentrale Problemstellung dieser Transferarbeit:
 
-**Wie können wir als Gruppe mit geringen Vorkenntnissen, ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** 
+**Wie können wir als Gruppe mit geringen Vorkenntnissen ein schlankes und intuitiv bedienbares Tool entwickeln, das regelmässige lokale Schwachstellenanalysen im eigenen, autorisierten System ermöglicht und gleichzeitig den Zero-Trust-Ansatz nachvollziehbar vermittelt?** 
 
 Um diese Problemstellung schrittweise zu bearbeiten, soll ein MVP (Minimal Viable Product) erstellt werden. Ziel ist die Entwicklung einer Grundlage, die spätere Erweiterungen ermöglicht, ohne bereits in den ersten Versionen ein überdimensioniertes System zu bauen.
 
-Eine weitere Herausforderung und Frage die sich uns stellte ist, wie organisieren wir uns, wer hat wo seine Stärken und Interessen? Zudem wie Konsolidieren wir unser wissen, damit jeder das selbe Verständnis über das Projekt verfügt trotz Arbeitsaufteilung?
+Neben der technischen Fragestellung ergaben sich zu Projektbeginn zusätzliche organisatorische Fragen, die im Projektverlauf beantwortet werden müssen: 
 
+Wie organisieren wir die Zusammenarbeit in der Gruppe mit unterschiedlichen Stärken und Interessen, und wie stellen wir sicher, dass trotz Aufgabenteilung ein gemeinsames Verständnis über das gesamte Projekt vorhanden ist?
+
+Insgesamt beschreibt dieser Projektbericht die Transferarbeit «Zero Trace» von der Ausgangslage bis hin zu unserer Empfehlung und dem Ausblick zu dieser Thematik. Er soll das Vorgehen unserer Gruppe nachvollziehbar darstellen sowie die erzielten Resultate und gewonnenen Erkenntnisse zusammenfassen, einschliesslich der gelesenen Buchabschnitte von David Farley («Modern Software Engineering») und Vaughn Vernon («Strategic Monoliths and Microservices»).
 
 ---
 
@@ -83,7 +86,7 @@ Gleichzeitig werden die wichtigsten Architekturentscheidungen mittels ADRs dokum
 
 ---
 
-# 2 Vorgehen
+# 2 Vorgehen 
 
 Die Umsetzung des Projekts erfolgte in mehreren strukturierten Schritten, um eine nachvollziehbare und methodische Entwicklung des MVP **„Zero Trace“** sicherzustellen. Im Folgenden wird beschrieben, welche Werkzeuge, Konzepte und Vorgehensweisen angewendet wurden.
 
@@ -123,38 +126,46 @@ Die Architektur wurde bewusst schlank gehalten, um den MVP innerhalb der gegeben
 - **ADR-Dokumentation:**  
   Alle Architekturentscheidungen wurden in Architecture Decision Records (ADRs) festgehalten (z. B. ADR-0001 bis ADR-0005).
 
-### 2.3 Variantenvergleich (A/B-Vergleich)
+### 2.3 Technische Konzeption
 
-Zu Beginn wurden verschiedene Ansätze für die GUI und die Scan-Engine verglichen:
+Ein klassischer A/B-Vergleich zwischen mehreren gleichwertigen Lösungsansätzen fand im Projektverlauf nicht statt. Bereits zu Beginn stand fest, dass die Port-Scan-Funktionalität auf Basis von Nmap realisiert und über eine grafische Benutzeroberfläche zugänglich gemacht werden soll.
 
-- **GUI:**  
-  Entscheidung zwischen Tkinter und PyQt. Aufgrund der geringeren Komplexität und der schnelleren Umsetzung fiel die Wahl auf Tkinter.
+Die zentrale Unsicherheit lag weniger in der Auswahl alternativer Technologien, sondern vielmehr in der Frage, ob sich die gewünschte Scan-Funktionalität stabil und praktikabel mit einer GUI kombinieren lässt. Die Entwicklung diente daher in erster Linie der technischen Validierung dieses Ansatzes.
 
-- **Scan-Engine:**  
-  Vergleich zwischen direkter Socket-Programmierung und der Nutzung von Nmap-Bindings. Für den MVP wurde die Socket-Variante gewählt, um die Abhängigkeit von externen Tools zu minimieren.
+Im Bereich der grafischen Benutzeroberfläche wurden hingegen verschiedene Frameworks diskutiert. Die Entscheidung fiel auf Tkinter, da dieses Framework eine geringe Einstiegshürde, eine schnelle Umsetzung sowie eine nahtlose Integration in Python ermöglicht.
+
 
 ### 2.4 Iterative Prototypenentwicklung
 
-Die Entwicklung erfolgte in mehreren Iterationen:
+Die Entwicklung des Prototyps erfolgte iterativ, um die technische Umsetzbarkeit des festgelegten Konzepts schrittweise zu überprüfen und abzusichern:
 
-1. **Iteration 1:** Implementierung der Kernfunktionalität (Port-Scan über eine definierte Portliste).  
-2. **Iteration 2:** Aufbau einer einfachen GUI zur Steuerung des Scans.  
-3. **Iteration 3:** Generierung von strukturierten Reports (technisch und Management).
+1. **Iteration 1:** Umsetzung der grundlegenden Scan-Funktionalität auf Basis von Nmap, um die prinzipielle Funktionsfähigkeit zu validieren.  
+2. **Iteration 2:** Entwicklung und Integration einer einfachen grafischen Benutzeroberfläche zur Steuerung des Scan-Vorgangs.  
+3. **Iteration 3:** Erweiterung um strukturierte Report-Funktionen für technische Anwender sowie für das Management.
 
-Jede Iteration wurde nach Fertigstellung getestet und dokumentiert, bevor die nächste begann.
+Nach jeder Iteration wurden die Ergebnisse überprüft und dokumentiert, bevor der nächste Entwicklungsschritt umgesetzt wurde. **  --> Bei diesem Punkt bin ich mir nicht sicher ob das stimmt?**
 
 ### 2.5 Herausforderungen
 
-Während der Umsetzung traten folgende Herausforderungen auf:
+Während der Umsetzung des Projekts traten sowohl technische als auch organisatorische Herausforderungen auf, die den Projektverlauf massgeblich beeinflussten und zu mehreren Anpassungen im Vorgehen führten.
 
-- **GUI-Integration:**  
-  Die Synchronisation zwischen Scan-Prozess und GUI-Statusanzeige erforderte zusätzliche Logik.
+**Technische Integration von Scan-Logik und GUI:**  
+Eine zentrale Herausforderung bestand in der Integration der Scan-Funktionalität in eine grafische Benutzeroberfläche. Die Kopplung des laufenden Scan-Prozesses mit einer stabilen Status- und Ergebnisanzeige erforderte zusätzliche Abstimmungen sowie eine klare Trennung zwischen Backend-Logik und GUI-Komponenten. Insbesondere zeigte sich, dass eine zu enge Verzahnung die Wartbarkeit und Fehlersuche erschwerte, weshalb Anpassungen am Aufbau vorgenommen wurden.
 
-- **Performance:**  
-  Optimierung der Scan-Geschwindigkeit bei größeren Portlisten.
+**Darstellung und Klassifizierung von Risiken:**  
+Für den Management-Report musste eine konsistente und zugleich verständliche Risikoklassifizierung definiert werden. Die Einteilung offener Ports in die Kategorien Low, Medium und High stellte sich als anspruchsvoll heraus, da technische Genauigkeit und Verständlichkeit für nicht-technische Zielgruppen in Einklang gebracht werden mussten. Zudem zeigte sich im Verlauf der Umsetzung, dass die ursprünglich geplante farbliche Kennzeichnung einzelner Ports technisch nicht zuverlässig umsetzbar war. Infolgedessen wurde die Darstellung angepasst und durch Risikostufen-Symbole ersetzt.
 
-- **Risikoklassifizierung:**  
-  Definition einer konsistenten Port-Risikostufe (Low, Mid, High) für den Management-Report.
+**Tool- und Workflow-Umstellung im Projektverlauf:**  
+Zu Beginn des Projekts wurden verschiedene Tools zur Organisation und Zusammenarbeit genutzt. Im weiteren Verlauf stellte sich jedoch heraus, dass eine einheitliche Entwicklungsumgebung notwendig ist, um effizient zusammenarbeiten zu können. Die Umstellung auf GitHub und PyCharm als zentrale Werkzeuge für Versionsverwaltung und Entwicklung erforderte eine kurze Einarbeitungsphase sowie die Definition gemeinsamer Regeln für Commits, Ordnerstrukturen und Dokumentation.
+
+**Koordination und Priorisierung im Team:**  
+Die parallele Bearbeitung unterschiedlicher Teilbereiche (z. B. Scan-Logik, GUI, Reporting, Dokumentation) machte eine klare Aufgabenverteilung und regelmässige Abstimmungen notwendig. Insbesondere bei der Festlegung des MVP-Umfangs zeigte sich, dass eine konsequente Priorisierung erforderlich war, um funktionsfähige Ergebnisse zu erzielen. Mehrfach wurde entschieden, den Fokus auf einen stabilen, präsentierbaren Kernumfang zu legen und zusätzliche Funktionen bewusst zurückzustellen.
+
+**Entscheidungsfindung ohne Vorerfahrung in Softwarearchitektur:**  
+Eine weitere Herausforderung bestand darin, grundlegende technische und konzeptionelle Entscheidungen zu treffen, obwohl innerhalb der Gruppe keine ausgeprägte Erfahrung mit Softwareprojekten im Bereich der Softwarearchitektur vorhanden war. Dies erforderte eine intensive Auseinandersetzung mit den eingesetzten Technologien, regelmässige Abstimmungen sowie das gemeinsame Abwägen verschiedener Lösungsansätze. Trotz dieser Ausgangslage erwies sich das Projekt als lehrreich und anspruchsvoll, da im Verlauf wichtige Erkenntnisse in den Bereichen Strukturierung, Entscheidungsfindung und Zusammenarbeit in Softwareprojekten gewonnen werden konnten.
+
+Insgesamt trugen diese Herausforderungen dazu bei, das Vorgehen kontinuierlich zu reflektieren und anzupassen. Die daraus gewonnenen Erfahrungen flossen direkt in die weitere Entwicklung des Prototyps sowie in die Projektorganisation ein.
+
 
 ### 2.6 Testmethoden
 
