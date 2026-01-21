@@ -1,47 +1,36 @@
-# ADR <Nummer>: <Titel der Entscheidung>
+# ADR-0005: GUI Anforderungen
 
-*Status:* Proposed / Accepted / Rejected / Superseded  
+*Status:* Accepted
 *Datum:* 03.12.2025
-*Autor:* Sag / Alle  
-*Betroffene Bereiche:* Architektur Performance / Datenschutz / UI
+*Autor:* Cag / Team   
+*Betroffene Bereiche:* UI
 
 ---
 
-## 🎯 1. Kontext
+## 1. Kontext
 
-Wir definieren die Anforderungen an das GUI gemäss den Entscheiden bis heute und den Anforderungen als User im zuzug mit dem DSVGO Gestez. 
+### Beschreibung
+
+Wir definieren die Anforderungen an das GUI gemäss den Entscheiden und den Anforderungen als User im beizug mit dem DSVGO Gesetz. 
 
 Folgende Anforderungen wurden in der Gruppe definiert. 
 - Der Scan darf nur ausführbar sein wenn wir manuell ein kästchen abhacken in dem wir bestätigen zum Scannen berechtigt zu sein.
-  - Aussehen könnte das etwa so: "ich bin gemäss DSVG Arikel XY berechtigt diese Aktion auszuführen"
+- Aussehen könnte das etwa so: "ich bin gemäss DSVGO Arikel XY berechtigt diese Aktion auszuführen"
 - Es werden beide Scans die für den MVP definiert wurden eingebettet und werden auswählbar sein(Netzwerk-, Portscan) ausserdem lassen sich die beiden auch Kombinieren
-- Der Startbrron für den ausgewählten Scan verändert sich gemäss den ausgewählten Möglichkeiten
+- Der Startbutton für den ausgewählten Scan verändert sich gemäss den ausgewählten Möglichkeiten
 - Es muss sichtbar sein das ein Scan läuft.
-- Nach dem Scan soll man sehen das er erfolgreich war oder eben nicht
-- Anchlissend soll man auswählen können ob man den Scan direkt exportieren will und wenn ja in welches PDF Format (in dem Dashboard sieht man die Resultate immer)
+- Nach dem Scan soll man sehen das er erfolgreich war oder nicht
+- Anschliessend soll man auswählen können ob man den Scan direkt exportieren will und wenn ja in welches PDF Format
 - Die Scanergebnisse sollen wie folgt Aufgelistet werden:
 
-| Host (IP-Adresse) | Offene Ports | Risklvl General |   |
-|-------------------|--------------|-----------------|---|
+| Host (IP-Adresse) | Offene Ports | Risk-LVL General |
+|-------------------|--------------|------------------|
 
-- Die Offenen Ports werden farblich untermahlt gem. Definition Grün=Low, Gelb=Mid (Attention needed), Rot=HIGH (Critical) sowohl im PDF-Report als auch im Dashboard
--
-
----
-
-## ⚖️ 2. Entscheidung
-
-Wit entscheiden uns gemäss der oben erwähnten Anforderungen mit der GUI-Entwicklung zu starten, wir wählen den experimentellen Ansatz. 
+- Die Offenen Ports werden mit Icons hervorgehoben. Definition Low, Mid (Attention needed), High (Critical) sowohl im PDF-Report als auch im Dashboard
 
 ---
 
-## 🧠 3. Begründung
+## 2. Entscheidung
 
-Warum ist diese Entscheidung richtig?
-
-| Argument        | Beschreibung                                                                                                                                          |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GUI Entwicklung | Das GUI bietet uns eine Basis, es muss in erster Linie nicht perfekt sein, allerdings kann man ohne überhaupt etwas nichts definieren oder ableiten.  |
-                                                                                                                                                     |
----
+Wit entscheiden uns gemäss der oben erwähnten Anforderungen mit der GUI-Entwicklung zu starten, wir wählen den experimentellen Ansatz.
 

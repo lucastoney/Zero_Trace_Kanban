@@ -10,7 +10,7 @@
 ##  1. Kontext
 
 ### Nutzung
-Wir brauchen eine Engine die wir ins Backend integrieren können, welche die Scans ausführen kann. Der User wird die verschiedenen Scans über das GUI ausführen.
+Wir brauchen eine Engine die wir in das Programm integrieren können, welche die Scans ausführen kann. Der User wird die verschiedenen Scans über das GUI ausführen.
 
 ### Folgende Scans möchten wir anbieten: 
 Muss enthalten sein für den MVP:
@@ -40,15 +40,4 @@ Achtung: Die Scans und deren Priorität können im Laufe der Entwicklung angepas
 ##  2. Entscheidung
 
 **Wir entscheiden uns für:**  
-Für das Tool NMAP als Scanner-Engine.  
-
----
-
-##  3. Begründung
-
-
-| Entscheid               | Begründung                                                                                                                                                                             |     
-|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NMAP als Scanner-Engine | - Einfach in Phyton zu integrieren<br/>- Deckt alle der benötigten Scans ab welche für MVP benötigt werden<br/>- extrem Stabil<br/>- seit 20 Jahren erfolgreich der Standard für Scans |
-                                                                  |
----
+Für das Tool NMAP als Scanner-Engine.
