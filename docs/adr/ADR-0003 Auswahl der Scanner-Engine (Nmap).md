@@ -1,14 +1,13 @@
 # ADR 0003: Auswahl Scanner-Engine
 
-*Status:* Accepted 
-*Datum:* 05.11.2025
+*Status:* Accepted   
+*Datum:* 05.11.2025  
 *Autor:* Sam / Team  
-*Betroffene Bereiche:* Gesamtes Projekt
+*Betroffene Bereiche:* Gesamtes Projekt  
 
 ---
 
-##  1. Kontext
-
+##  1. Ausgangslage
 ### Nutzung
 Wir brauchen eine Engine die wir in das Programm integrieren können, welche die Scans ausführen kann. Der User wird die verschiedenen Scans über das GUI ausführen.
 
@@ -41,3 +40,5 @@ Achtung: Die Scans und deren Priorität können im Laufe der Entwicklung angepas
 
 **Wir entscheiden uns für:**  
 Für das Tool NMAP als Scanner-Engine.
+
+[Siehe Begründung ADR-0003](Begründung-ADR.md#adr-0003)

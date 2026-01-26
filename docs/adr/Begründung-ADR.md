@@ -12,9 +12,9 @@
 ---
 
 ## ADR-0002
-| Entscheid               | Begründung                                                                                                                                                 |
-|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Python als Programmiersprache | - Schnell iterierbar: ideal für MVP, viele libraries (nmap, XML, DB, Reports).<br/> - Cross-Platform: Windows/Linux/macOS, später leicht erweiterbar <br/> |
+| Entscheid               | Begründung                                                                                                                                                                                                                      |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Python als Programmiersprache | - Schnell iterierbar: ideal für MVP, viele libraries (nmap, XML, DB, Reports).<br/> - Cross-Platform: Windows/Linux/macOS, später leicht erweiterbar <br/> - Einfache Synthax im Vergleich zu anderen Programmiersprachen <br/> |
 
 ---
 
@@ -41,3 +41,21 @@
 | GUI Entwicklung | - Das GUI bietet uns eine Basis.<br/> - Ohne ein GUI ist die Bedienung mühsam und kompliziert.<br/> - Es entsteht ein Mehrwert für Kunden |
 
 ---
+
+## ADR-0007
+
+Warum ist diese Entscheidung richtig?
+
+| Entscheid         | Begründung                                                    |
+|-------------------|---------------------------------------------------------------|
+| Menge der Ports   | Ist so Ideal um den Überblick zu behalten                     |
+| Auswahl der Ports | Viele davon sind leicht zu aktivieren und somit nachzustellen |
+
+
+---
+
+## ADR-0008
+
+| Entscheid | Begründung                                                                                                                                                                                                    |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| DSGVO und DSG Komform| - Erhebung nur technisch notwendiger Daten <br/> - Speicherung von Scan‑ und Logdaten nur für die notwendige Dauer <br/> - Zugriff auf Daten ist rollenbasiert und auf autorisierte Personen beschränkt <br/> - Lokale Datenverarbeitung ohne Cloud‑Übertragung|

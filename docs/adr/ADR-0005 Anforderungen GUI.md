@@ -1,13 +1,27 @@
 # ADR-0005: GUI Anforderungen
 
-*Status:* Accepted
-*Datum:* 03.12.2025
-*Autor:* Cag / Team   
-*Betroffene Bereiche:* UI
+*Status:* Accepted  
+*Datum:* 03.12.2025  
+*Autor:* Cag / Team  
+*Betroffene Bereiche:* UI  
 
 ---
 
-## 1. Kontext
+## 1. Ausgangslage
+### Anforderungen
+Für das Projekt „Zero Trace“ wird eine grafische Benutzeroberfläche benötigt, die folgende Anforderungen erfüllt:
+
+•	schnelle Entwicklung und iterative Anpassungen
+
+•	moderne, benutzerfreundliche Oberfläche
+
+•	geringer Ressourcenbedarf
+
+•	einfache Installation und Nutzung auf Windows-Systemen
+
+•	langfristige Erweiterbarkeit (Scanner, Reports, Logging, DSG-Konformität)
+
+Im Vergleich zu komplexeren Frameworks (C#, Web-UI) soll die Technologie leichtgewichtig, flexibel und kosteneffizient sein.
 
 ### Beschreibung
 
@@ -26,7 +40,7 @@ Folgende Anforderungen wurden in der Gruppe definiert.
 | Host (IP-Adresse) | Offene Ports | Risk-LVL General |
 |-------------------|--------------|------------------|
 
-- Die Offenen Ports werden mit Icons hervorgehoben. Definition Low, Mid (Attention needed), High (Critical) sowohl im PDF-Report als auch im Dashboard
+- Die Offenen Ports werden mit Icons hervorgehoben. Definition Low (□ not important), Mid (▣ Attention needed), High (■ Critical) sowohl im PDF-Report als auch im Dashboard
 
 ---
 
@@ -34,3 +48,4 @@ Folgende Anforderungen wurden in der Gruppe definiert.
 
 Wit entscheiden uns gemäss der oben erwähnten Anforderungen mit der GUI-Entwicklung zu starten, wir wählen den experimentellen Ansatz.
 
+[Siehe Begründung ADR-0005](Begründung-ADR.md#adr-0005)

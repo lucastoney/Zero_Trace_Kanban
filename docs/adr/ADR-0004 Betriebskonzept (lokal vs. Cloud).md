@@ -1,13 +1,13 @@
 # ADR 0004: Betriebskonzept Lokal
 
-*Status:* Accepted
-*Datum:* 12.11.2025
-*Autor:* Team   
-*Betroffene Bereiche:* Architektur
+*Status:* Accepted  
+*Datum:* 12.11.2025  
+*Autor:* Team  
+*Betroffene Bereiche:* Architektur  
 
 ---
 
-##  1. Kontext
+##  1. Ausgangslage
 
 ### Beschreibung
 
@@ -35,3 +35,5 @@ Daher ist die Frage zentral, ob die Software lokal beim Kunden oder in einer Clo
 - Alle Scanresultate, Logs und Reports verbleiben auf dem System des Anwenders.
 
 Dieser Entscheid schliesst Cloud-Backend-Infrastrukturen wie AWS, Azure oder SaaS-Plattformen bewusst aus.
+
+[Siehe Begründung ADR-0004](Begründung-ADR.md#adr-0004)

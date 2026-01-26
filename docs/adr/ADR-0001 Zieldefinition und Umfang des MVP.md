@@ -1,13 +1,13 @@
 # ADR-0001: Zieldefiniton und Umfang des MVP
 
-*Status:* Accepted 
-*Datum:* 05.11.2025
+*Status:* Accepted  
+*Datum:* 05.11.2025  
 *Autor:* Sam / Team  
-*Betroffene Bereiche:* Gesamtes Projekt
+*Betroffene Bereiche:* Gesamtes Projekt  
 
 ---
 
-##  1. Kontext
+##  1. Ausgangslage
 
 ### Pitch
 Wir wollen mit ZeroTrace ein Tool bereitstellen welches KMU unterstützt die eigenen Netzwerke und Umgebungen zu schützen. 
@@ -34,3 +34,5 @@ Das ganze soll Skalierbar aufgebaut sein, damit es erweitert werden kann.
 - Dokumentationen und Berichte im .md Format
 - ZeroTrace wird 100% Lokal ausgeführt
 - Der MVP wird vorerst auf Windows laufen
+
+[Siehe Begründung ADR-0001](Begründung-ADR.md#adr-0001)

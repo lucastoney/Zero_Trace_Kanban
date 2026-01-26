@@ -1,23 +1,22 @@
-# ADR <Nummer>: <Titel der Entscheidung>
+# ADR-0007: Port-Risikostufen
 
-*Status:* Proposed / Accepted / Rejected / Superseded
-*Datum:* 09.12.2025
-*Autor:* Sag / Alle
-*Betroffene Bereiche:* Architektur / Security / Performance / Datenschutz / UX / etc.
+*Status:* Accepted  
+*Datum:* 09.12.2025  
+*Autor:* Sag / Team  
+*Betroffene Bereiche:* Architektur  
 
 ---
 
-## 🎯 1. Kontext
+## 1. Ausgangslage
 
 Wir definieren die Risiken der offenen Ports.
-Wir müssen uns in der Detailgetreuheit und die Anzahl der Risiken ein wenig einschränken für den MVP aufgrund des Zeitlichen Limits.
+Für den MVP ist es wichtig, dass wir uns auf die wichtigsten Ports fokusieren und diese effizient erkennen.
 
 ---
 
-## ⚖️ 2. Entscheidung
+## 2. Entscheidung
 
-Die Ports werden wie folgt definiert und eingestuft:
-
+Die Ports werden wie folgt definiert und eingestuft:  
 
 | Port | Protokoll | Risiko    | Kategorie / Dienst                 | Kurzbegründung                                                                 |
 |------|-----------|-----------|------------------------------------|--------------------------------------------------------------------------------|
@@ -40,29 +39,17 @@ Die Ports werden wie folgt definiert und eingestuft:
 | 995  | TCP       | Mid       | POP3S                              | POP3 über TLS; sicherer als 110, jedoch relevanter Dienst                     |
 | 8080 | TCP       | Mid       | HTTP-Proxy / Alternativ-HTTP      | Oft als Proxy oder Test-HTTP-Port genutzt, wird gerne „vergessen“ abgesichert |
 
-**Low Risk (🟢):**
-Alle weiteren Ports, die offen sind, aber nicht in der Liste der Critical- oder Mid-Ports stehen, werden in ZeroTrace als Low markiert.
-Das bedeutet nicht, dass sie sicher sind – nur, dass sie aus Sicht des MVP-Risikomodells geringer priorisiert werden.
+**Low Risk:**
+- Alle weiteren Ports, die offen sind, aber nicht in der Liste der Critical- oder Mid-Ports stehen, werden in ZeroTrace als Low markiert.
+- Das bedeutet nicht, dass sie sicher sind – nur, dass sie aus Sicht des MVP-Risikomodells geringer priorisiert werden.
 
 In der GUI & im PDF werden die Ports wie folgt dargestellt:
 
-| Risiko   | Symbol | Name                                   |
-| -------- | ------ | -------------------------------------- |
-| Critical | ■      | BLACK SQUARE                           |
-| Mid      | ▣      | INVERSE WHITE CIRCLE (moderne Outline) |
-| Low      | □      | WHITE SQUARE                           |
+| Risiko | Symbol |
+|--------|--------|
+| High   | ■      |
+| Mid    | ▣      |
+| Low    | □      |
 
 
----
-
-## 🧠 3. Begründung
-
-Warum ist diese Entscheidung richtig?
-
-| Argument | Beschreibung |
-|----------|--------------|
-|Menge der Ports |Ist so Ideal um den Überblick zu behalten |
-| Auswahl der Ports |Viele davon sind leicht zu aktivieren und somit nachzustellen |
-
-
----
+[Siehe Begründung ADR-0007](Begründung-ADR.md#adr-0007)
