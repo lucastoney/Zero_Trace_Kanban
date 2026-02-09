@@ -69,9 +69,14 @@ Zu Beginn wurden Zielsetzung und Rahmenbedingungen des Projekts festgelegt. Dabe
 
 Anschliessend wurde eine grundlegende technische Struktur definiert. Zentrale Entscheidung war die Umsetzung der Scan Funktionalität auf Basis von Nmap sowie die Bereitstellung über eine Python basierte Desktop Anwendung.
 
-Architekturentscheidungen wurden in Form von Architecture Decision Records dokumentiert. 
+**Architecture Decision Records (ADRs)**
 
-## (Yves hier einfügen Teil mit den ADR's ganzes Kapitel ergänzen oder Anpassen falls nötig!  Ebenfalls im Kap. 2.5 Werkzeuge sind die ADR's einzubringen und zu ergänzen.)
+Für unser Projekt haben wir Architecture Decision Records eingeführt, um zentrale Architekturentscheidungen klar, strukturiert und dauerhaft festzuhalten. Gerade bei technischen Grundsatzfragen ist es entscheidend, nicht nur Ergebnisse zu dokumentieren, sondern auch den jeweiligen Kontext nachvollziehbar zu machen.
+
+Unsere ADRs folgen einem einheitlichen Aufbau: Jede Entscheidung erhält eine eindeutige Nummer, einen Titel, Status, Datum, verantwortliche Personen sowie die betroffenen Bereiche. Dadurch bleibt ersichtlich, wann, von wem und in welchem Umfang eine Festlegung getroffen wurde.
+Inhaltlich gliedert sich jedes Dokument in die Abschnitte Ausgangslage und Entscheidung. Zunächst wird der Rahmen beschrieben, in dem die Wahl getroffen wird (inklusive relevanter Anforderungen und Randbedingungen). Anschließend wird die konkret gewählte Lösung präzise festgehalten. Die ausführliche Begründung wurde bewusst in ein separates Markdown-Dokument ausgelagert. So bleibt das ADR übersichtlich, während die Argumentation vertieft dargestellt werden kann.
+
+ADRs sind für uns nicht nur Dokumentation, sondern ein Instrument zur Qualitätssteigerung im gesamten Entwicklungsprozess.
 
 **Phase 3 Iterative Umsetzung** 
 
