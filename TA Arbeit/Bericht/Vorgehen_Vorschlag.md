@@ -73,7 +73,7 @@ Anschliessend wurde eine grundlegende technische Struktur definiert. Zentrale En
 
 Für unser Projekt haben wir Architecture Decision Records eingeführt, um zentrale Architekturentscheidungen klar, strukturiert und dauerhaft festzuhalten. Gerade bei technischen Grundsatzfragen ist es entscheidend, nicht nur Ergebnisse zu dokumentieren, sondern auch den jeweiligen Kontext nachvollziehbar zu machen.
 
-Unsere ADRs folgen einem einheitlichen Aufbau: Jede Entscheidung erhält eine eindeutige Nummer, einen Titel, Status, Datum, verantwortliche Personen sowie die betroffenen Bereiche. Dadurch bleibt ersichtlich, wann, von wem und in welchem Umfang eine Festlegung getroffen wurde.
+Unsere ADRs folgen einem einheitlichen Aufbau: Jede Entscheidung erhält eine eindeutige Nummer, einen Titel, Status, Datum, verantwortliche Personen sowie die betroffenen Bereiche. Dadurch bleibt ersichtlich, wann, von wem und in welchem Umfang eine Entscheidung getroffen wurde.
 Inhaltlich gliedert sich jedes Dokument in die Abschnitte Ausgangslage und Entscheidung. Zunächst wird der Rahmen beschrieben, in dem die Wahl getroffen wird (inklusive relevanter Anforderungen und Randbedingungen). Anschließend wird die konkret gewählte Lösung präzise festgehalten. Die ausführliche Begründung wurde bewusst in ein separates Markdown-Dokument ausgelagert. So bleibt das ADR übersichtlich, während die Argumentation vertieft dargestellt werden kann.
 
 ADRs sind für uns nicht nur Dokumentation, sondern ein Instrument zur Qualitätssteigerung im gesamten Entwicklungsprozess.
@@ -94,6 +94,7 @@ Aufgrund der parallelen Bearbeitung der Teilbereiche war eine strukturierte Zusa
 
 Zur Unterstützung wurden eingesetzt:
 
+- ADRs für eine saubere Nachvollziehbarkeit der Entscheide.  
 - GitHub zur Versionsverwaltung und Nachverfolgung von Änderungen
 - PyCharm als gemeinsame Entwicklungsumgebung
 - Python mit Tkinter, Socket und Nmap Bindings zur technischen Umsetzung
