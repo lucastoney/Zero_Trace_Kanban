@@ -96,10 +96,11 @@ Für die Entwicklung des Prototyps wurden folgende Technologien und Konzepte ver
 
 - **Programmiersprache:**  
   Python, aufgrund der breiten Unterstützung für Netzwerk-Scanning und GUI-Entwicklung.
+  Ausserdem war Python die einzige Programmiersprache, die von zwei Personen unseres Teams zumindest grundlegend verstanden wurde.
 
 - **Frameworks und Libraries:**  
   - Tkinter für die Erstellung eines einfachen grafischen Benutzerinterfaces (GUI).  
-  - Socket und Nmap-Python-Bindings für die Durchführung von Port-Scans.
+  - Socket und Nmap-Python-Bindings für die Durchführung von Scans.
 
 - **Versionsverwaltung:**  
   GitHub zur kollaborativen Entwicklung und zur Nachverfolgbarkeit von Änderungen.
