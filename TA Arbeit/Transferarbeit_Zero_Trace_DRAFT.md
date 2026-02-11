@@ -210,7 +210,68 @@ Die gewonnenen Erfahrungen trugen wesentlich zum Verständnis von Zusammenarbeit
 
 # 3 Ergebnisse
 
-(Platzhalter – noch zu ergänzen)
+### 3.1 Evaluierte Prototyp-Funktionen (Miroboard)
+
+Zu Projektbeginn wurde während der Lektion gemeinsam ein Miroboard erstellt, um mögliche Funktionen und Themenfelder für **ZeroTrace** zu sammeln und in einer gemeinsamen Übersicht zu festzuhalten. Das Board diente ergänzend zum Projektpitch als Ideengebung der einzelnen Projektbeteiligten und schlussendlich als Orientierung, um den potenziellen Funktionsumfang sichtbar zu machen und erste grobe Zusammenhänge zwischen Scanning, Benutzeroberfläche, Reporting, Datenschutz und Qualitätssicherung zu erkennen. In erster Linie ging es ein gemeinsames Verständnis für unseren Schwachstellen-Scanner zu erarbeiten.
+
+### 3.2 GUI-Ergebnisse
+
+### 3.3 GUI-Ergebnisse
+
+#### Beschreibung der grafischen Benutzeroberfläche
+
+ZeroTrace bietet eine grafische Benutzeroberfläche, über die sich Scans konfigurieren, auslösen und die Ergebnisse übersichtlich darstellen lassen. Der Aufbau ist bewusst einfach gehalten und in klar getrennte Bereiche gegliedert, damit die Bedienung auch ohne vertiefte Vorkenntnisse möglich ist.
+
+**Abbildung 2:** GUI – Dashboard / Scan-Ausführung *(Screenshot einfügen: Dashboard-Ansicht mit Scan-Konfiguration und Ergebnis-Tabelle)*
+
+**Abbildung 3:** GUI – Port-Definitionen / Risikokategorien *(Screenshot einfügen: Port-Definitionen mit Tabelle Port/Risikostufe/Erläuterung)*
+
+#### Aufbau der GUI
+
+**Sidebar (links)**  
+Die Sidebar zeigt den Namen des Tools **„Zero Trace“** sowie den Menüpunkt **„Dashboard“**. Zusätzlich ist im MVP der Menüpunkt **„Port-Definitionen“** vorhanden, um die im Tool hinterlegten Port-Risikokategorien transparent darzustellen. Weitere Menüpunkte wurden bewusst weggelassen, um die Bedienung schlank zu halten.
+
+**Header (oben)**  
+Im Header wird der Titel **„Zero Trace – Lokale Sicherheitsanalyse“** sowie eine kurze Beschreibung angezeigt. Zusätzlich wird der MVP-Charakter über eine Kennzeichnung (**„MVP – Local“**) sichtbar gemacht.
+
+**Scan-Konfiguration (oben, Hauptbereich)**  
+Im Bereich **„Scan-Konfiguration“** kann der Benutzer:
+- das Zielnetzwerk im CIDR-Format eingeben,
+- den Port-Bereich definieren,
+- optional nur aktive Hosts anzeigen lassen,
+- die Scanart auswählen (Netzwerkscan / Port-Scan).
+
+Zusätzlich muss der Benutzer per Checkbox bestätigen, dass der Scan gemäss DSG (SR 235.1) erfolgt und die Berechtigung vorhanden ist. Erst nach dieser Bestätigung wird der Button zum Starten des Scans aktiviert.
+
+**Risikostufen-Hinweis (Portscan)**  
+In der Dashboard-Ansicht wird die Bedeutung der Risikostufen kurz erklärt (Critical/Mid/Low) inklusive Symbolik, damit die Bewertung der offenen Ports direkt verständlich ist.
+
+**Scan-Ergebnisse (unten, rechts)**  
+Die Ergebnisse werden tabellarisch dargestellt. Angezeigt werden:
+- IP-Adresse  
+- Hostname  
+- Offene Ports (inkl. Symbol je Risikostufe)  
+- Kommentar / Bemerkung  
+
+**PDF-Export (unten rechts)**  
+Nach einem erfolgreichen Scan kann ein Report über den Button **„PDF-Report erstellen“** erzeugt werden.
+
+#### Port-Definitionen (separate Ansicht)
+
+In der Ansicht **„Port-Definitionen“** wird eine Liste der im MVP hinterlegten Ports angezeigt. Dazu werden die zugehörige Risikostufe sowie eine kurze Erläuterung aufgeführt. Diese Übersicht dient dazu, die Risikoklassifizierung nachvollziehbar zu machen und auch für Nicht-Techniker verständlich zu erklären, weshalb bestimmte Dienste als kritischer bewertet werden.
+
+#### Statusanzeige
+
+Der jeweilige Systemzustand wird über Rückmeldungen in der Oberfläche sichtbar gemacht (z. B. Aktivierung/Deaktivierung des Scan-Buttons in Abhängigkeit der DSG-Bestätigung sowie Meldungen zum Scanablauf).
+
+
+### 3.3 Scanner-Engine (Backend)
+
+### 3.4 Risikomodell und Klassifizierung
+
+### 3.5 Reporting-Ergebnisse
+
+### 3.6 Testergebnisse
 
 ---
 
