@@ -86,11 +86,6 @@ Gleichzeitig werden die wichtigsten Architekturentscheidungen mittels ADRs dokum
 
 ---
 
-Ich finde das Kapitel 2 ist ein zu grosser Mischmasch an eigentlich allem was sortiert in den Bericht gehören würde, 
-Aktuell ist es mehr eine Auflistung und eine Rechtfertigung, die Rechtfertigung resp. die Erklärung würde ich in dem Kapitel 
-Disskusion erarbeiten ausserdem gehört viel aktuell davon in den BEreich lesson learnd. Ich schreibe hier meinen kurzen Vorschlag dafür:
-
-
 # 2. Vorgehen
 
 Die Umsetzung des Projekts erfolgte grösstenteils iterativ, praxisorientiert und experimentell mit dem Ziel, innerhalb des gegebenen Zeitrahmens einen funktionsfähigen Minimum Viable Product (MVP) zu entwickeln.
@@ -101,12 +96,11 @@ Der Fokus lag dabei auf der schrittweisen technischen Validierung des Konzepts s
 Die Entwicklung erfolgte überwiegend iterativ und experimentell.
 Zu Projektbeginn bestanden Unsicherheiten hinsichtlich der technischen Umsetzbarkeit, insbesondere in Bezug auf die Kombination von Netzwerk Scanning, grafischer Benutzeroberfläche und Reporting. Da im Projektteam nur begrenzte Erfahrung mit der Entwicklung komplexerer Software vorhanden war, wurde bewusst auf ein strikt lineares Vorgehensmodell verzichtet. Stattdessen wurde ein explorativer und iterativer Entwicklungsansatz gewählt, der eine schrittweise Validierung technischer Annahmen ermöglichte.
 
-Funktionen wurden zunächst prototypisch umgesetzt, anschliessend ¨bewertet und danach weiterentwickelt oder angepasst. Der Fokus lag darauf, technische Annahmen früh zu überprüfen und Risiken möglichst früh sichtbar zu machen.
+Funktionen wurden zunächst prototypisch umgesetzt, anschliessend bewertet und danach weiterentwickelt oder angepasst. Der Fokus lag darauf, technische Annahmen früh zu überprüfen und Risiken möglichst früh sichtbar zu machen.
 
 Dieses Vorgehen entspricht einem inkrementellen MVP Ansatz, bei dem der Funktionsumfang bewusst auf einen stabilen Kern reduziert wurde. Ziel war nicht die Entwicklung eines vollständigen Produkts, sondern eines funktionsfähigen und demonstrierbaren Prototyps.
 
 Konkret bedeutete dies:
-
 - Definition der zwingend notwendigen Kernfunktionen
 - bewusste Zurückstellung zusätzlicher oder optionaler Features
 - Fokus auf Funktion und Präsentierbarkeit
@@ -114,7 +108,7 @@ Konkret bedeutete dies:
 Der Kernumfang des MVP umfasste:
 
 - Durchführung eines Netzwerk/Port-Scans
-- Steuerung über einer intuitiven grafische Benutzeroberfläche
+- Steuerung über eine intuitive grafische Benutzeroberfläche
 - verständliche Aufbereitung der Ergebnisse in Form von Reports (PDF)
 
 Weiterführende Funktionen wurden bewusst zurückgestellt.
@@ -133,7 +127,7 @@ Im Projekt zeigte sich dieser Zusammenhang deutlich. Aufgrund der Teamgrösse wu
 - Dokumentation
 
 Wir nutzten die Zeit welche wir im Unterricht erhielten um die jeweiligen Arbeitsfortschritte und Äderungsvorschläge jeweils in der Gruppe Wöchentlich zu dikutieren und zu verfeinern. 
-So konnten wir sicherstellen, dass jeder seine Meinung einbringen kann .
+So konnten wir sicherstellen, dass jeder seine Meinung einbringen kann. 
 
 ## 2.3 Domänenorientierte Strukturierung
 
@@ -185,6 +179,7 @@ Zur Unterstützung wurden eingesetzt:
 - GitHub zur Versionsverwaltung und Nachverfolgung von Änderungen
 - PyCharm als gemeinsame Entwicklungsumgebung
 - Python mit Tkinter, Socket und Nmap Bindings zur technischen Umsetzung
+- Microsoft Teams wurde zur Kommunikation untereinander und mit den Stakeholdern verwendet.
 
 Die Nutzung gemeinsamer Werkzeuge unterstützte die Koordination und Integration der einzelnen Komponenten.
 
