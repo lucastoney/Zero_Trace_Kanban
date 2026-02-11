@@ -74,7 +74,7 @@ Insgesamt beschreibt dieser Projektbericht die Transferarbeit «Zero Trace» von
 
 ---
 
-# 1.2 Zielsetzung
+## 1.2 Zielsetzung
 
 Das übergeordnete Ziel dieser Transferarbeit ist die Entwicklung eines Minimal Viable Product (MVP) des Tools „Zero Trace". Der MVP soll innerhalb der verfügbaren Zeit und Ressourcen so weit umgesetzt werden, dass die wichtigsten Funktionen eines lokal laufenden Schwachstellen-Scanners verständlich gezeigt werden können. Im Vordergrund steht dabei nicht eine komplett fertige Software, sondern der Nachweis, dass das Konzept grundsätzlich funktioniert, sowie eine saubere technische Umsetzung mit klarer Verfolgbarkeit zum jetzigen IST-Zustand. Der Prototyp soll über ein GUI bedienbar sein und die wichtigsten Funktionen abdecken: Scan starten, Scanstatus anzeigen und Ergebnisse darstellen.
 
@@ -86,111 +86,130 @@ Gleichzeitig werden die wichtigsten Architekturentscheidungen mittels ADRs dokum
 
 ---
 
-# 2 Vorgehen 
-
-Die Umsetzung des Projekts erfolgte in mehreren strukturierten Schritten, um eine nachvollziehbare und methodische Entwicklung des MVP **„Zero Trace“** sicherzustellen. Im Folgenden wird beschrieben, welche Werkzeuge, Konzepte und Vorgehensweisen angewendet wurden.
-
-### 2.1 Eingesetzte Tools, Frameworks und Konzepte
-
-Für die Entwicklung des Prototyps wurden folgende Technologien und Konzepte verwendet:
-
-- **Programmiersprache:**  
-  Python, aufgrund der breiten Unterstützung für Netzwerk-Scanning und GUI-Entwicklung.
-  Ausserdem war Python die einzige Programmiersprache, die von zwei Personen unseres Teams zumindest grundlegend verstanden wurde.
-
-- **Frameworks und Libraries:**  
-  - Tkinter für die Erstellung eines einfachen grafischen Benutzerinterfaces (GUI).  
-  - Socket und Nmap-Python-Bindings für die Durchführung von Scans.
-
-- **Versionsverwaltung:**  
-  GitHub zur kollaborativen Entwicklung und zur Nachverfolgbarkeit von Änderungen.
-
-- **Projektmanagement:**  
-  Agile Ansätze mit iterativen Sprints, um den MVP schrittweise zu erweitern.
-
-- **Architekturprinzipien:**  
-  Orientierung am Zero-Trust-Modell („Never Trust, Always Verify“) sowie Modularität für spätere Erweiterungen.
-
-### 2.2 Architekturentscheidungen
-
-Die Architektur wurde bewusst schlank gehalten, um den MVP innerhalb der gegebenen Zeit umsetzbar zu machen:
-
-- **Client-seitige Anwendung:**  
-  Der Scanner läuft lokal auf dem autorisierten System, um Datenschutz- und Sicherheitsanforderungen zu erfüllen.
-
-- **Modularer Aufbau:**  
-  Trennung von Scan-Logik, GUI und Reporting, um spätere Anpassungen zu erleichtern.
-
-- **Reporting-Konzept:**  
-  Zwei Ausgabemodi – ein technischer Bericht für IT-Spezialisten und ein vereinfachter Management-Report.
-
-- **ADR-Dokumentation:**  
-  Alle Architekturentscheidungen wurden in Architecture Decision Records (ADRs) festgehalten (z. B. ADR-0001 bis ADR-0005).
-
-### 2.3 Technische Konzeption
-
-Ein klassischer A/B-Vergleich zwischen mehreren gleichwertigen Lösungsansätzen fand im Projektverlauf nicht statt. Bereits zu Beginn stand fest, dass die Port-Scan-Funktionalität auf Basis von Nmap realisiert und über eine grafische Benutzeroberfläche zugänglich gemacht werden soll.
-
-Die zentrale Unsicherheit lag weniger in der Auswahl alternativer Technologien, sondern vielmehr in der Frage, ob sich die gewünschte Scan-Funktionalität stabil und praktikabel mit einer GUI kombinieren lässt. Die Entwicklung diente daher in erster Linie der technischen Validierung dieses Ansatzes.
-
-Im Bereich der grafischen Benutzeroberfläche wurden hingegen verschiedene Frameworks diskutiert. Die Entscheidung fiel auf Tkinter, da dieses Framework eine geringe Einstiegshürde, eine schnelle Umsetzung sowie eine nahtlose Integration in Python ermöglicht.
+Ich finde das Kapitel 2 ist ein zu grosser Mischmasch an eigentlich allem was sortiert in den Bericht gehören würde, 
+Aktuell ist es mehr eine Auflistung und eine Rechtfertigung, die Rechtfertigung resp. die Erklärung würde ich in dem Kapitel 
+Disskusion erarbeiten ausserdem gehört viel aktuell davon in den BEreich lesson learnd. Ich schreibe hier meinen kurzen Vorschlag dafür:
 
 
-### 2.4 Iterative Prototypenentwicklung
+# 2. Vorgehen
 
-Die Entwicklung des Prototyps erfolgte iterativ, um die technische Umsetzbarkeit des festgelegten Konzepts schrittweise zu überprüfen und abzusichern:
+Die Umsetzung des Projekts erfolgte grösstenteils iterativ, praxisorientiert und experimentell mit dem Ziel, innerhalb des gegebenen Zeitrahmens einen funktionsfähigen Minimum Viable Product (MVP) zu entwickeln.
+Der Fokus lag dabei auf der schrittweisen technischen Validierung des Konzepts sowie auf einer engen Abstimmung innerhalb des Projektteams.
 
-1. **Iteration 1:** Umsetzung der grundlegenden Scan-Funktionalität auf Basis von Nmap, um die prinzipielle Funktionsfähigkeit zu validieren.  
-2. **Iteration 2:** Entwicklung und Integration einer einfachen grafischen Benutzeroberfläche zur Steuerung des Scan-Vorgangs.  
-3. **Iteration 3:** Erweiterung um strukturierte Report-Funktionen für technische Anwender sowie für das Management.
+## 2.1 Entwicklungsansatz
 
-Nach jeder Iteration wurden die Ergebnisse überprüft und dokumentiert, bevor der nächste Entwicklungsschritt umgesetzt wurde. **  --> Bei diesem Punkt bin ich mir nicht sicher ob das stimmt?**
+Die Entwicklung erfolgte überwiegend iterativ und experimentell.
+Zu Projektbeginn bestanden Unsicherheiten hinsichtlich der technischen Umsetzbarkeit, insbesondere in Bezug auf die Kombination von Netzwerk Scanning, grafischer Benutzeroberfläche und Reporting. Da im Projektteam nur begrenzte Erfahrung mit der Entwicklung komplexerer Software vorhanden war, wurde bewusst auf ein strikt lineares Vorgehensmodell verzichtet. Stattdessen wurde ein explorativer und iterativer Entwicklungsansatz gewählt, der eine schrittweise Validierung technischer Annahmen ermöglichte.
 
-### 2.5 Herausforderungen
+Funktionen wurden zunächst prototypisch umgesetzt, anschliessend ¨bewertet und danach weiterentwickelt oder angepasst. Der Fokus lag darauf, technische Annahmen früh zu überprüfen und Risiken möglichst früh sichtbar zu machen.
 
-Während der Umsetzung des Projekts traten sowohl technische als auch organisatorische Herausforderungen auf, die den Projektverlauf massgeblich beeinflussten und zu mehreren Anpassungen im Vorgehen führten.
+Dieses Vorgehen entspricht einem inkrementellen MVP Ansatz, bei dem der Funktionsumfang bewusst auf einen stabilen Kern reduziert wurde. Ziel war nicht die Entwicklung eines vollständigen Produkts, sondern eines funktionsfähigen und demonstrierbaren Prototyps.
 
-**Technische Integration von Scan-Logik und GUI:**  
-Eine zentrale Herausforderung bestand in der Integration der Scan-Funktionalität in eine grafische Benutzeroberfläche. Die Kopplung des laufenden Scan-Prozesses mit einer stabilen Status- und Ergebnisanzeige erforderte zusätzliche Abstimmungen sowie eine klare Trennung zwischen Backend-Logik und GUI-Komponenten. Insbesondere zeigte sich, dass eine zu enge Verzahnung die Wartbarkeit und Fehlersuche erschwerte, weshalb Anpassungen am Aufbau vorgenommen wurden.
+Konkret bedeutete dies:
 
-**Darstellung und Klassifizierung von Risiken:**  
-Für den Management-Report musste eine konsistente und zugleich verständliche Risikoklassifizierung definiert werden. Die Einteilung offener Ports in die Kategorien Low, Medium und High stellte sich als anspruchsvoll heraus, da technische Genauigkeit und Verständlichkeit für nicht-technische Zielgruppen in Einklang gebracht werden mussten. Zudem zeigte sich im Verlauf der Umsetzung, dass die ursprünglich geplante farbliche Kennzeichnung einzelner Ports technisch nicht zuverlässig umsetzbar war. Infolgedessen wurde die Darstellung angepasst und durch Risikostufen-Symbole ersetzt.
+- Definition der zwingend notwendigen Kernfunktionen
+- bewusste Zurückstellung zusätzlicher oder optionaler Features
+- Fokus auf Funktion und Präsentierbarkeit
 
-**Tool- und Workflow-Umstellung im Projektverlauf:**  
-Zu Beginn des Projekts wurden verschiedene Tools zur Organisation und Zusammenarbeit genutzt. Im weiteren Verlauf stellte sich jedoch heraus, dass eine einheitliche Entwicklungsumgebung notwendig ist, um effizient zusammenarbeiten zu können. Die Umstellung auf GitHub und PyCharm als zentrale Werkzeuge für Versionsverwaltung und Entwicklung erforderte eine kurze Einarbeitungsphase sowie die Definition gemeinsamer Regeln für Commits, Ordnerstrukturen und Dokumentation.
+Der Kernumfang des MVP umfasste:
 
-**Koordination und Priorisierung im Team:**  
-Die parallele Bearbeitung unterschiedlicher Teilbereiche (z. B. Scan-Logik, GUI, Reporting, Dokumentation) machte eine klare Aufgabenverteilung und regelmässige Abstimmungen notwendig. Insbesondere bei der Festlegung des MVP-Umfangs zeigte sich, dass eine konsequente Priorisierung erforderlich war, um funktionsfähige Ergebnisse zu erzielen. Mehrfach wurde entschieden, den Fokus auf einen stabilen, präsentierbaren Kernumfang zu legen und zusätzliche Funktionen bewusst zurückzustellen.
+- Durchführung eines Netzwerk/Port-Scans
+- Steuerung über einer intuitiven grafische Benutzeroberfläche
+- verständliche Aufbereitung der Ergebnisse in Form von Reports (PDF)
 
-**Entscheidungsfindung ohne Vorerfahrung in Softwarearchitektur:**  
-Eine weitere Herausforderung bestand darin, grundlegende technische und konzeptionelle Entscheidungen zu treffen, obwohl innerhalb der Gruppe keine ausgeprägte Erfahrung mit Softwareprojekten im Bereich der Softwarearchitektur vorhanden war. Dies erforderte eine intensive Auseinandersetzung mit den eingesetzten Technologien, regelmässige Abstimmungen sowie das gemeinsame Abwägen verschiedener Lösungsansätze. Trotz dieser Ausgangslage erwies sich das Projekt als lehrreich und anspruchsvoll, da im Verlauf wichtige Erkenntnisse in den Bereichen Strukturierung, Entscheidungsfindung und Zusammenarbeit in Softwareprojekten gewonnen werden konnten.
-
-Insgesamt trugen diese Herausforderungen dazu bei, das Vorgehen kontinuierlich zu reflektieren und anzupassen. Die daraus gewonnenen Erfahrungen flossen direkt in die weitere Entwicklung des Prototyps sowie in die Projektorganisation ein.
+Weiterführende Funktionen wurden bewusst zurückgestellt.
 
 
-### 2.6 Testmethoden
+## 2.2 Einfluss von Teamstruktur nach Conway
 
-Die Tests wurden manuell durchgeführt:
+Die Struktur der Anwendung wurde wesentlich durch die Organisation des Projektteams geprägt.
+Gemäss Conway spiegeln Softwaresysteme häufig die Kommunikationsstrukturen der Organisation wieder, die sie entwickeln.
 
-- **Funktionstests:**  
-  Überprüfung der Scan-Funktionalität auf verschiedenen Testsystemen.
+Im Projekt zeigte sich dieser Zusammenhang deutlich. Aufgrund der Teamgrösse wurde die Arbeit in mehrere Teilbereiche aufgeteilt, die parallel bearbeitet wurden:
 
-- **GUI-Tests:**  
-  Sicherstellung der korrekten Anzeige von Scanstatus und Ergebnissen.
+- Scan Logik, Reporting
+- GUI Entwicklung
+- Bildnerische Darstellungen, Diagramme
+- Dokumentation
 
-- **Report-Validierung:**  
-  Kontrolle der strukturierten Ausgabe für beide Zielgruppen.
+Wir nutzten die Zeit welche wir im Unterricht erhielten um die jeweiligen Arbeitsfortschritte und Äderungsvorschläge jeweils in der Gruppe Wöchentlich zu dikutieren und zu verfeinern. 
+So konnten wir sicherstellen, dass jeder seine Meinung einbringen kann .
 
-### 2.7 Dokumentation
+## 2.3 Domänenorientierte Strukturierung
 
-Die gesamte Umsetzung wurde kontinuierlich dokumentiert:
+Ein vollständiger Domain Driven Design Prozess wurde im Projekt nicht umgesetzt. Dennoch erfolgte die Strukturierung der Anwendung bewusst entlang ihrer fachlichen Domäne.
+Die zentrale Domäne des Projekts ist das Scannen und Bewerten von Netzwerk Expositionen. Daraus ergaben sich natürliche fachliche Teilbereiche:
+- Durchführung von Scans
+- Interpretation der Ergebnisse
+- Aufbereitung für unterschiedliche Zielgruppen
 
-- **ADRs:** Architekturentscheidungen und deren Begründungen.  
-- **GitHub-Repository:** Versionshistorie und Code-Dokumentation.  
-- **Protokolle:** Besprechungen und Entscheidungen im Projektteam.  
+Diese domänenorientierte Aufteilung unterstützte sowohl die technische Strukturierung der Anwendung als auch die Aufgabenverteilung im Team.
 
-**Transferbericht:** Zusammenfassung des Vorgehens und der angewandten Methoden.
+## 2.4 Projektphasen
 
+Die Entwicklung des Prototyps lässt sich in mehrere aufeinander aufbauende Phasen gliedern.
+
+**Phase 1 Anforderungsdefinition** 
+
+Zu Beginn wurden Zielsetzung und Rahmenbedingungen des Projekts festgelegt. Dabei wurde definiert, welche Funktionen für den MVP zwingend erforderlich sind und welche bewusst zurückgestellt werden.
+
+**Phase 2 Architektur und Technologiefestlegung** 
+
+Anschliessend wurde eine grundlegende technische Struktur definiert. Zentrale Entscheidung war die Umsetzung der Scan Funktionalität auf Basis von Nmap sowie die Bereitstellung über eine Python basierte Desktop Anwendung.
+
+**Architecture Decision Records (ADRs)**
+
+Für unser Projekt haben wir Architecture Decision Records eingeführt, um zentrale Architekturentscheidungen klar, strukturiert und dauerhaft festzuhalten. Gerade bei technischen Grundsatzfragen ist es entscheidend, nicht nur Ergebnisse zu dokumentieren, sondern auch den jeweiligen Kontext nachvollziehbar zu machen.
+
+Unsere ADRs folgen einem einheitlichen Aufbau: Jede Entscheidung erhält eine eindeutige Nummer, einen Titel, Status, Datum, verantwortliche Personen sowie die betroffenen Bereiche. Dadurch bleibt ersichtlich, wann, von wem und in welchem Umfang eine Entscheidung getroffen wurde.
+Inhaltlich gliedert sich jedes Dokument in die Abschnitte Ausgangslage und Entscheidung. Zunächst wird der Rahmen beschrieben, in dem die Wahl getroffen wird (inklusive relevanter Anforderungen und Randbedingungen). Anschließend wird die konkret gewählte Lösung präzise festgehalten. Die ausführliche Begründung wurde bewusst in ein separates Markdown-Dokument ausgelagert. So bleibt das ADR übersichtlich, während die Argumentation vertieft dargestellt werden kann.
+
+ADRs sind für uns nicht nur Dokumentation, sondern ein Instrument zur Qualitätssteigerung im gesamten Entwicklungsprozess.
+
+**Phase 3 Iterative Umsetzung** 
+
+Die eigentliche Entwicklung erfolgte schrittweise in konstanter Überarbeitung.
+
+Entwicklung einer grafischen Benutzeroberfläche zur Steuerung des Scanners, einbetten der Logik, 
+Erweiterung um strukturierte Reporting Funktionen
+
+Zwischen den Umsetzungsschritten erfolgten regelmässige Abstimmungen und Anpassungen des Funktionsumfangs.
+
+## 2.5 Zusammenarbeit und Werkzeuge
+
+Aufgrund der parallelen Bearbeitung der Teilbereiche war eine strukturierte Zusammenarbeit erforderlich.
+
+Zur Unterstützung wurden eingesetzt:
+
+- ADRs für eine saubere Nachvollziehbarkeit der Entscheide.  
+- GitHub zur Versionsverwaltung und Nachverfolgung von Änderungen
+- PyCharm als gemeinsame Entwicklungsumgebung
+- Python mit Tkinter, Socket und Nmap Bindings zur technischen Umsetzung
+
+Die Nutzung gemeinsamer Werkzeuge unterstützte die Koordination und Integration der einzelnen Komponenten.
+
+
+## 2.6 Qualitätssicherung und Tests
+
+Die Qualitätssicherung erfolgte durch kontinuierliche manuelle Tests während der Entwicklung.
+
+Geprüft wurden insbesondere:
+- korrekte Durchführung der Scans
+- stabile Interaktion zwischen Scan Logik und GUI
+- nachvollziehbare Darstellung der Ergebnisse im Reporting
+
+Erkannte Probleme wurden fortlaufend behoben und in die weitere Entwicklung integriert.
+
+# *Hier könnte man noch einen Link in die Docs auf die Tests vereweisen? Oder zu rechtfertigend? 
+
+## 2.7 Reflexion des Vorgehens (nicht sicher ob wir die Reflexion des Vorgehens in die Diskusion packen sollen oder hier belassen! )
+
+Im Projekt zeigte sich, dass insbesondere die Integration der verschiedenen Teilbereiche sowie die Priorisierung des MVP Umfangs zentrale Herausforderungen darstellten.
+Wir hatten auch mühe das fehlende Know-how zu kompensieren und uns den ständig wechselnden Rahmenbedinungen kontinuierlich anzupassen.
+
+Mehrfach wurde entschieden, den Funktionsumfang bewusst zu reduzieren, um einen stabilen und präsentierbaren Kern zu gewährleisten. Das iterative Vorgehen erwies sich dabei als entscheidend, um technische Risiken früh zu erkennen und den Projektumfang an die verfügbaren Ressourcen anzupassen.
+
+Die gewonnenen Erfahrungen trugen wesentlich zum Verständnis von Zusammenarbeit, Strukturierung und Entscheidungsfindung in Softwareprojekten bei.
 
 # 3 Ergebnisse
 

@@ -80,10 +80,9 @@ ADRs sind für uns nicht nur Dokumentation, sondern ein Instrument zur Qualität
 
 **Phase 3 Iterative Umsetzung** 
 
-Die eigentliche Entwicklung erfolgte schrittweise in konstater Überarbeitung.
+Die eigentliche Entwicklung erfolgte schrittweise in konstanter Überarbeitung.
 
-Umsetzung eines Konsolen Prototyps zur Validierung der Scan Funktionalität,
-Entwicklung einer grafischen Benutzeroberfläche zur Steuerung des Scanners,
+Entwicklung einer grafischen Benutzeroberfläche zur Steuerung des Scanners, einbetten der Logik, 
 Erweiterung um strukturierte Reporting Funktionen
 
 Zwischen den Umsetzungsschritten erfolgten regelmässige Abstimmungen und Anpassungen des Funktionsumfangs.
