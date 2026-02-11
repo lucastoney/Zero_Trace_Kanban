@@ -141,31 +141,31 @@ Diese domänenorientierte Aufteilung unterstützte sowohl die technische Struktu
 
 ## 2.4 Projektphasen
 
-Die Entwicklung des Prototyps lässt sich in mehrere aufeinander aufbauende Phasen gliedern.
+Die Entwicklung des Prototyps lässt sich in mehrere aufeinander aufbauende übergeordnete Phasen gliedern umein grobes Ablaufverständnis zu schaffen.
 
 **Phase 1 Anforderungsdefinition** 
 
-Zu Beginn wurden Zielsetzung und Rahmenbedingungen des Projekts festgelegt. Dabei wurde definiert, welche Funktionen für den MVP zwingend erforderlich sind und welche bewusst zurückgestellt werden.
+Zu Beginn wurden Zielsetzung und Rahmenbedingungen des Projekts festgelegt. Dabei wurde definiert, welche Funktionen für den MVP zwingend erforderlich sind und welche bewusst zurückgestellt werden. Auch eine Ideensammlung des ganzen Teams fand statt um verschiedene Kenntnisse, Ideen und Erfahrungen einfliessen zu lassen. 
 
 **Phase 2 Architektur und Technologiefestlegung** 
 
-Anschliessend wurde eine grundlegende technische Struktur definiert. Zentrale Entscheidung war die Umsetzung der Scan Funktionalität auf Basis von Nmap sowie die Bereitstellung über eine Python basierte Desktop Anwendung.
+Anschliessend wurde eine grundlegende technische Struktur definiert. Zentrale Entscheidung war die Umsetzung der Scan Funktionalität auf Basis von Nmap sowie die Bereitstellung über einer einfach und klar zu bedienenden Benutzeroberfläche. 
 
 **Architecture Decision Records (ADRs)**
 
-Für unser Projekt haben wir Architecture Decision Records eingeführt, um zentrale Architekturentscheidungen klar, strukturiert und dauerhaft festzuhalten. Gerade bei technischen Grundsatzfragen ist es entscheidend, nicht nur Ergebnisse zu dokumentieren, sondern auch den jeweiligen Kontext nachvollziehbar zu machen.
+Zu diesem Zeitpunkt haben wir Architecture Decision Records eingeführt, um zentrale Architekturentscheidungen klar, strukturiert und dauerhaft festzuhalten.
 
 Unsere ADRs folgen einem einheitlichen Aufbau: Jede Entscheidung erhält eine eindeutige Nummer, einen Titel, Status, Datum, verantwortliche Personen sowie die betroffenen Bereiche. Dadurch bleibt ersichtlich, wann, von wem und in welchem Umfang eine Entscheidung getroffen wurde.
-Inhaltlich gliedert sich jedes Dokument in die Abschnitte Ausgangslage und Entscheidung. Zunächst wird der Rahmen beschrieben, in dem die Wahl getroffen wird (inklusive relevanter Anforderungen und Randbedingungen). Anschließend wird die konkret gewählte Lösung präzise festgehalten. Die ausführliche Begründung wurde bewusst in ein separates Markdown-Dokument ausgelagert. So bleibt das ADR übersichtlich, während die Argumentation vertieft dargestellt werden kann.
+Inhaltlich gliedert sich jedes Dokument in die Abschnitte Ausgangslage und Entscheidung. Die ausführliche Begründung der Entscheide wurde bewusst in ein separates Markdown-Dokument ausgelagert. So bleibt das ADR übersichtlich, während die Argumentation vertieft dargestellt werden kann.
 
-ADRs sind für uns nicht nur Dokumentation, sondern ein Instrument zur Qualitätssteigerung im gesamten Entwicklungsprozess.
+
 
 **Phase 3 Iterative Umsetzung** 
 
 Die eigentliche Entwicklung erfolgte schrittweise in konstanter Überarbeitung.
 
-Entwicklung einer grafischen Benutzeroberfläche zur Steuerung des Scanners, einbetten der Logik, 
-Erweiterung um strukturierte Reporting Funktionen
+Entwicklung einer grafischen Benutzeroberfläche zur Steuerung des Scanners > einbetten der Logik >
+Erweiterung um strukturiertes Reporting
 
 Zwischen den Umsetzungsschritten erfolgten regelmässige Abstimmungen und Anpassungen des Funktionsumfangs.
 
@@ -173,15 +173,17 @@ Zwischen den Umsetzungsschritten erfolgten regelmässige Abstimmungen und Anpass
 
 Aufgrund der parallelen Bearbeitung der Teilbereiche war eine strukturierte Zusammenarbeit erforderlich.
 
-Zur Unterstützung wurden eingesetzt:
+Zur Unterstützung wurden von uns eingesetzt:
 
 - ADRs für eine saubere Nachvollziehbarkeit der Entscheide.  
-- GitHub zur Versionsverwaltung und Nachverfolgung von Änderungen
-- PyCharm als gemeinsame Entwicklungsumgebung
-- Python mit Tkinter, Socket und Nmap Bindings zur technischen Umsetzung
+- GitHub zur Versionsverwaltung und Nachverfolgung von Änderungen.
+- PyCharm als gemeinsame Entwicklungsumgebung.
+- Python mit Tkinter, Socket und Nmap Bindings zur technischen Umsetzung.
 - Microsoft Teams wurde zur Kommunikation untereinander und mit den Stakeholdern verwendet.
 
 Die Nutzung gemeinsamer Werkzeuge unterstützte die Koordination und Integration der einzelnen Komponenten.
+*Da viele der Tools für uns alle neu waren, ergab es sich, dass wir uns das Wissen um die Bedienung der Tools separat 
+aneignen musste.* 
 
 
 ## 2.6 Qualitätssicherung und Tests
@@ -236,3 +238,9 @@ Es konnten keine Einträge gefunden werden.
 
 Projektbericht_Zero_Trace.docx | 03.12.2025  
 © TEKO Schweizerische Fachschule 2025
+
+
+
+
+Ideen zum einbringen:
+ADRs sind für uns nicht nur Dokumentation, sondern ein Instrument zur Qualitätssteigerung im gesamten Entwicklungsprozess.
