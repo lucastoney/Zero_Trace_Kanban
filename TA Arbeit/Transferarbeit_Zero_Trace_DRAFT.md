@@ -197,9 +197,8 @@ Geprüft wurden insbesondere:
 
 Erkannte Probleme wurden fortlaufend behoben und in die weitere Entwicklung integriert.
 
-# *Hier könnte man noch einen Link in die Docs auf die Tests vereweisen? Oder zu rechtfertigend? 
 
-## 2.7 Reflexion des Vorgehens (nicht sicher ob wir die Reflexion des Vorgehens in die Diskusion packen sollen oder hier belassen! )
+## *2.7 Reflexion des Vorgehens (nicht sicher ob wir die Reflexion des Vorgehens in die Diskusion packen sollen oder hier belassen! )* 
 
 Im Projekt zeigte sich, dass insbesondere die Integration der verschiedenen Teilbereiche sowie die Priorisierung des MVP Umfangs zentrale Herausforderungen darstellten.
 Wir hatten auch mühe das fehlende Know-how zu kompensieren und uns den ständig wechselnden Rahmenbedinungen kontinuierlich anzupassen.
