@@ -10,7 +10,7 @@ Kritische Funktionen sind alle Bestandteile der Anwendung, deren Fehler Auswirku
 - **Stabilität des Systems**
 
 Die folgenden Funktionsbereiche gelten als kritisch:
----
+
 ## 1. Scan-Auslösung & Berechtigung
 
 ### 1.1 DSG-Bestätigung
@@ -22,7 +22,7 @@ Die folgenden Funktionsbereiche gelten als kritisch:
 - Netzwerkscan, Port-Scan oder benutzerdefinierter Scan.
 - Entscheidung, welche Parameter verwendet werden.
 - Fehler führen zu unerwünschten Netzwerkanfragen.
----
+
 ## 2. Scan-Durchführung (Backend)
 
 ### 2.1 Korrekte Ausführung von Nmap
@@ -41,7 +41,7 @@ Die folgenden Funktionsbereiche gelten als kritisch:
 - Nmap nicht installiert → klare Fehlermeldung.
 - Ungültiges Netzwerkformat → kontrollierter Abbruch.
 - Keine Scans ohne gültige Eingabeparameter!!!
----
+
 ## 3. Ergebnisdarstellung (GUI)
 
 ### 3.1 Darstellung der ScanResult-Daten

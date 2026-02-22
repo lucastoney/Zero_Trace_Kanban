@@ -89,7 +89,7 @@ Gleichzeitig werden die wichtigsten Architekturentscheidungen mittels ADRs dokum
 # 2. Vorgehen
 
 Die Umsetzung des Projekts erfolgte grösstenteils iterativ, praxisorientiert und experimentell mit dem Ziel, innerhalb des gegebenen Zeitrahmens einen funktionsfähigen Minimum Viable Product (MVP) zu entwickeln.
-Der Fokus lag dabei auf der schrittweisen technischen Validierung des Konzepts sowie auf einer engen Abstimmung innerhalb des Projektteams.
+Der Fokus lag dabei auf der schrittweisen technischen Verifizierung des Konzepts sowie auf einer engen Abstimmung innerhalb des Projektteams.
 
 ## 2.1 Entwicklungsansatz
 
@@ -100,13 +100,12 @@ Funktionen wurden zunächst prototypisch umgesetzt, anschliessend bewertet und d
 
 Dieses Vorgehen entspricht einem inkrementellen MVP Ansatz, bei dem der Funktionsumfang bewusst auf einen stabilen Kern reduziert wurde. Ziel war nicht die Entwicklung eines vollständigen Produkts, sondern eines funktionsfähigen und demonstrierbaren Prototyps.
 
-Konkret bedeutete dies:
+Konkret bedeutete dies für uns:
 - Definition der zwingend notwendigen Kernfunktionen
 - bewusste Zurückstellung zusätzlicher oder optionaler Features
 - Fokus auf Funktion und Präsentierbarkeit
 
 Der Kernumfang des MVP umfasste:
-
 - Durchführung eines Netzwerk/Port-Scans
 - Steuerung über eine intuitive grafische Benutzeroberfläche
 - verständliche Aufbereitung der Ergebnisse in Form von Reports (PDF)
@@ -129,13 +128,13 @@ Im Projekt zeigte sich dieser Zusammenhang deutlich. Aufgrund der Teamgrösse wu
 Wir nutzten die Zeit welche wir im Unterricht erhielten um die jeweiligen Arbeitsfortschritte und Äderungsvorschläge jeweils in der Gruppe Wöchentlich zu dikutieren und zu verfeinern. 
 So konnten wir sicherstellen, dass jeder seine Meinung einbringen kann. 
 
+
 ## 2.3 Domänenorientierte Strukturierung
 
 Ein vollständiger Domain Driven Design Prozess wurde im Projekt nicht umgesetzt. Dennoch erfolgte die Strukturierung der Anwendung bewusst entlang ihrer fachlichen Domäne.
 Die zentrale Domäne des Projekts ist das Scannen und Bewerten von Netzwerk Expositionen. Daraus ergaben sich natürliche fachliche Teilbereiche:
 - Durchführung von Scans
 - Interpretation der Ergebnisse
-- Aufbereitung für unterschiedliche Zielgruppen
 
 Diese domänenorientierte Aufteilung unterstützte sowohl die technische Strukturierung der Anwendung als auch die Aufgabenverteilung im Team.
 
@@ -198,26 +197,17 @@ Geprüft wurden insbesondere:
 Erkannte Probleme wurden fortlaufend behoben und in die weitere Entwicklung integriert.
 
 
-## *2.7 Reflexion des Vorgehens (nicht sicher ob wir die Reflexion des Vorgehens in die Diskusion packen sollen oder hier belassen! )* 
-
-Im Projekt zeigte sich, dass insbesondere die Integration der verschiedenen Teilbereiche sowie die Priorisierung des MVP Umfangs zentrale Herausforderungen darstellten.
-Wir hatten auch mühe das fehlende Know-how zu kompensieren und uns den ständig wechselnden Rahmenbedinungen kontinuierlich anzupassen.
-
-Mehrfach wurde entschieden, den Funktionsumfang bewusst zu reduzieren, um einen stabilen und präsentierbaren Kern zu gewährleisten. Das iterative Vorgehen erwies sich dabei als entscheidend, um technische Risiken früh zu erkennen und den Projektumfang an die verfügbaren Ressourcen anzupassen.
-
-Die gewonnenen Erfahrungen trugen wesentlich zum Verständnis von Zusammenarbeit, Strukturierung und Entscheidungsfindung in Softwareprojekten bei.
-
 # 3 Ergebnisse
 
-### 3.1 Evaluierte Prototyp-Funktionen (Miroboard)
+##  3.1 Evaluierte Prototyp-Funktionen (Miroboard)
 
 Zu Projektbeginn wurde während der Lektion gemeinsam ein Miroboard erstellt, um mögliche Funktionen und Themenfelder für **ZeroTrace** zu sammeln und in einer gemeinsamen Übersicht zu festzuhalten. Das Board diente ergänzend zum Projektpitch als Ideengebung der einzelnen Projektbeteiligten und schlussendlich als Orientierung, um den potenziellen Funktionsumfang sichtbar zu machen und erste grobe Zusammenhänge zwischen Scanning, Benutzeroberfläche, Reporting, Datenschutz und Qualitätssicherung zu erkennen. In erster Linie ging es ein gemeinsames Verständnis für unseren Schwachstellen-Scanner zu erarbeiten.
 
-### 3.2 GUI-Ergebnisse
+## 3.2 GUI-Ergebnisse
 
-### 3.3 GUI-Ergebnisse
+## 3.3 GUI-Ergebnisse
 
-#### Beschreibung der grafischen Benutzeroberfläche
+### Beschreibung der grafischen Benutzeroberfläche
 
 ZeroTrace bietet eine grafische Benutzeroberfläche, über die sich Scans konfigurieren, auslösen und die Ergebnisse übersichtlich darstellen lassen. Der Aufbau ist bewusst einfach gehalten und in klar getrennte Bereiche gegliedert, damit die Bedienung auch ohne vertiefte Vorkenntnisse möglich ist.
 
