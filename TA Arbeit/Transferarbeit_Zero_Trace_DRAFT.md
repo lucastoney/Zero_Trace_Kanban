@@ -266,7 +266,15 @@ Der jeweilige Systemzustand wird über Rückmeldungen in der Oberfläche sichtba
 
 # 4 Diskussion
 
-Hier wird auf die Punkte aus **1.2 Zielsetzung** eingegangen.
+In diesem Kapitel reflektieren wir unsere Ergebnisse im Bezug auf die Fragestellungen aus der Einleitung. Ziel war es, ein schlankes, lokal laufendes Tool für Schwachstellen-Scans zu entwickeln, das sowohl IT-Fachleuten als auch dem Management verständliche Informationen liefert. Mit dem MVP von Zero Trace konnten wir zeigen, dass dieses Konzept grundsätzlich funktioniert. Die Kernfunktionen, Scan starten, Ergebnisse anzeigen und Reports generieren, wurden umgesetzt und sind nachvollziehbar bedienbar.
+
+Die iterative Vorgehensweise hat sich insgesamt bewährt. Durch das schrittweise Entwickeln, Testen und Anpassen konnten wir technische Risiken früh erkennen und den Funktionsumfang realistisch eingrenzen. Gleichzeitig war genau dieser Prozess auch eine Herausforderung. Da wir die theoretischen Inhalte des Moduls parallel zur Projektarbeit erarbeitet haben und nicht vorgängig vollständig kannten, änderten sich Anforderungen und Sichtweisen im Verlauf immer wieder. Dadurch war es zu Beginn schwierig, eine klare und stabile Struktur für die Arbeit und das Produkt festzulegen.
+
+Zusätzlich stellte unsere geringe Erfahrung in der Softwareentwicklung eine Herausforderung dar. Themen wie Architektur, Trennung von Logik und Oberfläche oder strukturierte Dokumentation waren neu für uns. Auch die Zusammenarbeit mit GitHub war zu Beginn nicht einfach und führte zu Unsicherheiten. Mit zunehmender Praxis konnten wir jedoch eine gemeinsame Arbeitsweise entwickeln.
+
+Die domänenorientierte Aufteilung in Scan-Logik, GUI, Reporting und Dokumentation unterstützte die Zusammenarbeit und spiegelte unsere Teamstruktur wider, was sich mit Conways Law erklären lässt. Die bewusst einfach gehaltene Benutzeroberfläche sowie die Einteilung der Ports in Risikostufen tragen dazu bei, Ergebnisse verständlich darzustellen und Risiken priorisierbar zu machen.
+
+Zusammenfassend zeigt das Projekt, dass die zentrale Problemstellung, trotz geringer Vorkenntnisse ein funktionierendes, lokales Schwachstellen-Tool zu entwickeln grundsätzlich beantwortet werden konnte. Die gewonnenen Erkenntnisse bilden eine solide Grundlage für weitere Softwareprojekte.
 
 ---
 
