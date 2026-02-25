@@ -264,7 +264,7 @@ Der jeweilige Systemzustand wird über Rückmeldungen in der Oberfläche sichtba
 
 ---
 
-# 4 Diskussion
+# 4 Diskussion!!!
 
 In diesem Kapitel reflektieren wir unsere Ergebnisse im Bezug auf die Fragestellungen aus der Einleitung. Ziel war es, ein schlankes, lokal laufendes Tool für Schwachstellen-Scans zu entwickeln, das sowohl IT-Fachleuten als auch dem Management verständliche Informationen liefert. Mit dem MVP von Zero Trace konnten wir zeigen, dass dieses Konzept grundsätzlich funktioniert. Die Kernfunktionen, Scan starten, Ergebnisse anzeigen und Reports generieren, wurden umgesetzt und sind nachvollziehbar bedienbar.
 
