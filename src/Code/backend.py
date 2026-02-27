@@ -7,11 +7,10 @@ Funktionen:
 - Export von Scan-Ergebnissen als PDF
 
 Voraussetzungen:
-- Nmap installiert (
+- Nmap installiert
 - Python 3.8+
 - Für PDF-Export: pip install reportlab
 """
-
 
 from __future__ import annotations
 
@@ -130,6 +129,7 @@ def _run_nmap(args: list[str]) -> str:
 
     return proc.stdout
 
+
 # Netzwerkscan
 
 def run_network_scan(cidr: str, only_up: bool = True) -> List[ScanResult]:
@@ -183,6 +183,7 @@ def run_network_scan(cidr: str, only_up: bool = True) -> List[ScanResult]:
         )
 
     return results
+
 
 # Portscan
 
@@ -254,6 +255,7 @@ def run_port_scan(target: str, ports: str) -> List[ScanResult]:
 
     return results
 
+
 # PDF-Export
 
 def export_results_to_pdf(
@@ -280,6 +282,8 @@ def export_results_to_pdf(
         from reportlab.lib.pagesizes import A4
         from reportlab.lib.units import mm
         from reportlab.pdfgen import canvas
+        from reportlab.lib import colors
+        from reportlab.pdfbase import pdfmetrics
     except ImportError as e:
         # angepasste, verständliche Fehlermeldung
         raise RuntimeError(
@@ -287,6 +291,74 @@ def export_results_to_pdf(
             "Bitte im Projekt-Umfeld installieren:\n"
             "    python -m pip install reportlab"
         ) from e
+
+    # --- Vektor-Symbole (ohne Fonts / ohne Dateien) -----------------
+
+    def _draw_risk_symbol(cvs, x, baseline_y, sym, size):
+        """
+        Zeichnet ■ ▣ □ als Vektor-Quadrate.
+        baseline_y ist die Text-Baseline (wie bei drawString).
+        """
+        # leichtes Baseline-Tuning, damit es optisch zur Schrift passt
+        y0 = baseline_y - size * 0.25
+
+        cvs.setStrokeColor(colors.black)
+        cvs.setFillColor(colors.black)
+
+        if sym == "■":
+            cvs.rect(x, y0, size, size, stroke=0, fill=1)
+        elif sym == "□":
+            cvs.rect(x, y0, size, size, stroke=1, fill=0)
+        elif sym == "▣":
+            cvs.rect(x, y0, size, size, stroke=1, fill=0)
+            inner = size * 0.55
+            off = (size - inner) / 2
+            cvs.rect(x + off, y0 + off, inner, inner, stroke=0, fill=1)
+
+    def _draw_decorated_ports(cvs, x, baseline_y, text, font_name, font_size, max_width):
+        """
+        Zeichnet einen dekorierten Port-String wie:
+          "■ 22/tcp, ▣ 80/tcp, □ 443/tcp"
+        wobei Symbole als Vektoren gezeichnet werden.
+        Schneidet ab, wenn max_width überschritten wird (einfach).
+        """
+        if not text:
+            return
+
+        size = font_size * 0.9  # Symbolgröße relativ zur Schrift
+        gap = font_size * 0.35  # Abstand Symbol->Text
+        cur_x = x
+
+        parts = [p.strip() for p in text.split(",") if p.strip()]
+        for i, part in enumerate(parts):
+            sym = part[0] if part and part[0] in ("■", "▣", "□") else None
+            rest = part[1:].lstrip() if sym else part
+
+            # Separator vor jedem Teil ausser dem ersten
+            if i > 0:
+                sep = ", "
+                w_sep = pdfmetrics.stringWidth(sep, font_name, font_size)
+                if cur_x + w_sep > x + max_width:
+                    return
+                cvs.drawString(cur_x, baseline_y, sep)
+                cur_x += w_sep
+
+            # Symbol zeichnen (wenn vorhanden)
+            if sym:
+                if cur_x + size > x + max_width:
+                    return
+                _draw_risk_symbol(cvs, cur_x, baseline_y, sym, size)
+                cur_x += size + gap
+
+            # Resttext zeichnen
+            if rest:
+                w_rest = pdfmetrics.stringWidth(rest, font_name, font_size)
+                if cur_x + w_rest > x + max_width:
+                    return
+                cvs.drawString(cur_x, baseline_y, rest)
+                cur_x += w_rest
+
+    # --- PDF bauen ---------------------------------------------------
 
     output_path = output_path.with_suffix(".pdf")
     c = canvas.Canvas(str(output_path), pagesize=A4)
@@ -315,17 +387,26 @@ def export_results_to_pdf(
         c.drawString(margin, y, f"Port-Bereich: {meta_ports}")
         y -= 8 * mm
 
-    # Risiko-Legende (Portscan)
+    # Risiko-Legende (Portscan) - Symbole als Vektor
     c.setFont("Helvetica-Bold", 10)
     c.drawString(margin, y, "Risikostufen (Portscan):")
-    y -= 5 * mm
+    y -= 6 * mm
 
     c.setFont("Helvetica", 9)
-    c.drawString(margin + 5 * mm, y, "■ Critical  – stark angreifbare Dienste")
+    legend_x = margin + 5 * mm
+    sym_size = 4 * mm
+    text_gap = 2 * mm
+
+    _draw_risk_symbol(c, legend_x, y, "■", sym_size)
+    c.drawString(legend_x + sym_size + text_gap, y, "Critical  – stark angreifbare Dienste")
     y -= 5 * mm
-    c.drawString(margin + 5 * mm, y, "▣ Mid       – typische Internet-/Mail-Dienste")
+
+    _draw_risk_symbol(c, legend_x, y, "▣", sym_size)
+    c.drawString(legend_x + sym_size + text_gap, y, "Mid       – typische Internet-/Mail-Dienste")
     y -= 5 * mm
-    c.drawString(margin + 5 * mm, y, "□ Low       – sonstige offene Ports")
+
+    _draw_risk_symbol(c, legend_x, y, "□", sym_size)
+    c.drawString(legend_x + sym_size + text_gap, y, "Low       – sonstige offene Ports")
     y -= 8 * mm
 
     # Tabellen-Header – an GUI angepasst
@@ -351,6 +432,7 @@ def export_results_to_pdf(
         if y < margin + 20 * mm:
             c.showPage()
             y = height - margin
+
             c.setFont("Helvetica-Bold", 9)
             c.drawString(col_ip, y, "IP-Adresse")
             c.drawString(col_host, y, "Hostname")
@@ -359,13 +441,28 @@ def export_results_to_pdf(
             y -= 4 * mm
             c.line(margin, y, width - margin, y)
             y -= 6 * mm
+
             c.setFont("Helvetica", 8)
 
-        # open_ports kommt bereits dekoriert (z.B. '■ 22/tcp, ▣ 80/tcp')
+        # IP / Host / Kommentar normal zeichnen
         c.drawString(col_ip, y, r.ip)
         c.drawString(col_host, y, (r.hostname or "")[:20])
-        c.drawString(col_ports, y, (r.open_ports or "")[:45])
         c.drawString(col_comment, y, (r.comment or "")[:40])
+
+        # Offene Ports: dekorierte Symbole als Vektor zeichnen (ohne Unicode-Font)
+        font_name = "Helvetica"
+        font_size = 8
+        max_width = (width - margin) - col_ports
+        _draw_decorated_ports(
+            c,
+            x=col_ports,
+            baseline_y=y,
+            text=(r.open_ports or "")[:200],  # kleine Sicherheitsbegrenzung, keine Logikänderung
+            font_name=font_name,
+            font_size=font_size,
+            max_width=max_width,
+        )
+
         y -= line_height
 
     c.showPage()
