@@ -83,12 +83,12 @@ class ZeroTraceGUI(tk.Tk):
 
         # Basis-Fenster
         self.title("Zero Trace – Lokaler Sicherheits-Scanner (MVP)")
-        # gewünschte Standardgröße
+        # gewünschte Standardgrösse
         self.geometry("1100x650")
         self.minsize(980, 580)
         self.configure(bg=BG_APP)
 
-        # Fenster nach dem Setzen der Größe in die Mitte verschieben
+        # Fenster nach dem Setzen der Grösse in die Mitte verschieben
         self.update_idletasks()
         w, h = 1100, 650
         sw = self.winfo_screenwidth()
@@ -791,7 +791,7 @@ class ZeroTraceGUI(tk.Tk):
 
         self._progress_win = win
 
-        # X-Button (Fenster schließen) abfangen → Abbruch-Dialog
+        # X-Button (Fenster schliessen) abfangen → Abbruch-Dialog
         win.protocol("WM_DELETE_WINDOW", self._on_progress_close_request)
 
         # mittig auf dem Bildschirm platzieren

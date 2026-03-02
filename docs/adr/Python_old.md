@@ -11,7 +11,7 @@ Das Team verfügt über vorhandenes Wissen oder Lernfortschritt in Python, und v
 Das Backend wird in Python implementiert.
 
 ## Begründung
-- Python bietet eine große Menge an stabilen und gut dokumentierten Libraries für Automatisierung, Systeminteraktion, Security-Tools und Webentwicklung.
+- Python bietet eine grosse Menge an stabilen und gut dokumentierten Libraries für Automatisierung, Systeminteraktion, Security-Tools und Webentwicklung.
 - Durch leichte Lesbarkeit ist das System langfristig einfacher wartbar.
 - Die Entwicklungszeit wird reduziert, da Python für Prototyping und MVPs besonders effizient ist.
 - Das Ökosystem (FastAPI, Flask, asyncio, uvicorn etc.) ermöglicht performante und moderne Web-APIs.

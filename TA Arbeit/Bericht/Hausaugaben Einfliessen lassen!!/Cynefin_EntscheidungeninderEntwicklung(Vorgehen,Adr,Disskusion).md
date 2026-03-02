@@ -22,11 +22,11 @@ Die 5 Domänen:
     sichere Lösung – man muss experimentieren, beobachten, lernen und anpassen 
 4. Chaotisch
     Es besteht keinerlei erkennbare Beziehung zwischen Ursache und Wirkung. Man befindet
-sich in einer Krise – schnelle Maßnahmen sind nötig, um Stabilität herzustellen. 
+sich in einer Krise – schnelle Massnahmen sind nötig, um Stabilität herzustellen. 
 5. Unordnung
-    Man weiß nicht, in welchem Bereich man sich befindet – das ist die gefährlichste Situation.
+    Man weiss nicht, in welchem Bereich man sich befindet – das ist die gefährlichste Situation.
 Die Aufgabe ist, die Lage zu ordnen, die Teile zu analysieren und sie in die vier anderen
-Bereiche einzuordnen, um dann geeignete Maßnahmen zu treffen.
+Bereiche einzuordnen, um dann geeignete Massnahmen zu treffen.
 
 
 

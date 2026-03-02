@@ -325,7 +325,7 @@ def export_results_to_pdf(
         if not text:
             return
 
-        size = font_size * 0.9  # Symbolgröße relativ zur Schrift
+        size = font_size * 0.9  # Symbolgrösse relativ zur Schrift
         gap = font_size * 0.35  # Abstand Symbol->Text
         cur_x = x
 

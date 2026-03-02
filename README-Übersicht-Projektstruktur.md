@@ -45,11 +45,11 @@ Es dient der Orientierung für Entwickler, Prüfer und alle Projektbeteiligten.
 | `audit.py` | Minimaler Audit-Mechanismus (in-memory, optional). |
 
 ### 💾 `storage/`
-| Datei | Zweck |
-|------|-------|
-| `in_memory_store.py` | Speichert Daten ausschließlich im RAM. |
+| Datei | Zweck                                                                                |
+|------|--------------------------------------------------------------------------------------|
+| `in_memory_store.py` | Speichert Daten ausschliesslich im RAM.                                              |
 | `temp_store.py` | Optional temporäre Speicherung (z. B. bei Verarbeitung), wird beim Beenden gelöscht. |
-| `config_store.py` | Lesen von Konfiguration (keine sensiblen Inhalte). |
+| `config_store.py` | Lesen von Konfiguration (keine sensiblen Inhalte).                                   |
 
 ---
 

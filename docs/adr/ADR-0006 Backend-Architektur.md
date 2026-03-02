@@ -11,7 +11,7 @@ Für das geplante System wird eine Engine benötigt, die flexibel erweiterbar, g
 Das Team verfügt über vorhandenes Wissen oder Lernfortschritt in Python, und viele der angestrebten Funktionen (Bots, Automatisierung, Datenverarbeitung, API-Schnittstellen) lassen sich mit diesem Ökosystem sehr gut abbilden.
 
 ## Begründung
-- Python bietet eine große Menge an stabilen und gut dokumentierten Libraries für Automatisierung, Systeminteraktion, Security-Tools und Webentwicklung.
+- Python bietet eine grosse Menge an stabilen und gut dokumentierten Libraries für Automatisierung, Systeminteraktion, Security-Tools und Webentwicklung.
 - Durch leichte Lesbarkeit ist das System langfristig einfacher wartbar.
 - Die Entwicklungszeit wird reduziert, da Python für Prototyping und MVPs besonders effizient ist.
 - Das Ökosystem (FastAPI, Flask, asyncio, uvicorn etc.) ermöglicht performante und moderne Web-APIs.

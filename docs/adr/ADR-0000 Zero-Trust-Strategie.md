@@ -28,7 +28,7 @@ Beispiele:
 > *<Klar und prägnant formulierte Entscheidung – 1 Satz>*
 
 Beispiel:
-> *„Sensible Daten werden ausschließlich im RAM gespeichert (RAM-Only Storage) und nicht persistent abgelegt.“*
+> *„Sensible Daten werden ausschliesslich im RAM gespeichert (RAM-Only Storage) und nicht persistent abgelegt.“*
 
 ---
 

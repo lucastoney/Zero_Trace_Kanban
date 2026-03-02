@@ -27,11 +27,11 @@
 
 
 ##  ADR-0004
-| Entscheid    | Begründung                                                                                                                                                                                                            |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lokaler Betrieb | DSVGO / Datenschutz /Complience<br/>- Netzwerk- und Portdaten gelten potenziell als personenbezogen (IP-Adressen, Nutzersysteme)<br/>-DSGVO Art. 5, 6, 32 → Schutzbedarf sehr hoch                                    |
-| vs Cloud     | Cloud-Verarbeitung würde:<br/>-Auftragsverarbeitungsverträge erfordern (Art. 28)<br/>-Risiken zur Datenübertragung ins Ausland beinhalten (Art. 44ff)<br/>-zusätzliche organisatorische Sicherheitsmaßnahmen verlangen|
-| Sicherheit   | Lokaler Betrieb reduziert den Angriffsvektor auf den Arbeitsplatz / Server des Kunden.                                                                                                                                |
+| Entscheid    | Begründung                                                                                                                                                                                                              |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Lokaler Betrieb | DSVGO / Datenschutz /Complience<br/>- Netzwerk- und Portdaten gelten potenziell als personenbezogen (IP-Adressen, Nutzersysteme)<br/>-DSGVO Art. 5, 6, 32 → Schutzbedarf sehr hoch                                      |
+| vs Cloud     | Cloud-Verarbeitung würde:<br/>-Auftragsverarbeitungsverträge erfordern (Art. 28)<br/>-Risiken zur Datenübertragung ins Ausland beinhalten (Art. 44ff)<br/>-zusätzliche organisatorische Sicherheitsmassnahmen verlangen |
+| Sicherheit   | Lokaler Betrieb reduziert den Angriffsvektor auf den Arbeitsplatz / Server des Kunden.                                                                                                                                  |
 
 ---
 

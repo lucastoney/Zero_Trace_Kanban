@@ -12,7 +12,7 @@ ersetzt werden können.
 Inkrementelles Arbeiten setzt voraus, dass Änderungen gefahrlos durchgeführt werden können.
 Daher gibt es zwei effektive Strategien: **1. Technische Entkopplung** Mittels Ports-&-Adapters
 (Hexagonale Architektur) werden Schnittstellen so gestaltet, dass sich intern viel ändern kann,
-ohne dass äußere Komponenten betroffen sind. **2. Schnelles Feedback durch Continuous
+ohne dass äussere Komponenten betroffen sind. **2. Schnelles Feedback durch Continuous
 Integration** Je schneller ein Fehler entdeckt wird, desto geringer ist der Schaden. Wird ein Fehler
 erst Monate später sichtbar, kann er katastrophale Folgen haben. Wird er innerhalb weniger
 Minuten erkannt, ist die Behebung trivial. Die Kombination beider Strategien schafft robuste

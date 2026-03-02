@@ -25,7 +25,7 @@ Mit dieser Systemtest-Suite kann ZeroTrace vollständig bewertet werden:
 - Stabilität  
 - Datenschutzrelevante Mechanismen
 
-Sie ergänzt die Unit- und Integrationstests und bildet das „große Bild“ der Anwendung ab.
+Sie ergänzt die Unit- und Integrationstests und bildet das „grosse Bild“ der Anwendung ab.
 
 
 # Systemtests Zero Trace Tests 

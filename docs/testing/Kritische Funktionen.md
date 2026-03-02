@@ -76,7 +76,7 @@ Die folgenden Funktionsbereiche gelten als kritisch:
 ## 5. Lokalität der Verarbeitung
 
 ### 5.1 Keine externen Netzwerkverbindungen
-- ZeroTrace MUSS ausschließlich lokal scannen.
+- ZeroTrace MUSS ausschliesslich lokal scannen.
 - Es dürfen **keine Daten an Cloud oder Externe** gesendet werden.
 ---
 ## Zusammenfassung
